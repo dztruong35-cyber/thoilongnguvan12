@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793192689465,
-  "activeRevNumber": 8,
-  "activeRevLabel": "Chào mừng Admin Nguyễn Nhựt Trường! Mọi thay đổi của bạn sẽ tự động đồng bộ lên GitHub",
+  "updatedAt": 1793192696994,
+  "activeRevNumber": 9,
+  "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
   "adminState": {
-    "updatedAt": 1793192689465,
-    "activeRevNumber": 8,
-    "activeRevLabel": "Chào mừng Admin Nguyễn Nhựt Trường! Mọi thay đổi của bạn sẽ tự động đồng bộ lên GitHub",
+    "updatedAt": 1793192696994,
+    "activeRevNumber": 9,
+    "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
     "vinylTracks": [
       {
         "id": 0,
@@ -822,7 +822,11 @@
     "customTexts": {},
     "customImages": {},
     "customElementStyles": {},
-    "commentEdits": {},
+    "commentEdits": {
+      "default_comment_1": {
+        "adminReply": "Cảm ơn bạn rất nhiều! Chúc bạn ôn tập môn Ngữ văn 12 thật tốt và đạt điểm 9+ nhé! 🌟"
+      }
+    },
     "customModules": [
       {
         "id": "mod_default_1",
@@ -1029,6 +1033,13 @@
       "label": "Chào mừng Admin Nguyễn Nhựt Trường! Mọi thay đổi của bạn sẽ tự động đồng bộ lên GitHub",
       "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
       "createdAt": 1793192689092
+    },
+    {
+      "revNumber": 9,
+      "id": "rev_9_1793192694158",
+      "label": "Admin phản hồi bình luận của Cô Thị Thu Vân",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793192694158
     }
   ],
   "githubSyncMeta": {
@@ -1037,6 +1048,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "",
-    "updatedAt": 1793192689465
+    "updatedAt": 1793192696994
   }
 }
