@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793192696994,
-  "activeRevNumber": 9,
-  "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
+  "updatedAt": 1793192726634,
+  "activeRevNumber": 10,
+  "activeRevLabel": "Đã lưu ảnh mới và đồng bộ cho mọi thiết bị truy cập",
   "adminState": {
-    "updatedAt": 1793192696994,
-    "activeRevNumber": 9,
-    "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
+    "updatedAt": 1793192726634,
+    "activeRevNumber": 10,
+    "activeRevLabel": "Đã lưu ảnh mới và đồng bộ cho mọi thiết bị truy cập",
     "vinylTracks": [
       {
         "id": 0,
@@ -128,7 +128,9 @@
         }
       ]
     },
-    "deletedCommentIds": [],
+    "deletedCommentIds": [
+      "default_comment_2"
+    ],
     "lessons": [
       {
         "id": 1,
@@ -1040,6 +1042,13 @@
       "label": "Admin phản hồi bình luận của Cô Thị Thu Vân",
       "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
       "createdAt": 1793192694158
+    },
+    {
+      "revNumber": 10,
+      "id": "rev_10_1793192726519",
+      "label": "Đã lưu ảnh mới và đồng bộ cho mọi thiết bị truy cập",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793192726519
     }
   ],
   "githubSyncMeta": {
@@ -1048,6 +1057,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "",
-    "updatedAt": 1793192696994
+    "updatedAt": 1793192726635
   }
 }
