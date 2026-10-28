@@ -1,9 +1,0 @@
-{
-  "name": "thoi-long-literature-github",
-  "version": "7.0.0",
-  "private": true,
-  "description": "Dự Án Web Học Ngữ Văn 12 THPT Thới Long - Đồng Bộ Thời Gian Thực Qua GitHub (GitHub Pages + GitHub REST API)",
-  "scripts": {
-    "start": "npx serve ."
-  }
-}
