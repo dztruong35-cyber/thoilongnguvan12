@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793192786480,
-  "activeRevNumber": 12,
-  "activeRevLabel": "Đã khôi phục ảnh gốc mặc định",
+  "updatedAt": 1793192806439,
+  "activeRevNumber": 13,
+  "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
   "adminState": {
-    "updatedAt": 1793192786480,
-    "activeRevNumber": 12,
-    "activeRevLabel": "Đã khôi phục ảnh gốc mặc định",
+    "updatedAt": 1793192806439,
+    "activeRevNumber": 13,
+    "activeRevLabel": "Admin phản hồi bình luận của Cô Thị Thu Vân",
     "vinylTracks": [
       {
         "id": 0,
@@ -824,7 +824,7 @@
     "customElementStyles": {},
     "commentEdits": {
       "default_comment_1": {
-        "adminReply": "Cảm ơn bạn rất nhiều! Chúc bạn ôn tập môn Ngữ văn 12 thật tốt và đạt điểm 9+ nhé! 🌟"
+        "adminReply": "Dạ em cảm ơn cô !!!"
       }
     },
     "customModules": [
@@ -1061,6 +1061,13 @@
       "label": "Đã khôi phục ảnh gốc mặc định",
       "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
       "createdAt": 1793192786364
+    },
+    {
+      "revNumber": 13,
+      "id": "rev_13_1793192806259",
+      "label": "Admin phản hồi bình luận của Cô Thị Thu Vân",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793192806259
     }
   ],
   "githubSyncMeta": {
@@ -1069,6 +1076,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "",
-    "updatedAt": 1793192786481
+    "updatedAt": 1793192806439
   }
 }
