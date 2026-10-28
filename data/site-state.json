@@ -972,18 +972,7 @@
       }
     }
   },
-  "comments": [
-    {
-      "id": "9e95a86b-f17e-4100-bd35-3dd2401377cd",
-      "name": "rerre",
-      "cls": "êr",
-      "topic": "Góp ý dự án Web Ngữ văn",
-      "msg": "ưerw",
-      "ownerId": "gb_owner_1793191077333_vy5a0lam4p",
-      "createdAt": "2026-10-28T12:42:16.612Z",
-      "canDelete": true
-    }
-  ],
+  "comments": [],
   "revisions": [],
   "githubSyncMeta": {
     "owner": "dztruong35-cyber",
