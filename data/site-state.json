@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793193269822,
-  "activeRevNumber": 25,
-  "activeRevLabel": "Cập nhật Thông báo chạy chữ & Đồng hồ đếm ngược kỳ thi",
+  "updatedAt": 1793193276036,
+  "activeRevNumber": 26,
+  "activeRevLabel": "Đã lưu và phát thông báo toàn web cho mọi thiết bị",
   "adminState": {
-    "updatedAt": 1793193269822,
-    "activeRevNumber": 25,
-    "activeRevLabel": "Cập nhật Thông báo chạy chữ & Đồng hồ đếm ngược kỳ thi",
+    "updatedAt": 1793193276036,
+    "activeRevNumber": 26,
+    "activeRevLabel": "Đã lưu và phát thông báo toàn web cho mọi thiết bị",
     "vinylTracks": [
       {
         "id": 0,
@@ -1175,6 +1175,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "TL_GH_V1:NSZ/dXLMhvCRbl49Bs3wpZlIaHVRt6TSsC9xaBnCntrM0yAqXyWMheXZGANNVab1k6N+YSw=",
-    "updatedAt": 1793193269822
+    "updatedAt": 1793193276036
   }
 }
