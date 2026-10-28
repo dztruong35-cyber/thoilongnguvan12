@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793192812785,
-  "activeRevNumber": 14,
-  "activeRevLabel": "Admin phản hồi bình luận của Nguyễn Võ Minh Khôi",
+  "updatedAt": 1793192837786,
+  "activeRevNumber": 15,
+  "activeRevLabel": "Admin phản hồi bình luận của Nguyễn Thị Thảo Ly",
   "adminState": {
-    "updatedAt": 1793192812785,
-    "activeRevNumber": 14,
-    "activeRevLabel": "Admin phản hồi bình luận của Nguyễn Võ Minh Khôi",
+    "updatedAt": 1793192837786,
+    "activeRevNumber": 15,
+    "activeRevLabel": "Admin phản hồi bình luận của Nguyễn Thị Thảo Ly",
     "vinylTracks": [
       {
         "id": 0,
@@ -828,6 +828,9 @@
       },
       "default_comment_2": {
         "adminReply": "Cảm ơn bạn rất nhiều! Chúc bạn ôn tập môn Ngữ văn 12 thật tốt và đạt điểm 9+ nhé! 🌟"
+      },
+      "default_comment_3": {
+        "adminReply": "Cảm ơn em vì đã ghé trang web của anh nha"
       }
     },
     "customModules": [
@@ -1078,6 +1081,13 @@
       "label": "Admin phản hồi bình luận của Nguyễn Võ Minh Khôi",
       "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
       "createdAt": 1793192812628
+    },
+    {
+      "revNumber": 15,
+      "id": "rev_15_1793192837618",
+      "label": "Admin phản hồi bình luận của Nguyễn Thị Thảo Ly",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793192837618
     }
   ],
   "githubSyncMeta": {
@@ -1086,6 +1096,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "",
-    "updatedAt": 1793192812785
+    "updatedAt": 1793192837786
   }
 }
