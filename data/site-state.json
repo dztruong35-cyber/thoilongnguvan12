@@ -1,11 +1,11 @@
 {
-  "updatedAt": 1793193263675,
-  "activeRevNumber": 24,
-  "activeRevLabel": "Đã xoá video \"truongdeptrai\"",
+  "updatedAt": 1793193269822,
+  "activeRevNumber": 25,
+  "activeRevLabel": "Cập nhật Thông báo chạy chữ & Đồng hồ đếm ngược kỳ thi",
   "adminState": {
-    "updatedAt": 1793193263675,
-    "activeRevNumber": 24,
-    "activeRevLabel": "Đã xoá video \"truongdeptrai\"",
+    "updatedAt": 1793193269822,
+    "activeRevNumber": 25,
+    "activeRevLabel": "Cập nhật Thông báo chạy chữ & Đồng hồ đếm ngược kỳ thi",
     "vinylTracks": [
       {
         "id": 0,
@@ -864,7 +864,7 @@
       "marqueeSpeed": 28,
       "countdownEnabled": true,
       "countdownTitle": "Đếm Ngược Kỳ Thi Tốt Nghiệp THPT Quốc Gia",
-      "countdownDate": "2027-06-27",
+      "countdownDate": "2027-06-11",
       "countdownSub": "Mỗi ngày chinh phục 1 tác phẩm — Tự tin bứt phá điểm 9+ môn Ngữ văn cùng THPT Thới Long!",
       "themePreset": "classic",
       "particleEffect": "phoenix",
@@ -1153,6 +1153,20 @@
       "label": "Đã xoá video \"truongdeptrai\"",
       "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
       "createdAt": 1793193261704
+    },
+    {
+      "revNumber": 25,
+      "id": "rev_25_1793193265745",
+      "label": "Cập nhật Thông báo chạy chữ & Đồng hồ đếm ngược kỳ thi",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793193265745
+    },
+    {
+      "revNumber": 26,
+      "id": "rev_26_1793193266624",
+      "label": "Đã lưu và phát thông báo toàn web cho mọi thiết bị",
+      "summary": "9 bài học • 4 ảnh • 8 nhạc • 0 mục sửa trực tiếp • Giao diện: classic",
+      "createdAt": 1793193266624
     }
   ],
   "githubSyncMeta": {
@@ -1161,6 +1175,6 @@
     "branch": "main",
     "encryptedTokenCipher": "TL_GH_V1:Ex8ha3KHp47EF1skDcbPgJxdfHhLpO2O9B4SRC37k+PUqEYaHx6LlQ==",
     "encryptedGeminiKeyCipher": "TL_GH_V1:NSZ/dXLMhvCRbl49Bs3wpZlIaHVRt6TSsC9xaBnCntrM0yAqXyWMheXZGANNVab1k6N+YSw=",
-    "updatedAt": 1793193263675
+    "updatedAt": 1793193269822
   }
 }
