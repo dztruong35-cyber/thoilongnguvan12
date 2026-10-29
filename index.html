@@ -4932,22 +4932,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         document.getElementById("musicPlaybackStatus").textContent = "Đang phát nhạc";
       } catch (error) {
         if (request !== playbackRequest || error.name === "AbortError") return;
-        // If raw.githubusercontent.com failed on mobile Safari/Chrome, force blob download via GitHub Blob API and retry once!
-        if (!customMusicUrl && !sharedMusicSource && currentTrack && !currentTrack.blobUrl && typeof ensureTrackAudioReadyOnDevice === "function") {
-          try {
-            const forcedBlobUrl = await ensureTrackAudioReadyOnDevice(currentTrack, true);
-            if (forcedBlobUrl && request === playbackRequest) {
-              audio.src = forcedBlobUrl;
-              await audio.play();
-              autoplayPending = false;
-              document.getElementById("musicPlaybackStatus").textContent = "Đang phát nhạc";
-              return;
-            }
-          } catch (retryErr) {}
-        }
         autoplayPending = error.name === "NotAllowedError";
         document.getElementById("musicPlaybackStatus").textContent = autoplayPending
-          ? "Chạm vào trang hoặc nhấn Phát để bắt đầu nghe nhạc."
+          ? "Chạm nhẹ vào màn hình để phát nhạc tự động."
           : "Không thể phát bài hát. Hãy chọn bài khác hoặc thử lại.";
         if (autoplayPending) document.getElementById("miniPlayerLabel").textContent = "Chạm để nghe nhạc";
       }
@@ -8987,7 +8974,15 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         currentTrackIdx = (currentTrackIdx + 1) % VINYL_TRACKS.length;
         startVinylPlayback();
       });
-      // Auto-play on random screen click disabled so page interactions stay fast and never trigger background audio fetches
+      const retryAutoplay = (event) => {
+        if (event.isTrusted && autoplayPending && !isPlayingMusic) {
+          startVinylPlayback();
+        }
+      };
+      document.addEventListener("pointerdown", retryAutoplay, { passive: true });
+      document.addEventListener("touchstart", retryAutoplay, { passive: true });
+      document.addEventListener("click", retryAutoplay, { passive: true });
+      document.addEventListener("keydown", retryAutoplay, { passive: true });
       document.getElementById("musicPrevBtn").addEventListener("click", () => {
         clearCustomMusicSelection();
         currentTrackIdx = (currentTrackIdx - 1 + VINYL_TRACKS.length) % VINYL_TRACKS.length;
@@ -12201,7 +12196,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         applyAllCustomElementStyles();
         updateAdminUI();
         renderAdminRevisionsUI();
+        // Auto-start music immediately upon entering the web page!
+        startVinylPlayback();
         await loadGuestbook();
+        if (!isPlayingMusic) {
+          startVinylPlayback();
+        }
         // Smooth 30-second cloud sync with cooldown so the web app stays ultra-fast and never freezes or hits rate limits
         let lastPollTs = Date.now();
         setInterval(() => {
@@ -12216,7 +12216,6 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
             loadGuestbook();
           }
         });
-        updateMiniPlayerUI();
       })();
     });
   </script>
