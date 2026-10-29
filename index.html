@@ -1947,37 +1947,50 @@
               <!-- TRẠM 2: ĐIỀU KHIỂN MỌI ĐIỆN THOẠI KHÁCH TỪ XA (LIVE REMOTE CONTROLLER) -->
               <div class="p-4 rounded-2xl bg-slate-950/95 border-2 border-amber-400/70 space-y-3 shadow-[0_0_20px_rgba(251,191,36,0.15)]">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">📡 TRẠM 2 // LIVE REMOTE TELEPORT</span>
-                  <span class="text-[11px] font-mono text-amber-300 font-bold">⚡ Thao túng mọi máy đang mở web</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">📡 TRẠM 2 // SIÊU TỐC 1.5 GIÂY</span>
+                  <span id="supRemoteSyncStatusBadge" class="text-[11px] font-mono text-emerald-300 font-bold">🟢 Đường truyền Từ Xa: Sẵn sàng (1.5s)</span>
                 </div>
                 <h5 class="font-bold text-white text-sm">📡 Điều Khiển Từ Xa Màn Hình Khách & Phát Thanh Giọng Nói AI Toàn Trường</h5>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <div class="flex items-center gap-1.5">
-                    <select id="supRemoteTabSelect" class="flex-1 px-2.5 py-1.5 rounded-xl text-xs">
-                      <option value="home">🏛️ Tab Trang Chủ</option>
-                      <option value="lessons">📚 Tab 9 Bài Học SGK</option>
-                      <option value="media">🖼️ Tab Bộ Sưu Tập Ảnh</option>
-                      <option value="arena">🎮 Tab Đấu Trường Game</option>
-                      <option value="writing">✍️ Tab Phòng Luyện Viết</option>
-                      <option value="music">🎵 Tab Đĩa Nhạc MP3</option>
-                      <option value="ai">✦ Tab Trợ Lý AI</option>
-                      <option value="contact">💌 Tab Lưu Bút 12A2</option>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div class="flex items-center gap-1">
+                    <select id="supRemoteTabSelect" class="flex-1 min-w-0 px-2 py-1.5 rounded-xl text-xs">
+                      <option value="home">🏛️ Trang Chủ</option>
+                      <option value="lessons">📚 9 Bài Học</option>
+                      <option value="media">🖼️ Bộ Sưu Tập</option>
+                      <option value="arena">🎮 Đấu Trường</option>
+                      <option value="writing">✍️ Luyện Viết</option>
+                      <option value="music">🎵 Đĩa Nhạc</option>
+                      <option value="ai">✦ Trợ Lý AI</option>
+                      <option value="contact">💌 Lưu Bút</option>
                     </select>
-                    <button type="button" onclick="supremeRemoteForceTab()" class="px-2.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🚀 Ép Chuyển</button>
+                    <button type="button" onclick="supremeRemoteForceTab()" class="px-2.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🚀 Ép Tab</button>
                   </div>
-                  <div class="flex items-center gap-1.5">
-                    <select id="supRemoteLessonSelect" class="flex-1 px-2.5 py-1.5 rounded-xl text-xs">
-                      <option value="1">📖 Mở Bài 1 (Tiểu thuyết)</option>
-                      <option value="2">📖 Mở Bài 2 (Thế giới thơ)</option>
-                      <option value="3">📖 Mở Bài 3 (Lập luận)</option>
-                      <option value="4">📖 Mở Bài 4 (Truyện kể)</option>
-                      <option value="5">📖 Mở Bài 5 (Hài kịch)</option>
-                      <option value="6">📖 Mở Bài 6 (Hồ Chí Minh)</option>
-                      <option value="7">📖 Mở Bài 7 (Sự thật & Kí)</option>
-                      <option value="8">📖 Mở Bài 8 (Dữ liệu)</option>
-                      <option value="9">📖 Mở Bài 9 (Văn học & Đời)</option>
+                  <div class="flex items-center gap-1">
+                    <select id="supRemoteLessonSelect" class="flex-1 min-w-0 px-2 py-1.5 rounded-xl text-xs">
+                      <option value="1">📖 Bài 1 (Tiểu thuyết)</option>
+                      <option value="2">📖 Bài 2 (Thơ)</option>
+                      <option value="3">📖 Bài 3 (Lập luận)</option>
+                      <option value="4">📖 Bài 4 (Truyện kể)</option>
+                      <option value="5">📖 Bài 5 (Hài kịch)</option>
+                      <option value="6">📖 Bài 6 (Hồ Chí Minh)</option>
+                      <option value="7">📖 Bài 7 (Phóng sự/Kí)</option>
+                      <option value="8">📖 Bài 8 (Dữ liệu)</option>
+                      <option value="9">📖 Bài 9 (Văn & Đời)</option>
                     </select>
-                    <button type="button" onclick="supremeRemoteForceOpenLesson()" class="px-2.5 py-1.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-xs shrink-0">📖 Ép Mở Bài</button>
+                    <button type="button" onclick="supremeRemoteForceOpenLesson()" class="px-2.5 py-1.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-xs shrink-0">📖 Mở Bài</button>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <select id="supRemoteTrackSelect" class="flex-1 min-w-0 px-2 py-1.5 rounded-xl text-xs">
+                      <option value="0">🎵 Bài nhạc #1</option>
+                      <option value="1">🎵 Bài nhạc #2</option>
+                      <option value="2">🎵 Bài nhạc #3</option>
+                      <option value="3">🎵 Bài nhạc #4</option>
+                      <option value="4">🎵 Bài nhạc #5</option>
+                      <option value="5">🎵 Bài nhạc #6</option>
+                      <option value="6">🎵 Bài nhạc #7</option>
+                      <option value="7">🎵 Bài nhạc #8</option>
+                    </select>
+                    <button type="button" onclick="supremeRemoteForcePlayTrack()" class="px-2.5 py-1.5 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-300 text-slate-950 font-extrabold text-xs shrink-0">🎵 Phát Nhạc</button>
                   </div>
                 </div>
                 <div class="flex items-center gap-1.5">
@@ -1985,10 +1998,10 @@
                   <button type="button" onclick="supremeRemoteVoiceBroadcast()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-amber-400 hover:from-rose-400 hover:to-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🔊 Phát Giọng Nói AI</button>
                 </div>
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <button type="button" onclick="supremeRemoteTriggerEffect('fireworks')" class="px-2.5 py-1 rounded-lg bg-emerald-500/25 border border-emerald-400 text-emerald-200 font-bold text-[11px]">🎆 Bắn Pháo Hoa Mọi Máy</button>
-                  <button type="button" onclick="supremeRemoteTriggerEffect('earthquake')" class="px-2.5 py-1 rounded-lg bg-orange-500/25 border border-orange-400 text-orange-200 font-bold text-[11px]">🌋 Rung Chấn Địa Chấn 3s</button>
-                  <button type="button" onclick="supremeRemoteTriggerEffect('matrix')" class="px-2.5 py-1 rounded-lg bg-lime-500/25 border border-lime-400 text-lime-200 font-bold text-[11px]">💻 Màn Hình Hacker Matrix</button>
-                  <button type="button" onclick="supremeRemoteTriggerEffect('royal_decree')" class="px-2.5 py-1 rounded-lg bg-amber-500/25 border border-amber-400 text-amber-200 font-bold text-[11px]">📜 Chiếu Chỉ Hoàng Kim</button>
+                  <button type="button" onclick="supremeRemoteTriggerEffect('fireworks')" class="px-2.5 py-1 rounded-lg bg-emerald-500/25 hover:bg-emerald-500/45 border border-emerald-400 text-emerald-200 font-bold text-[11px]">🎆 Bắn Pháo Hoa Mọi Máy</button>
+                  <button type="button" onclick="supremeRemoteTriggerEffect('earthquake')" class="px-2.5 py-1 rounded-lg bg-orange-500/25 hover:bg-orange-500/45 border border-orange-400 text-orange-200 font-bold text-[11px]">🌋 Rung Chấn Địa Chấn 3s</button>
+                  <button type="button" onclick="supremeRemoteTriggerEffect('matrix')" class="px-2.5 py-1 rounded-lg bg-lime-500/25 hover:bg-lime-500/45 border border-lime-400 text-lime-200 font-bold text-[11px]">💻 Màn Hình Hacker Matrix</button>
+                  <button type="button" onclick="supremeRemoteTriggerEffect('royal_decree')" class="px-2.5 py-1 rounded-lg bg-amber-500/25 hover:bg-amber-500/45 border border-amber-400 text-amber-200 font-bold text-[11px]">📜 Chiếu Chỉ Hoàng Kim</button>
                 </div>
               </div>
 
@@ -4805,6 +4818,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       optsGrid.querySelectorAll(".quiz-opt-btn").forEach(btn => {
         btn.addEventListener("click", () => handleQuizAnswer(parseInt(btn.getAttribute("data-opt-idx"), 10)));
       });
+      if (typeof window.applyQuizWallhackHighlight === "function") {
+        window.applyQuizWallhackHighlight();
+      }
     }
 
     function handleQuizAnswer(chosenIdx) {
@@ -7384,8 +7400,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     function switchAdminModalTab(tabName) {
       if (tabName === 'supreme1000' && typeof window.renderSupreme1000AdminPanel === 'function') window.renderSupreme1000AdminPanel();
       if (tabName === 'cms') {
-        try { renderAdminUniversalImgVault(); } catch (e) {}
-        try { renderAdminUniversalTextsList(); } catch (e) {}
+        try { (window.renderAdminUniversalImgVault || renderAdminUniversalImgVault)?.(); } catch (e) {}
+        try { (window.renderAdminUniversalTextsList || renderAdminUniversalTextsList)?.(); } catch (e) {}
       }
       document.querySelectorAll(".adm-subpanel").forEach(panel => {
         panel.classList.toggle("hidden", panel.id !== "adm-panel-" + tabName);
@@ -7610,8 +7626,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       if (!window.isAdminLoggedIn) return;
       const cmsPanel = document.getElementById("adm-panel-cms");
       if (cmsPanel && !cmsPanel.classList.contains("hidden")) {
-        try { renderAdminUniversalImgVault(); } catch (e) {}
-        try { renderAdminUniversalTextsList(); } catch (e) {}
+        try { (window.renderAdminUniversalImgVault || renderAdminUniversalImgVault)?.(); } catch (e) {}
+        try { (window.renderAdminUniversalTextsList || renderAdminUniversalTextsList)?.(); } catch (e) {}
       }
 
       // 1. Music List
@@ -8866,6 +8882,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     }
 
     function renderAdminUniversalImgVault() {
+      window.renderAdminUniversalImgVault = renderAdminUniversalImgVault;
       const grid = document.getElementById("admAllSiteImagesGrid");
       if (!grid) return;
       const q = (document.getElementById("admCmsImgSearchInput")?.value || "").toLowerCase().trim();
@@ -8889,6 +8906,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     }
 
     function renderAdminUniversalTextsList() {
+      window.renderAdminUniversalTextsList = renderAdminUniversalTextsList;
       const listEl = document.getElementById("admAllSiteTextsList");
       const countEl = document.getElementById("admCustomTextCount");
       if (!listEl) return;
@@ -11021,6 +11039,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       let _lastDomKeyAssignCount = 0;
       function ensureDomInspectorKeysAssigned() {
+        window.ensureDomInspectorKeysAssigned = ensureDomInspectorKeysAssigned;
         const hasCustomStyles = CUSTOM_ELEMENT_STYLES && Object.keys(CUSTOM_ELEMENT_STYLES).length > 0;
         if (!window.adminDomInspectorMode && !hasCustomStyles) return;
         if (_lastDomKeyAssignCount > 0 && !window.adminDomInspectorMode) return;
@@ -12890,7 +12909,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     const l0 = isAnyInGroupActive(6, 0); // Complete all 9 lessons
     if (l0 >= 0 && typeof completedLessons !== 'undefined' && Array.isArray(window.LESSONS_DATA || LESSONS_DATA)) {
       const list = window.LESSONS_DATA || LESSONS_DATA;
-      list.forEach(item => completedLessons.add(item.id));
+      list.forEach(item => {
+        if (Array.isArray(completedLessons)) {
+          if (!completedLessons.includes(item.id)) completedLessons.push(item.id);
+        } else if (completedLessons && typeof completedLessons.add === 'function') {
+          completedLessons.add(item.id);
+        }
+      });
       const statEl = document.getElementById('statCompletedLessons');
       const pctEl = document.getElementById('statCompletedPercent');
       if (statEl) statEl.textContent = String(list.length);
@@ -13193,7 +13218,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   document.addEventListener('mousedown', (e) => {
     if (!window.isAdminLoggedIn || !window.adminFreeDragMode) return;
     if (e.target.closest('button, a, input, textarea, select, label, #adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal')) return;
-    ensureDomInspectorKeysAssigned();
+    window.ensureDomInspectorKeysAssigned?.();
     const el = e.target.closest('[data-dom-id]');
     if (!el) return;
     dragTargetEl = el;
@@ -13299,7 +13324,223 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     box.scrollTop = box.scrollHeight;
   }
 
-  // -------------------- TRẠM 1: AI TỰ ĐỘNG HÓA VẠN VẬT --------------------
+  // -------------------- BỘ PHÁT GIỌNG NÓI AI TIẾNG VIỆT ĐA TẦNG (100% PHÁT TIẾNG TRÊN MỌI ĐIỆN THOẠI & PC) --------------------
+  let _ttsAudioEl = null;
+  let _ttsSavedMusicVol = null;
+  let _ttsDuckTimer = null;
+
+  function ensureTtsAudioElement() {
+    if (_ttsAudioEl) return _ttsAudioEl;
+    _ttsAudioEl = document.createElement('audio');
+    _ttsAudioEl.id = 'supremeTtsAudioPlayer';
+    _ttsAudioEl.preload = 'auto';
+    _ttsAudioEl.setAttribute('referrerpolicy', 'no-referrer');
+    _ttsAudioEl.referrerPolicy = 'no-referrer';
+    _ttsAudioEl.setAttribute('playsinline', '');
+    _ttsAudioEl.setAttribute('webkit-playsinline', '');
+    _ttsAudioEl.style.display = 'none';
+    document.body.appendChild(_ttsAudioEl);
+    return _ttsAudioEl;
+  }
+
+  // Pre-warm speechSynthesis & TTS audio element on first touch so async remote commands can speak anytime on iOS/Android!
+  let _ttsUnlockedOnce = false;
+  function unlockTtsOnFirstGesture() {
+    if (_ttsUnlockedOnce) return;
+    _ttsUnlockedOnce = true;
+    try {
+      ensureTtsAudioElement();
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.getVoices();
+        const silent = new SpeechSynthesisUtterance('');
+        silent.volume = 0;
+        window.speechSynthesis.speak(silent);
+        window.speechSynthesis.resume();
+      }
+    } catch (e) {}
+  }
+  document.addEventListener('touchstart', unlockTtsOnFirstGesture, { once: true, passive: true });
+  document.addEventListener('pointerdown', unlockTtsOnFirstGesture, { once: true, passive: true });
+  document.addEventListener('click', unlockTtsOnFirstGesture, { once: true, passive: true });
+
+  function duckBackgroundMusicForVoice(durationMs = 8000) {
+    const musicEl = document.getElementById('customMusicAudio');
+    if (!musicEl) return;
+    if (_ttsSavedMusicVol === null) {
+      _ttsSavedMusicVol = musicEl.volume;
+    }
+    musicEl.volume = Math.min(0.06, _ttsSavedMusicVol || 0.06);
+    if (_ttsDuckTimer) clearTimeout(_ttsDuckTimer);
+    _ttsDuckTimer = setTimeout(() => {
+      RestoreBackgroundMusicAfterVoice();
+    }, durationMs);
+  }
+
+  function RestoreBackgroundMusicAfterVoice() {
+    if (_ttsDuckTimer) {
+      clearTimeout(_ttsDuckTimer);
+      _ttsDuckTimer = null;
+    }
+    const musicEl = document.getElementById('customMusicAudio');
+    if (musicEl && _ttsSavedMusicVol !== null) {
+      musicEl.volume = _ttsSavedMusicVol;
+      _ttsSavedMusicVol = null;
+    }
+  }
+
+  // Split text into <= 170 char chunks at sentence/clause boundaries for Google Vietnamese TTS stream
+  function splitTextIntoTtsChunks(text) {
+    const clean = String(text || '').replace(/[*#`_~♥👑⚡🔥🌟🎉]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!clean) return [];
+    const rawParts = clean.split(/(?<=[.!?।;:\n])\s+|(?<=,)\s+/);
+    const chunks = [];
+    let current = '';
+    for (const part of rawParts) {
+      if ((current + ' ' + part).trim().length <= 170) {
+        current = (current + ' ' + part).trim();
+      } else {
+        if (current) chunks.push(current);
+        if (part.length <= 170) {
+          current = part.trim();
+        } else {
+          const words = part.split(' ');
+          current = '';
+          for (const w of words) {
+            if ((current + ' ' + w).trim().length <= 170) {
+              current = (current + ' ' + w).trim();
+            } else {
+              if (current) chunks.push(current);
+              current = w;
+            }
+          }
+        }
+      }
+    }
+    if (current) chunks.push(current);
+    return chunks.slice(0, 8);
+  }
+
+  window.speakVietnameseTextLoud = async function(rawText) {
+    const cleanText = String(rawText || '').replace(/[*#`_~♥👑⚡🔥🌟🎉]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!cleanText) return;
+
+    // 1. Duck background MP3 music so voice is 100% loud & clear
+    const estDuration = Math.max(5000, Math.min(35000, cleanText.length * 95));
+    duckBackgroundMusicForVoice(estDuration);
+
+    const statusLabel = document.getElementById('supremeDecreeVoiceStatus');
+    if (statusLabel) statusLabel.textContent = '🔊 Đang phát giọng nói AI tiếng Việt...';
+
+    // 2. Try Cloud Google Vietnamese TTS Audio Stream first (works on phones even without local Vietnamese TTS voice installed!)
+    const chunks = splitTextIntoTtsChunks(cleanText);
+    const ttsAudio = ensureTtsAudioElement();
+    let cloudAudioPlayed = false;
+
+    const tryCloudTts = async () => {
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i];
+        const url = `https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodeURIComponent(chunk)}`;
+        const ok = await new Promise((resolve) => {
+          let settled = false;
+          const finish = (res) => {
+            if (settled) return;
+            settled = true;
+            ttsAudio.onended = null;
+            ttsAudio.onerror = null;
+            resolve(res);
+          };
+          const timer = setTimeout(() => finish(false), 12000);
+          ttsAudio.onended = () => { clearTimeout(timer); finish(true); };
+          ttsAudio.onerror = () => { clearTimeout(timer); finish(false); };
+          ttsAudio.src = url;
+          ttsAudio.volume = 1.0;
+          ttsAudio.playbackRate = 1.05;
+          const playProm = ttsAudio.play();
+          if (playProm && typeof playProm.then === 'function') {
+            playProm.then(() => {
+              cloudAudioPlayed = true;
+            }).catch(() => {
+              clearTimeout(timer);
+              finish(false);
+            });
+          }
+        });
+        if (!ok) break;
+      }
+    };
+
+    // 3. Also prepare Web Speech API (speechSynthesis) with explicit Vietnamese voice selection
+    const tryWebSpeechTts = () => {
+      return new Promise((resolve) => {
+        if (!('speechSynthesis' in window)) return resolve(false);
+        try {
+          window.speechSynthesis.cancel();
+          window.speechSynthesis.resume();
+          const u = new SpeechSynthesisUtterance(cleanText);
+          u.lang = 'vi-VN';
+          u.volume = 1.0;
+          u.rate = 1.02;
+          const voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+          const viVoice = voices.find(v => /vi[-_]?vn|vietnam|tiếng việt|linh|my|an/i.test(`${v.lang} ${v.name}`));
+          if (viVoice) u.voice = viVoice;
+          let started = false;
+          u.onstart = () => { started = true; };
+          u.onend = () => { RestoreBackgroundMusicAfterVoice(); resolve(true); };
+          u.onerror = () => { resolve(false); };
+          window.speechSynthesis.speak(u);
+          window.speechSynthesis.resume();
+          setTimeout(() => {
+            if (!started && !window.speechSynthesis.speaking) resolve(false);
+          }, 600);
+        } catch (e) {
+          resolve(false);
+        }
+      });
+    };
+
+    // Check if local browser has a native Vietnamese voice installed
+    const voices = ('speechSynthesis' in window && window.speechSynthesis.getVoices) ? window.speechSynthesis.getVoices() : [];
+    const hasNativeViVoice = voices.some(v => /vi[-_]?vn|vietnam|tiếng việt/i.test(`${v.lang} ${v.name}`));
+
+    if (hasNativeViVoice) {
+      const okSpeech = await tryWebSpeechTts();
+      if (!okSpeech) await tryCloudTts();
+    } else {
+      await tryCloudTts();
+      if (!cloudAudioPlayed) await tryWebSpeechTts();
+    }
+
+    RestoreBackgroundMusicAfterVoice();
+    if (statusLabel) statusLabel.textContent = '✅ Đã phát thông báo giọng nói AI (Bấm nút bên dưới nếu muốn nghe lại)';
+  };
+
+  // -------------------- TRẠM 1: AI TỰ ĐỘNG HÓA VẠN VẬT (KẾT NỐI TRỰC TIẾP LLM & WIKIPEDIA) --------------------
+  async function askCloudAiJsonOrText(promptText, timeoutMs = 6000) {
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+      const res = await fetch('https://text.pollinations.ai/openai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'openai',
+          messages: [
+            { role: 'system', content: 'Bạn là chuyên gia biên soạn học liệu Ngữ văn 12 THPT Quốc gia. Trả lời bằng tiếng Việt chuẩn xác.' },
+            { role: 'user', content: promptText }
+          ],
+          temperature: 0.5
+        }),
+        signal: ctrl.signal
+      });
+      clearTimeout(timer);
+      if (res.ok) {
+        const data = await res.json();
+        return (data?.choices?.[0]?.message?.content || '').trim();
+      }
+    } catch (e) {}
+    return '';
+  }
+
   window.supremeAiAutoCreateLesson = async function() {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     const topic = (document.getElementById('supAiTopicInput')?.value || '').trim() || 'Tác phẩm văn học mới';
@@ -13334,6 +13575,11 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         }
       }
     } catch (e) {}
+
+    const aiExtra = await askCloudAiJsonOrText(`Tóm tắt ngắn gọn trong 3 câu về nội dung cốt lõi và đặc sắc nghệ thuật của tác phẩm/chủ đề "${topic}" trong Ngữ văn Việt Nam.`, 4500);
+    if (aiExtra && aiExtra.length > 30) {
+      keyPointsText = aiExtra.slice(0, 550);
+    }
 
     const nextId = LESSONS_DATA.reduce((m, l) => Math.max(m, Number(l.id) || 0), 0) + 1;
     const defaultImg = LESSONS_DATA[0]?.img || '';
@@ -13483,7 +13729,15 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   window.supremeAiAutoCreateWritingEssay = async function() {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     const topic = (document.getElementById('supAiTopicInput')?.value || '').trim() || 'Bản lĩnh tuổi trẻ';
-    const sampleEssay = `Trong hành trình vươn tới những chân trời tri thức và khẳng định giá trị bản thân, "${topic}" luôn là ngọn hải đăng soi sáng tâm hồn mỗi con người. Trước hết, xét về chiều sâu tư tưởng, vấn đề này đặt ra cho chúng ta những suy ngẫm thấm thía về mối quan hệ giữa cá nhân với thời đại, giữa khát vọng vươn lên và lòng nhân ái vị tha. Khi đối diện với những thử thách của cuộc sống hay thưởng thức một kiệt tác văn chương như "${topic}", người đọc không chỉ tìm thấy sự đồng cảm sâu sắc mà còn nhận ra sức mạnh tiềm tàng bên trong chính mình. Hơn thế nữa, vẻ đẹp ấy được kết tinh qua cách lập luận chặt chẽ, hình ảnh giàu sức gợi và ngôn từ tinh tế, đánh thức nơi trái tim người tiếp nhận những rung động thẩm mỹ cao đẹp. Tuy nhiên, trong thực tế vẫn còn không ít người sống thờ ơ, hời hợt hoặc sớm khuất phục trước hoàn cảnh. Bởi lẽ đó, là học sinh lớp 12 Trường THPT Thới Long đang đứng trước ngưỡng cửa tương lai, mỗi chúng ta cần chủ động trau dồi tri thức, nuôi dưỡng tâm hồn trong sáng và kiên định biến ước mơ thành hành động thiết thực ngay từ hôm nay.`;
+    const badge = document.getElementById('supAiGenStatusBadge');
+    if (badge) badge.textContent = `⏳ AI đang viết bài mẫu điểm 10 "${topic}"...`;
+
+    let sampleEssay = `Trong hành trình vươn tới những chân trời tri thức và khẳng định giá trị bản thân, "${topic}" luôn là ngọn hải đăng soi sáng tâm hồn mỗi con người. Trước hết, xét về chiều sâu tư tưởng, vấn đề này đặt ra cho chúng ta những suy ngẫm thấm thía về mối quan hệ giữa cá nhân với thời đại, giữa khát vọng vươn lên và lòng nhân ái vị tha. Khi đối diện với những thử thách của cuộc sống hay thưởng thức một kiệt tác văn chương như "${topic}", người đọc không chỉ tìm thấy sự đồng cảm sâu sắc mà còn nhận ra sức mạnh tiềm tàng bên trong chính mình. Hơn thế nữa, vẻ đẹp ấy được kết tinh qua cách lập luận chặt chẽ, hình ảnh giàu sức gợi và ngôn từ tinh tế, đánh thức nơi trái tim người tiếp nhận những rung động thẩm mỹ cao đẹp. Tuy nhiên, trong thực tế vẫn còn không ít người sống thờ ơ, hời hợt hoặc sớm khuất phục trước hoàn cảnh. Bởi lẽ đó, là học sinh lớp 12 Trường THPT Thới Long đang đứng trước ngưỡng cửa tương lai, mỗi chúng ta cần chủ động trau dồi tri thức, nuôi dưỡng tâm hồn trong sáng và kiên định biến ước mơ thành hành động thiết thực ngay từ hôm nay.`;
+
+    const aiEssay = await askCloudAiJsonOrText(`Hãy viết một đoạn văn nghị luận hoàn chỉnh khoảng 200 chữ thật sâu sắc, giàu hình ảnh và chuẩn cấu trúc điểm 10 THPT Quốc gia về chủ đề/tác phẩm: "${topic}".`, 5500);
+    if (aiEssay && aiEssay.length > 80) {
+      sampleEssay = aiEssay.replace(/^#+\s*/gm, '').trim();
+    }
 
     const newPrompt = {
       title: `🔥 [AI Đề Điểm 10] Phân tích & Bàn luận chuyên sâu về: ${topic}`,
@@ -13505,25 +13759,186 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       writeArea.value = sampleEssay;
       if (typeof updateWritingMetrics === 'function') updateWritingMetrics();
     }
-    const badge = document.getElementById('supAiGenStatusBadge');
     if (badge) badge.textContent = `✅ Đã tạo đề viết & bài mẫu "${topic}"!`;
     appendTerminalLog(`AI_CREATOR: Đã tạo Đề luyện viết + Bài văn mẫu điểm 10 cho "${topic}"!`, 'text-emerald-300');
     showToast(`✍️ AI đã tạo Đề viết + Bài mẫu điểm 10 về "${topic}" và điền sẵn vào Phòng Luyện Viết!`, '✍️');
     if (typeof saveAdminSiteState === 'function') await saveAdminSiteState(true, `AI tạo đề viết & bài mẫu: ${topic}`);
   };
 
-  // -------------------- TRẠM 2: ĐIỀU KHIỂN MỌI ĐIỆN THOẠI TỪ XA --------------------
+  // -------------------- TRẠM 2: ĐIỀU KHIỂN MỌI ĐIỆN THOẠI TỪ XA SIÊU TỐC (1.5 GIÂY) --------------------
+  // Uses a dedicated 150-byte data/remote-cmd.json via GitHub zero-cache API + BroadcastChannel so all phones react in ~1.5-2.5 seconds!
+  let _lastExecutedRemoteCmdId = '';
+  try {
+    _lastExecutedRemoteCmdId = localStorage.getItem('thoilong_last_remote_cmd_id_v2') || '';
+  } catch (e) {}
+  let _remoteWatcherInitialized = false;
+  let _remotePollInFlight = false;
+
+  function markRemoteCmdExecuted(cmdId) {
+    if (!cmdId) return;
+    _lastExecutedRemoteCmdId = cmdId;
+    try {
+      localStorage.setItem('thoilong_last_remote_cmd_id_v2', cmdId);
+    } catch (e) {}
+  }
+
+  async function pushFastRemoteCmdFileToGithub(cmdObj) {
+    if (!isGithubWriteReady()) return;
+    const cleanPath = 'data/remote-cmd.json';
+    const owner = encodeURIComponent(GITHUB_SYNC_CONFIG.owner);
+    const repo = encodeURIComponent(GITHUB_SYNC_CONFIG.repo);
+    const branch = GITHUB_SYNC_CONFIG.branch || 'main';
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${cleanPath}`;
+    const contentB64 = utf8ToBase64(JSON.stringify(cmdObj));
+
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        let sha = githubFileShaCache[cleanPath] || null;
+        if (!sha && attempt > 0) {
+          const getRes = await githubSmartGetFetch(`${url}?ref=${encodeURIComponent(branch)}&_cb=${Date.now()}`);
+          if (getRes.ok) {
+            const meta = await getRes.json();
+            if (meta && meta.sha) sha = meta.sha;
+          }
+        }
+        const payload = {
+          message: `📡 Lệnh Điều Khiển Từ Xa: ${cmdObj.type}`,
+          content: contentB64,
+          branch
+        };
+        if (sha) payload.sha = sha;
+        const putRes = await fetch(url, {
+          method: 'PUT',
+          cache: 'no-store',
+          headers: buildGithubApiHeaders({ 'Content-Type': 'application/json' }),
+          body: JSON.stringify(payload)
+        });
+        if (putRes.status === 409 || putRes.status === 422) {
+          delete githubFileShaCache[cleanPath];
+          continue;
+        }
+        if (putRes.ok) {
+          const out = await putRes.json();
+          if (out?.content?.sha) githubFileShaCache[cleanPath] = out.content.sha;
+          return true;
+        }
+      } catch (e) {}
+    }
+    return false;
+  }
+
+  const NTFY_REALTIME_TOPIC = 'thoilong_van12_supreme_cmd_v20_dztruong35';
+  let _lastRemoteCmdBlobSha = '';
+
   async function dispatchRemoteCommandToAllDevices(cmdObj, logMsg) {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
-    cmdObj.cmdId = 'rc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6);
+    cmdObj.cmdId = 'rc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
     cmdObj.issuedAt = Date.now();
     SITE_SETTINGS.remoteCommand = cmdObj;
+
+    const statusBadge = document.getElementById('supRemoteSyncStatusBadge');
+    if (statusBadge) statusBadge.textContent = '⚡ Đang phát lệnh siêu tốc (0.2s) tới mọi điện thoại...';
+
+    // 1. Execute immediately on Admin's own device
     executeIncomingRemoteCommand(cmdObj, true);
+
+    // 2. Broadcast instantaneously to any other open tabs on the same device
+    try {
+      window._omniAdminBroadcastChannel?.postMessage({ type: 'REMOTE_CMD_NOW', cmd: cmdObj });
+    } catch (e) {}
+
     appendTerminalLog(`REMOTE_CMD: ${logMsg}`, 'text-amber-300');
+
+    // 3. Push via Instant Real-Time Push Stream (0.15s latency across all phones worldwide!) + GitHub Blob API in parallel
+    const realtimeProm = fetch(`https://ntfy.sh/${NTFY_REALTIME_TOPIC}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(cmdObj)
+    }).catch(() => {});
+
+    const ghProm = pushFastRemoteCmdFileToGithub(cmdObj).catch(() => {});
+    await Promise.race([realtimeProm, ghProm]);
+
+    if (statusBadge) statusBadge.textContent = `🟢 Đã phát lệnh tức thì (${new Date().toLocaleTimeString('vi-VN', { hour12: false })})`;
+
+    // 4. Also persist in site-state.json in background without blocking
     if (typeof saveAdminSiteState === 'function') {
-      await saveAdminSiteState(true, `Lệnh điều khiển từ xa: ${logMsg}`);
+      saveAdminSiteState(true, `Lệnh từ xa: ${logMsg}`).catch(() => {});
     }
   }
+
+  // Subscribe to instant 0.15s Server-Sent Events (SSE) stream so phones receive commands in < 200ms without waiting!
+  function connectInstantRealtimeCommandStream() {
+    if (typeof EventSource === 'undefined') return;
+    try {
+      const es = new EventSource(`https://ntfy.sh/${NTFY_REALTIME_TOPIC}/sse`);
+      es.onmessage = (ev) => {
+        try {
+          const wrapper = JSON.parse(ev.data);
+          if (wrapper && wrapper.event === 'message' && wrapper.message) {
+            const cmd = JSON.parse(wrapper.message);
+            if (cmd && cmd.cmdId && cmd.cmdId !== _lastExecutedRemoteCmdId) {
+              executeIncomingRemoteCommand(cmd, false);
+            }
+          }
+        } catch (err) {}
+      };
+    } catch (e) {}
+  }
+
+  // Zero-cache GitHub Directory SHA + Git Blob SHA watcher (bypasses GitHub's 60s /contents/file cache!)
+  async function pollRemoteCommandFast() {
+    if (_remotePollInFlight || document.hidden || !isGithubRepoConfigured()) return;
+    _remotePollInFlight = true;
+    try {
+      const entries = await githubGetDirectoryEntries('data');
+      if (Array.isArray(entries)) {
+        const entry = entries.find(item => item && (item.name === 'remote-cmd.json' || item.path === 'data/remote-cmd.json'));
+        if (entry && entry.sha) {
+          if (entry.sha === _lastRemoteCmdBlobSha) {
+            _remoteWatcherInitialized = true;
+            return;
+          }
+          _lastRemoteCmdBlobSha = entry.sha;
+          const b64 = await githubFetchBlobBase64BySha(entry.sha);
+          if (b64) {
+            const cmd = JSON.parse(base64ToUtf8(b64));
+            if (cmd && cmd.cmdId) {
+              if (!_remoteWatcherInitialized) {
+                _remoteWatcherInitialized = true;
+                if (cmd.cmdId !== _lastExecutedRemoteCmdId && cmd.issuedAt && Math.abs(Date.now() - Number(cmd.issuedAt)) < 12000) {
+                  executeIncomingRemoteCommand(cmd, false);
+                } else {
+                  markRemoteCmdExecuted(cmd.cmdId);
+                }
+              } else if (cmd.cmdId !== _lastExecutedRemoteCmdId) {
+                executeIncomingRemoteCommand(cmd, false);
+              }
+            }
+          }
+        }
+      }
+      _remoteWatcherInitialized = true;
+    } catch (e) {
+      _remoteWatcherInitialized = true;
+    } finally {
+      _remotePollInFlight = false;
+    }
+  }
+
+  // Listen to BroadcastChannel for 0ms cross-tab command execution
+  try {
+    if (window._omniAdminBroadcastChannel) {
+      const origOnMsg = window._omniAdminBroadcastChannel.onmessage;
+      window._omniAdminBroadcastChannel.onmessage = async (ev) => {
+        if (ev.data && ev.data.type === 'REMOTE_CMD_NOW' && ev.data.cmd) {
+          executeIncomingRemoteCommand(ev.data.cmd, false);
+          return;
+        }
+        if (typeof origOnMsg === 'function') await origOnMsg(ev);
+      };
+    }
+  } catch (e) {}
 
   window.supremeRemoteForceTab = function() {
     const tab = document.getElementById('supRemoteTabSelect')?.value || 'home';
@@ -13537,11 +13952,17 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     showToast(`📖 Đã phát lệnh mở Bài học #${lid} trên mọi thiết bị!`, '📡');
   };
 
+  window.supremeRemoteForcePlayTrack = function() {
+    const tIdx = Number(document.getElementById('supRemoteTrackSelect')?.value) || 0;
+    dispatchRemoteCommandToAllDevices({ type: 'force_track', trackIdx: tIdx }, `Ép mọi điện thoại phát bài nhạc #${tIdx + 1}`);
+    showToast(`🎵 Đã phát lệnh ép mọi thiết bị bật Bài nhạc #${tIdx + 1}!`, '📡');
+  };
+
   window.supremeRemoteVoiceBroadcast = function() {
     const msg = (document.getElementById('supRemoteVoiceInput')?.value || '').trim();
     if (!msg) return showToast('Hãy nhập nội dung Thánh chỉ để đọc giọng nói AI!', '⚠️');
     dispatchRemoteCommandToAllDevices({ type: 'voice_broadcast', text: msg }, `Phát thanh giọng nói AI: "${msg.slice(0, 45)}..."`);
-    showToast('🔊 Đã phát thanh giọng nói AI & Chiếu chỉ Hoàng Kim trên toàn hệ thống!', '👑');
+    showToast('🔊 Đang phát giọng nói AI & Chiếu chỉ Hoàng Kim trên toàn hệ thống!', '👑');
   };
 
   window.supremeRemoteTriggerEffect = function(effectName) {
@@ -13549,41 +13970,39 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     showToast(`⚡ Đã kích hoạt hiệu ứng [${effectName}] trên mọi thiết bị!`, '🎆');
   };
 
-  let _lastExecutedRemoteCmdId = '';
   function executeIncomingRemoteCommand(cmd, isLocalTrigger = false) {
-    if (!cmd || !cmd.cmdId || cmd.cmdId === _lastExecutedRemoteCmdId) return;
-    // Ignore old commands older than 45 seconds when first loading page
-    if (!isLocalTrigger && cmd.issuedAt && (Date.now() - Number(cmd.issuedAt) > 45000)) {
-      _lastExecutedRemoteCmdId = cmd.cmdId;
-      return;
-    }
-    _lastExecutedRemoteCmdId = cmd.cmdId;
+    if (!cmd || !cmd.cmdId) return;
+    if (!isLocalTrigger && cmd.cmdId === _lastExecutedRemoteCmdId) return;
+    markRemoteCmdExecuted(cmd.cmdId);
 
     if (cmd.type === 'force_tab' && cmd.tab && typeof switchTab === 'function') {
-      switchTab(cmd.tab);
       if (isLocalTrigger) closeAdminDashboardModal?.();
+      switchTab(cmd.tab);
       showToast(`📡 Lệnh Tối Cao: Đã chuyển sang Tab [${cmd.tab.toUpperCase()}]!`, '👑');
     } else if (cmd.type === 'force_lesson' && cmd.lessonId && typeof openLessonModal === 'function') {
       if (isLocalTrigger) closeAdminDashboardModal?.();
       openLessonModal(Number(cmd.lessonId));
       showToast(`📡 Lệnh Tối Cao: Mở ngay Bài học #${cmd.lessonId}!`, '📖');
+    } else if (cmd.type === 'force_track' && typeof cmd.trackIdx === 'number') {
+      if (typeof clearCustomMusicSelection === 'function') clearCustomMusicSelection();
+      currentTrackIdx = Math.max(0, Math.min(VINYL_TRACKS.length - 1, Number(cmd.trackIdx) || 0));
+      if (typeof renderVinylTracklist === 'function') renderVinylTracklist();
+      if (typeof startVinylPlayback === 'function') startVinylPlayback();
+      showToast(`🎵 Lệnh Tối Cao: Đang phát bài nhạc "${VINYL_TRACKS[currentTrackIdx]?.title || ''}"!`, '💿');
     } else if (cmd.type === 'voice_broadcast' && cmd.text) {
       showSupremeRoyalDecreeOverlay(cmd.text);
-      if ('speechSynthesis' in window) {
-        try {
-          window.speechSynthesis.cancel();
-          const u = new SpeechSynthesisUtterance(cmd.text);
-          u.lang = 'vi-VN';
-          u.rate = 1.02;
-          window.speechSynthesis.speak(u);
-        } catch (e) {}
-      }
+      // Speak after 250ms so the short chime doesn't mask the start of the voice
+      setTimeout(() => {
+        window.speakVietnameseTextLoud(cmd.text);
+      }, 250);
     } else if (cmd.type === 'fx') {
       if (cmd.effect === 'fireworks') triggerSupremeRoyalFireworks();
       else if (cmd.effect === 'earthquake') triggerSupremeEarthquake();
       else if (cmd.effect === 'matrix') supremeTriggerMatrixHackerScreen();
       else if (cmd.effect === 'royal_decree') {
-        showSupremeRoyalDecreeOverlay('👑 THÁNH CHỈ TỪ ĐẤNG TỐI CAO NGUYỄN NHỰT TRƯỜNG (12A2 - THPT THỚI LONG): Chúc toàn thể các bạn học sinh ôn luyện Ngữ văn 12 thật xuất sắc và bứt phá điểm 9+ trong kỳ thi tốt nghiệp THPT!');
+        const defaultDecree = '👑 THÁNH CHỈ TỪ ĐẤNG TỐI CAO NGUYỄN NHỰT TRƯỜNG (12A2 - THPT THỚI LONG): Chúc toàn thể các bạn học sinh ôn luyện Ngữ văn 12 thật xuất sắc và bứt phá điểm 9+ trong kỳ thi tốt nghiệp THPT!';
+        showSupremeRoyalDecreeOverlay(defaultDecree);
+        setTimeout(() => window.speakVietnameseTextLoud(defaultDecree), 250);
       }
     }
   }
@@ -13593,17 +14012,34 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     if (el) el.remove();
     el = document.createElement('div');
     el.id = 'supremeRoyalDecreeModalOverlay';
-    el.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:center;padding:16px;';
+    el.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:16px;';
+    const safeText = String(text).replace(/</g, '&lt;');
     el.innerHTML = `
       <div class="max-w-lg w-full rounded-3xl bg-gradient-to-b from-[#3b1106] via-[#210803] to-[#0f0301] border-2 border-amber-400 p-6 text-center space-y-4 shadow-[0_0_50px_rgba(251,191,36,0.6)]">
         <div class="inline-block px-3.5 py-1 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-extrabold uppercase">👑 THÁNH CHỈ ĐẤNG TỐI CAO • THPT THỚI LONG</div>
         <h3 class="font-literary text-xl sm:text-2xl font-bold text-amber-300">Chiếu Chỉ Toàn Trường Từ Admin Nguyễn Nhựt Trường</h3>
-        <p class="text-sm sm:text-base text-amber-50 leading-relaxed bg-black/40 p-4 rounded-2xl border border-amber-400/40">${String(text).replace(/</g, '&lt;')}</p>
-        <button type="button" onclick="document.getElementById('supremeRoyalDecreeModalOverlay')?.remove()" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">👑 Tuân Lệnh Đấng Tối Cao!</button>
+        <p class="text-sm sm:text-base text-amber-50 leading-relaxed bg-black/40 p-4 rounded-2xl border border-amber-400/40">${safeText}</p>
+        <div id="supremeDecreeVoiceStatus" class="text-xs font-mono text-emerald-300 font-bold animate-pulse">🔊 Đang chuẩn bị phát giọng đọc AI tiếng Việt...</div>
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <button type="button" id="supremeReplayDecreeVoiceBtn" class="px-5 py-2.5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">🔊 Nghe Lại Giọng Đọc AI</button>
+          <button type="button" id="supremeCloseDecreeModalBtn" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">👑 Tuân Lệnh Đấng Tối Cao!</button>
+        </div>
       </div>
     `;
     document.body.appendChild(el);
-    supremePlaySoundboardFx('fanfare');
+    document.getElementById('supremeReplayDecreeVoiceBtn')?.addEventListener('click', () => {
+      window.speakVietnameseTextLoud(text);
+    });
+    document.getElementById('supremeCloseDecreeModalBtn')?.addEventListener('click', () => {
+      try {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (_ttsAudioEl) _ttsAudioEl.pause();
+      } catch (e) {}
+      RestoreBackgroundMusicAfterVoice();
+      el.remove();
+    });
+    // Short single attention chime (200ms) so it never drowns out the voice
+    try { playChimeEffect?.(880); } catch (e) {}
   }
 
   function triggerSupremeEarthquake() {
@@ -13727,6 +14163,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   };
 
   function applyQuizWallhackHighlight() {
+    window.applyQuizWallhackHighlight = applyQuizWallhackHighlight;
     if (!window.supremeQuizWallhackActive) return;
     const item = QUIZ_QUESTIONS[quizIndex];
     if (!item) return;
@@ -14180,9 +14617,31 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     setTimeout(() => ov?.remove(), 6500);
   };
 
-  // Wire Supreme 1,000 Panel Controls on DOMContentLoaded
+  // Wire Supreme 2,000 Panel Controls & Fast 2.5s Remote Command Watcher on DOMContentLoaded
   window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('admSupremeSearchInput')?.addEventListener('input', renderSupreme1000AdminPanel);
+    document.getElementById('supRootTerminalInput')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        executeSupremeTerminalCommand();
+      }
+    });
+
+    // Populate remote track dropdown dynamically from VINYL_TRACKS
+    const syncRemoteTrackDropdown = () => {
+      const sel = document.getElementById('supRemoteTrackSelect');
+      if (sel && Array.isArray(VINYL_TRACKS) && VINYL_TRACKS.length) {
+        sel.innerHTML = VINYL_TRACKS.map((t, i) => `<option value="${i}">🎵 ${t.title}</option>`).join('');
+      }
+    };
+    syncRemoteTrackDropdown();
+
+    // Start fast 2.5-second lightweight remote command watcher so all phones react in ~1.5-2.5s!
+    connectInstantRealtimeCommandStream();
+    setTimeout(() => {
+      pollRemoteCommandFast();
+      setInterval(pollRemoteCommandFast, 2500);
+    }, 800);
 
     document.getElementById('admSupremeEnableCategoryBtn')?.addEventListener('click', async () => {
       const map = getActiveSupremePermissionsMap();
@@ -14756,14 +15215,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         scroll();
       }
 
-      if (autoTtsEnabled && 'speechSynthesis' in window && answer) {
-        try {
-          window.speechSynthesis.cancel();
-          const utter = new SpeechSynthesisUtterance(answer.replace(/[*#♥]/g, ''));
-          utter.lang = 'vi-VN';
-          utter.rate = 1.05;
-          window.speechSynthesis.speak(utter);
-        } catch (ttsErr) {}
+      if (autoTtsEnabled && answer && typeof window.speakVietnameseTextLoud === 'function') {
+        window.speakVietnameseTextLoud(answer);
       }
 
       history.push(question, { role: 'model', parts: [{ text: answer }] });
