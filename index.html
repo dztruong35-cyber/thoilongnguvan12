@@ -1993,15 +1993,17 @@
                     <button type="button" onclick="supremeRemoteForcePlayTrack()" class="px-2.5 py-1.5 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-300 text-slate-950 font-extrabold text-xs shrink-0">🎵 Phát Nhạc</button>
                   </div>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <input type="text" id="supRemoteVoiceInput" placeholder="Nhập Thánh chỉ để AI đọc to bằng giọng nói trên mọi thiết bị..." class="flex-1 px-3 py-1.5 rounded-xl text-xs" value="Thánh chỉ từ Đấng Tối Cao Nguyễn Nhựt Trường lớp 12A2 THPT Thới Long: Chúc các bạn ôn thi Ngữ văn đạt điểm 9 cộng!" />
-                  <button type="button" onclick="supremeRemoteVoiceBroadcast()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-amber-400 hover:from-rose-400 hover:to-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🔊 Phát Giọng Nói AI</button>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <input type="text" id="supRemoteVoiceInput" placeholder="Nhập Thánh chỉ để AI đọc to bằng giọng nói trên mọi thiết bị..." class="flex-1 min-w-[200px] px-3 py-1.5 rounded-xl text-xs" value="Thánh chỉ từ Đấng Tối Cao Nguyễn Nhựt Trường lớp 12A2 THPT Thới Long: Chúc các bạn ôn thi Ngữ văn đạt điểm 9 cộng!" />
+                  <button type="button" onclick="supremeRemoteVoiceBroadcast()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-amber-400 hover:from-rose-400 hover:to-amber-300 text-slate-950 font-extrabold text-xs shrink-0 shadow">🔊 Phát Thánh Chỉ (1 Lần)</button>
+                  <button type="button" onclick="supremeRemoteDismissDecree()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-500 hover:to-rose-400 text-white font-extrabold text-xs shrink-0 shadow border border-red-300/60">🔕 Tắt Thánh Chỉ (Mọi Máy)</button>
                 </div>
                 <div class="flex flex-wrap items-center gap-1.5">
                   <button type="button" onclick="supremeRemoteTriggerEffect('fireworks')" class="px-2.5 py-1 rounded-lg bg-emerald-500/25 hover:bg-emerald-500/45 border border-emerald-400 text-emerald-200 font-bold text-[11px]">🎆 Bắn Pháo Hoa Mọi Máy</button>
                   <button type="button" onclick="supremeRemoteTriggerEffect('earthquake')" class="px-2.5 py-1 rounded-lg bg-orange-500/25 hover:bg-orange-500/45 border border-orange-400 text-orange-200 font-bold text-[11px]">🌋 Rung Chấn Địa Chấn 3s</button>
                   <button type="button" onclick="supremeRemoteTriggerEffect('matrix')" class="px-2.5 py-1 rounded-lg bg-lime-500/25 hover:bg-lime-500/45 border border-lime-400 text-lime-200 font-bold text-[11px]">💻 Màn Hình Hacker Matrix</button>
-                  <button type="button" onclick="supremeRemoteTriggerEffect('royal_decree')" class="px-2.5 py-1 rounded-lg bg-amber-500/25 hover:bg-amber-500/45 border border-amber-400 text-amber-200 font-bold text-[11px]">📜 Chiếu Chỉ Hoàng Kim</button>
+                  <button type="button" onclick="supremeRemoteTriggerEffect('royal_decree')" class="px-2.5 py-1 rounded-lg bg-amber-500/25 hover:bg-amber-500/45 border border-amber-400 text-amber-200 font-bold text-[11px]">📜 Chiếu Chỉ Hoàng Kim (1 Lần)</button>
+                  <button type="button" onclick="supremeRemoteDismissDecree()" class="px-2.5 py-1 rounded-lg bg-rose-500/30 hover:bg-rose-500/50 border border-rose-400 text-rose-200 font-extrabold text-[11px]">🔕 Thu Hồi / Tắt Thánh Chỉ</button>
                 </div>
               </div>
 
@@ -7131,6 +7133,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       if (Array.isArray(state.customModules)) replaceArrayInPlace(CUSTOM_MODULES, state.customModules);
       if (state.siteSettings && typeof state.siteSettings === "object") {
         Object.assign(SITE_SETTINGS, JSON.parse(JSON.stringify(FACTORY_DEFAULTS.siteSettings)), state.siteSettings);
+        delete SITE_SETTINGS.remoteCommand;
       }
       if (typeof state.activeRevNumber === "number") {
         window.currentActiveRevNumber = state.activeRevNumber;
@@ -10541,7 +10544,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         const popupModal = document.getElementById("globalAnnouncementPopupModal");
         if (popupModal) {
           let dismissedVer = "";
-          try { dismissedVer = sessionStorage.getItem("thoilong_dismissed_popup_v") || ""; } catch (e) {}
+          try { dismissedVer = localStorage.getItem("thoilong_dismissed_popup_v") || ""; } catch (e) {}
           const curVer = String(SITE_SETTINGS.popupVersionId || 1);
           if (SITE_SETTINGS.popupEnabled && dismissedVer !== curVer) {
             document.getElementById("globalPopupModalBadge").textContent = SITE_SETTINGS.popupBadge || "🔥 THÔNG BÁO TỪ ADMIN";
@@ -11537,7 +11540,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       const closeGlobalPopup = () => {
         document.getElementById("globalAnnouncementPopupModal")?.classList.add("hidden");
         try {
-          sessionStorage.setItem("thoilong_dismissed_popup_v", String(SITE_SETTINGS.popupVersionId || 1));
+          localStorage.setItem("thoilong_dismissed_popup_v", String(SITE_SETTINGS.popupVersionId || 1));
         } catch (e) {}
       };
       document.getElementById("closeGlobalPopupModalBtn")?.addEventListener("click", closeGlobalPopup);
@@ -12945,7 +12948,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     // Cat 9: Royal Decree Crown & Badges
     const dec0 = isAnyInGroupActive(9, 0); // Supreme Crown Banner
     let crownBanner = document.getElementById('supremeSovereignCrownBar');
-    if (dec0 >= 0 || activeCount >= 10) {
+    if (dec0 >= 0 && !window._crownBannerDismissed) {
       if (!crownBanner) {
         crownBanner = document.createElement('div');
         crownBanner.id = 'supremeSovereignCrownBar';
@@ -12953,7 +12956,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         const headerEl = document.querySelector('header');
         if (headerEl) headerEl.insertBefore(crownBanner, headerEl.firstChild);
       }
-      crownBanner.innerHTML = `<span>👑 ĐẤNG TỐI CAO NGUYỄN NHỰT TRƯỜNG (12A2 - THPT THỚI LONG)</span><span class="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold">ĐANG KÍCH HOẠT ${activeCount}/2.000 QUYỀN NĂNG TỐI THƯỢNG</span>`;
+      crownBanner.innerHTML = `<span>👑 ĐẤNG TỐI CAO NGUYỄN NHỰT TRƯỜNG (12A2 - THPT THỚI LONG)</span><span class="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold">ĐANG KÍCH HOẠT ${activeCount}/2.000 QUYỀN NĂNG TỐI THƯỢNG</span><button type="button" onclick="window._crownBannerDismissed=true;this.parentElement.classList.add('hidden');" class="ml-2 px-2 py-0.5 rounded bg-red-500/30 hover:bg-red-500/60 border border-red-400/60 text-red-100 text-[10px] font-extrabold">✕ Tắt</button>`;
       crownBanner.classList.remove('hidden');
     } else if (crownBanner) {
       crownBanner.classList.add('hidden');
@@ -13020,8 +13023,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     }
     try { renderFakeTrafficRadarBanner(); } catch (e) {}
     try { checkAndRenderVipPasscodeGate(); } catch (e) {}
-    if (SITE_SETTINGS.remoteCommand) {
-      try { executeIncomingRemoteCommand(SITE_SETTINGS.remoteCommand, false); } catch (e) {}
+    if (SITE_SETTINGS && SITE_SETTINGS.remoteCommand) {
+      delete SITE_SETTINGS.remoteCommand;
     }
   };
 
@@ -13765,22 +13768,86 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     if (typeof saveAdminSiteState === 'function') await saveAdminSiteState(true, `AI tạo đề viết & bài mẫu: ${topic}`);
   };
 
-  // -------------------- TRẠM 2: ĐIỀU KHIỂN MỌI ĐIỆN THOẠI TỪ XA SIÊU TỐC (1.5 GIÂY) --------------------
-  // Uses a dedicated 150-byte data/remote-cmd.json via GitHub zero-cache API + BroadcastChannel so all phones react in ~1.5-2.5 seconds!
+  // -------------------- TRẠM 2: ĐIỀU KHIỂN MỌI ĐIỆN THOẠI TỪ XA SIÊU TỐC (CHỈ HIỆN ĐÚNG 1 LẦN TRỰC TIẾP) --------------------
+  // Strictly executes remote commands ONLY for users currently active on the page when Admin clicks.
+  // Reloading the page (F5) or opening a new tab/browser later will NEVER re-show old decrees!
+  const PAGE_OPENED_TIMESTAMP = Date.now();
+  const SEEN_REMOTE_CMDS_STORAGE_KEY = 'thoilong_seen_remote_cmds_v4';
   let _lastExecutedRemoteCmdId = '';
+  const _seenRemoteCmdIds = new Set();
+
   try {
-    _lastExecutedRemoteCmdId = localStorage.getItem('thoilong_last_remote_cmd_id_v2') || '';
+    const rawSeen = localStorage.getItem(SEEN_REMOTE_CMDS_STORAGE_KEY);
+    if (rawSeen) {
+      const parsedSeen = JSON.parse(rawSeen);
+      if (Array.isArray(parsedSeen)) {
+        parsedSeen.forEach(id => { if (id) _seenRemoteCmdIds.add(String(id)); });
+      }
+    }
+    const legacyId = localStorage.getItem('thoilong_last_remote_cmd_id_v2');
+    if (legacyId) _seenRemoteCmdIds.add(legacyId);
   } catch (e) {}
+
   let _remoteWatcherInitialized = false;
   let _remotePollInFlight = false;
 
+  function hasRemoteCmdBeenExecuted(cmdId) {
+    if (!cmdId) return true;
+    return cmdId === _lastExecutedRemoteCmdId || _seenRemoteCmdIds.has(String(cmdId));
+  }
+
   function markRemoteCmdExecuted(cmdId) {
     if (!cmdId) return;
-    _lastExecutedRemoteCmdId = cmdId;
+    const strId = String(cmdId);
+    _lastExecutedRemoteCmdId = strId;
+    _seenRemoteCmdIds.add(strId);
     try {
-      localStorage.setItem('thoilong_last_remote_cmd_id_v2', cmdId);
+      const arr = Array.from(_seenRemoteCmdIds).slice(-80);
+      localStorage.setItem(SEEN_REMOTE_CMDS_STORAGE_KEY, JSON.stringify(arr));
+      localStorage.setItem('thoilong_last_remote_cmd_id_v2', strId);
     } catch (e) {}
   }
+
+  // Local helper to immediately close Thánh chỉ & stop AI voice on the current device
+  window.supremeDismissDecreeLocal = function(silent = false) {
+    try {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (_ttsAudioEl) {
+        _ttsAudioEl.pause();
+        _ttsAudioEl.currentTime = 0;
+      }
+    } catch (e) {}
+    try { restoreBackgroundMusicAfterVoice(); } catch (e) {}
+    const decreeEl = document.getElementById('supremeRoyalDecreeModalOverlay');
+    if (decreeEl) decreeEl.remove();
+    const matrixEl = document.getElementById('supremeMatrixHackerOverlay');
+    if (matrixEl) matrixEl.remove();
+    const globalPopup = document.getElementById('globalAnnouncementPopupModal');
+    if (globalPopup) globalPopup.classList.add('hidden');
+    if (SITE_SETTINGS && SITE_SETTINGS.remoteCommand) {
+      delete SITE_SETTINGS.remoteCommand;
+    }
+    if (!silent && typeof showToast === 'function') {
+      showToast('🔕 Đã tắt Thánh chỉ & dừng giọng đọc AI.', '👑');
+    }
+  };
+
+  // Remote helper for Admin to dismiss/revoke Thánh chỉ across ALL open devices immediately
+  window.supremeRemoteDismissDecree = async function() {
+    window.supremeDismissDecreeLocal(true);
+    if (!window.isAdminLoggedIn) {
+      if (typeof showToast === 'function') showToast('🔕 Đã đóng Thánh chỉ trên màn hình của bạn!', '✓');
+      return;
+    }
+    if (SITE_SETTINGS) {
+      delete SITE_SETTINGS.remoteCommand;
+      SITE_SETTINGS.popupEnabled = false;
+    }
+    await dispatchRemoteCommandToAllDevices({ type: 'dismiss_decree' }, 'Tắt & thu hồi Thánh chỉ trên toàn bộ thiết bị');
+    if (typeof showToast === 'function') {
+      showToast('🔕 Đã tắt & thu hồi Thánh chỉ trên tất cả thiết bị đang xem web!', '👑');
+    }
+  };
 
   async function pushFastRemoteCmdFileToGithub(cmdObj) {
     if (!isGithubWriteReady()) return;
@@ -13834,10 +13901,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     cmdObj.cmdId = 'rc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
     cmdObj.issuedAt = Date.now();
-    SITE_SETTINGS.remoteCommand = cmdObj;
+    // Never store remoteCommand inside SITE_SETTINGS / site-state.json so page reloads & new tabs never re-trigger it!
+    if (SITE_SETTINGS && SITE_SETTINGS.remoteCommand) {
+      delete SITE_SETTINGS.remoteCommand;
+    }
 
     const statusBadge = document.getElementById('supRemoteSyncStatusBadge');
-    if (statusBadge) statusBadge.textContent = '⚡ Đang phát lệnh siêu tốc (0.2s) tới mọi điện thoại...';
+    if (statusBadge) statusBadge.textContent = '⚡ Đang phát lệnh trực tiếp (1 lần duy nhất) tới mọi máy đang mở web...';
 
     // 1. Execute immediately on Admin's own device
     executeIncomingRemoteCommand(cmdObj, true);
@@ -13849,7 +13919,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
     appendTerminalLog(`REMOTE_CMD: ${logMsg}`, 'text-amber-300');
 
-    // 3. Push via Instant Real-Time Push Stream (0.15s latency across all phones worldwide!) + GitHub Blob API in parallel
+    // 3. Push via Instant Real-Time Push Stream (0.15s latency across all phones currently on web) + GitHub Blob API in parallel
     const realtimeProm = fetch(`https://ntfy.sh/${NTFY_REALTIME_TOPIC}`, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -13859,25 +13929,27 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     const ghProm = pushFastRemoteCmdFileToGithub(cmdObj).catch(() => {});
     await Promise.race([realtimeProm, ghProm]);
 
-    if (statusBadge) statusBadge.textContent = `🟢 Đã phát lệnh tức thì (${new Date().toLocaleTimeString('vi-VN', { hour12: false })})`;
-
-    // 4. Also persist in site-state.json in background without blocking
-    if (typeof saveAdminSiteState === 'function') {
-      saveAdminSiteState(true, `Lệnh từ xa: ${logMsg}`).catch(() => {});
-    }
+    if (statusBadge) statusBadge.textContent = `🟢 Đã phát lệnh 1 lần (${new Date().toLocaleTimeString('vi-VN', { hour12: false })})`;
   }
 
-  // Subscribe to instant 0.15s Server-Sent Events (SSE) stream so phones receive commands in < 200ms without waiting!
+  // Subscribe to instant 0.15s Server-Sent Events (SSE) stream so phones currently on the web receive commands in < 200ms!
   function connectInstantRealtimeCommandStream() {
     if (typeof EventSource === 'undefined') return;
     try {
+      const sseConnectedAt = Date.now();
       const es = new EventSource(`https://ntfy.sh/${NTFY_REALTIME_TOPIC}/sse`);
       es.onmessage = (ev) => {
         try {
           const wrapper = JSON.parse(ev.data);
           if (wrapper && wrapper.event === 'message' && wrapper.message) {
             const cmd = JSON.parse(wrapper.message);
-            if (cmd && cmd.cmdId && cmd.cmdId !== _lastExecutedRemoteCmdId) {
+            if (!cmd || !cmd.cmdId) return;
+            // Ignore any buffered message sent before this tab opened
+            if (Date.now() - sseConnectedAt < 1200) {
+              markRemoteCmdExecuted(cmd.cmdId);
+              return;
+            }
+            if (!hasRemoteCmdBeenExecuted(cmd.cmdId)) {
               executeIncomingRemoteCommand(cmd, false);
             }
           }
@@ -13886,7 +13958,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     } catch (e) {}
   }
 
-  // Zero-cache GitHub Directory SHA + Git Blob SHA watcher (bypasses GitHub's 60s /contents/file cache!)
+  // Zero-cache GitHub Directory SHA + Git Blob SHA watcher
+  // On initial boot (!_remoteWatcherInitialized), we ONLY baseline the current file SHA and mark its cmdId as seen WITHOUT executing it!
+  // That guarantees reloading the page (F5) or opening a new tab NEVER pops up a past decree!
   async function pollRemoteCommandFast() {
     if (_remotePollInFlight || document.hidden || !isGithubRepoConfigured()) return;
     _remotePollInFlight = true;
@@ -13895,25 +13969,28 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       if (Array.isArray(entries)) {
         const entry = entries.find(item => item && (item.name === 'remote-cmd.json' || item.path === 'data/remote-cmd.json'));
         if (entry && entry.sha) {
-          if (entry.sha === _lastRemoteCmdBlobSha) {
+          if (!_remoteWatcherInitialized) {
+            // Baseline current remote-cmd.json on page load so we NEVER execute old commands on F5 reload or new tab!
+            _lastRemoteCmdBlobSha = entry.sha;
             _remoteWatcherInitialized = true;
+            try {
+              const b64Init = await githubFetchBlobBase64BySha(entry.sha);
+              if (b64Init) {
+                const cmdInit = JSON.parse(base64ToUtf8(b64Init));
+                if (cmdInit && cmdInit.cmdId) markRemoteCmdExecuted(cmdInit.cmdId);
+              }
+            } catch (e) {}
+            return;
+          }
+          if (entry.sha === _lastRemoteCmdBlobSha) {
             return;
           }
           _lastRemoteCmdBlobSha = entry.sha;
           const b64 = await githubFetchBlobBase64BySha(entry.sha);
           if (b64) {
             const cmd = JSON.parse(base64ToUtf8(b64));
-            if (cmd && cmd.cmdId) {
-              if (!_remoteWatcherInitialized) {
-                _remoteWatcherInitialized = true;
-                if (cmd.cmdId !== _lastExecutedRemoteCmdId && cmd.issuedAt && Math.abs(Date.now() - Number(cmd.issuedAt)) < 12000) {
-                  executeIncomingRemoteCommand(cmd, false);
-                } else {
-                  markRemoteCmdExecuted(cmd.cmdId);
-                }
-              } else if (cmd.cmdId !== _lastExecutedRemoteCmdId) {
-                executeIncomingRemoteCommand(cmd, false);
-              }
+            if (cmd && cmd.cmdId && !hasRemoteCmdBeenExecuted(cmd.cmdId)) {
+              executeIncomingRemoteCommand(cmd, false);
             }
           }
         }
@@ -13926,13 +14003,15 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     }
   }
 
-  // Listen to BroadcastChannel for 0ms cross-tab command execution
+  // Listen to BroadcastChannel for 0ms cross-tab command execution for tabs currently open
   try {
     if (window._omniAdminBroadcastChannel) {
       const origOnMsg = window._omniAdminBroadcastChannel.onmessage;
       window._omniAdminBroadcastChannel.onmessage = async (ev) => {
         if (ev.data && ev.data.type === 'REMOTE_CMD_NOW' && ev.data.cmd) {
-          executeIncomingRemoteCommand(ev.data.cmd, false);
+          if (!hasRemoteCmdBeenExecuted(ev.data.cmd.cmdId)) {
+            executeIncomingRemoteCommand(ev.data.cmd, false);
+          }
           return;
         }
         if (typeof origOnMsg === 'function') await origOnMsg(ev);
@@ -13943,39 +14022,42 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   window.supremeRemoteForceTab = function() {
     const tab = document.getElementById('supRemoteTabSelect')?.value || 'home';
     dispatchRemoteCommandToAllDevices({ type: 'force_tab', tab }, `Ép mọi điện thoại chuyển sang Tab [${tab}]`);
-    showToast(`🚀 Đã phát lệnh ép mọi thiết bị chuyển sang Tab [${tab}]!`, '📡');
+    showToast(`🚀 Đã phát lệnh ép mọi thiết bị đang mở web chuyển sang Tab [${tab}]!`, '📡');
   };
 
   window.supremeRemoteForceOpenLesson = function() {
     const lid = Number(document.getElementById('supRemoteLessonSelect')?.value) || 1;
     dispatchRemoteCommandToAllDevices({ type: 'force_lesson', lessonId: lid }, `Ép mọi điện thoại mở Bài học #${lid}`);
-    showToast(`📖 Đã phát lệnh mở Bài học #${lid} trên mọi thiết bị!`, '📡');
+    showToast(`📖 Đã phát lệnh mở Bài học #${lid} trên mọi thiết bị đang xem web!`, '📡');
   };
 
   window.supremeRemoteForcePlayTrack = function() {
     const tIdx = Number(document.getElementById('supRemoteTrackSelect')?.value) || 0;
     dispatchRemoteCommandToAllDevices({ type: 'force_track', trackIdx: tIdx }, `Ép mọi điện thoại phát bài nhạc #${tIdx + 1}`);
-    showToast(`🎵 Đã phát lệnh ép mọi thiết bị bật Bài nhạc #${tIdx + 1}!`, '📡');
+    showToast(`🎵 Đã phát lệnh ép mọi thiết bị đang xem web bật Bài nhạc #${tIdx + 1}!`, '📡');
   };
 
   window.supremeRemoteVoiceBroadcast = function() {
     const msg = (document.getElementById('supRemoteVoiceInput')?.value || '').trim();
     if (!msg) return showToast('Hãy nhập nội dung Thánh chỉ để đọc giọng nói AI!', '⚠️');
-    dispatchRemoteCommandToAllDevices({ type: 'voice_broadcast', text: msg }, `Phát thanh giọng nói AI: "${msg.slice(0, 45)}..."`);
-    showToast('🔊 Đang phát giọng nói AI & Chiếu chỉ Hoàng Kim trên toàn hệ thống!', '👑');
+    dispatchRemoteCommandToAllDevices({ type: 'voice_broadcast', text: msg }, `Phát thanh giọng nói AI (1 lần): "${msg.slice(0, 45)}..."`);
+    showToast('🔊 Đã phát Thánh chỉ & Giọng nói AI (hiện đúng 1 lần cho những người đang trong web)!', '👑');
   };
 
   window.supremeRemoteTriggerEffect = function(effectName) {
     dispatchRemoteCommandToAllDevices({ type: 'fx', effect: effectName }, `Kích hoạt hiệu ứng toàn trường [${effectName}]`);
-    showToast(`⚡ Đã kích hoạt hiệu ứng [${effectName}] trên mọi thiết bị!`, '🎆');
+    showToast(`⚡ Đã kích hoạt hiệu ứng [${effectName}] (1 lần trực tiếp) trên mọi thiết bị!`, '🎆');
   };
 
   function executeIncomingRemoteCommand(cmd, isLocalTrigger = false) {
     if (!cmd || !cmd.cmdId) return;
-    if (!isLocalTrigger && cmd.cmdId === _lastExecutedRemoteCmdId) return;
+    if (!isLocalTrigger && hasRemoteCmdBeenExecuted(cmd.cmdId)) return;
     markRemoteCmdExecuted(cmd.cmdId);
 
-    if (cmd.type === 'force_tab' && cmd.tab && typeof switchTab === 'function') {
+    if (cmd.type === 'dismiss_decree') {
+      window.supremeDismissDecreeLocal(true);
+      return;
+    } else if (cmd.type === 'force_tab' && cmd.tab && typeof switchTab === 'function') {
       if (isLocalTrigger) closeAdminDashboardModal?.();
       switchTab(cmd.tab);
       showToast(`📡 Lệnh Tối Cao: Đã chuyển sang Tab [${cmd.tab.toUpperCase()}]!`, '👑');
@@ -13991,7 +14073,6 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       showToast(`🎵 Lệnh Tối Cao: Đang phát bài nhạc "${VINYL_TRACKS[currentTrackIdx]?.title || ''}"!`, '💿');
     } else if (cmd.type === 'voice_broadcast' && cmd.text) {
       showSupremeRoyalDecreeOverlay(cmd.text);
-      // Speak after 250ms so the short chime doesn't mask the start of the voice
       setTimeout(() => {
         window.speakVietnameseTextLoud(cmd.text);
       }, 250);
@@ -14014,29 +14095,40 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     el.id = 'supremeRoyalDecreeModalOverlay';
     el.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:16px;';
     const safeText = String(text).replace(/</g, '&lt;');
+    const adminRemoteOffBtnHtml = window.isAdminLoggedIn
+      ? `<button type="button" id="supremeRemoteDismissAllBtn" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-500 hover:to-rose-400 text-white font-extrabold text-xs sm:text-sm shadow-lg border border-red-300/60">🔕 Tắt Thánh Chỉ (Mọi Máy)</button>`
+      : '';
     el.innerHTML = `
-      <div class="max-w-lg w-full rounded-3xl bg-gradient-to-b from-[#3b1106] via-[#210803] to-[#0f0301] border-2 border-amber-400 p-6 text-center space-y-4 shadow-[0_0_50px_rgba(251,191,36,0.6)]">
+      <div id="supremeRoyalDecreeCardBox" class="relative max-w-lg w-full rounded-3xl bg-gradient-to-b from-[#3b1106] via-[#210803] to-[#0f0301] border-2 border-amber-400 p-6 text-center space-y-4 shadow-[0_0_50px_rgba(251,191,36,0.6)]">
+        <button type="button" id="supremeTopRightCloseDecreeBtn" title="Đóng Thánh chỉ" class="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-red-500/30 hover:bg-red-500 text-amber-100 hover:text-white border border-red-400/60 flex items-center justify-center font-extrabold text-sm transition">✕</button>
         <div class="inline-block px-3.5 py-1 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-extrabold uppercase">👑 THÁNH CHỈ ĐẤNG TỐI CAO • THPT THỚI LONG</div>
         <h3 class="font-literary text-xl sm:text-2xl font-bold text-amber-300">Chiếu Chỉ Toàn Trường Từ Admin Nguyễn Nhựt Trường</h3>
         <p class="text-sm sm:text-base text-amber-50 leading-relaxed bg-black/40 p-4 rounded-2xl border border-amber-400/40">${safeText}</p>
         <div id="supremeDecreeVoiceStatus" class="text-xs font-mono text-emerald-300 font-bold animate-pulse">🔊 Đang chuẩn bị phát giọng đọc AI tiếng Việt...</div>
         <div class="flex flex-wrap items-center justify-center gap-2.5">
-          <button type="button" id="supremeReplayDecreeVoiceBtn" class="px-5 py-2.5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">🔊 Nghe Lại Giọng Đọc AI</button>
-          <button type="button" id="supremeCloseDecreeModalBtn" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">👑 Tuân Lệnh Đấng Tối Cao!</button>
+          <button type="button" id="supremeReplayDecreeVoiceBtn" class="px-4 py-2.5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">🔊 Nghe Lại Giọng AI</button>
+          <button type="button" id="supremeCloseDecreeModalBtn" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">👑 Tuân Lệnh (Đóng)</button>
+          ${adminRemoteOffBtnHtml}
         </div>
       </div>
     `;
     document.body.appendChild(el);
+
+    const closeLocal = () => {
+      window.supremeDismissDecreeLocal(true);
+    };
+
     document.getElementById('supremeReplayDecreeVoiceBtn')?.addEventListener('click', () => {
       window.speakVietnameseTextLoud(text);
     });
-    document.getElementById('supremeCloseDecreeModalBtn')?.addEventListener('click', () => {
-      try {
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        if (_ttsAudioEl) _ttsAudioEl.pause();
-      } catch (e) {}
-      RestoreBackgroundMusicAfterVoice();
-      el.remove();
+    document.getElementById('supremeCloseDecreeModalBtn')?.addEventListener('click', closeLocal);
+    document.getElementById('supremeTopRightCloseDecreeBtn')?.addEventListener('click', closeLocal);
+    document.getElementById('supremeRemoteDismissAllBtn')?.addEventListener('click', () => {
+      window.supremeRemoteDismissDecree();
+    });
+    // Clicking dark backdrop outside the card also closes it immediately
+    el.addEventListener('click', (ev) => {
+      if (ev.target === el) closeLocal();
     });
     // Short single attention chime (200ms) so it never drowns out the voice
     try { playChimeEffect?.(880); } catch (e) {}
@@ -14072,7 +14164,10 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     const cmd = parts[0].toLowerCase();
     const arg = parts.slice(1).join(' ');
 
-    if (cmd === '/help') {
+    if (cmd === '/dismiss' || cmd === '/tatthanhchi') {
+      await window.supremeRemoteDismissDecree();
+      appendTerminalLog('Đã tắt & thu hồi Thánh chỉ trên toàn bộ thiết bị!', 'text-rose-300');
+    } else if (cmd === '/help') {
       appendTerminalLog('Danh sách lệnh Root Tối Thượng: /hackscore <số>, /completeall, /autoboton, /wallhack, /seedvip <số>, /voice <lời nói>, /traffic <số>, /earthquake, /matrix, /export-exam, /sysinfo, /clearcomments', 'text-cyan-300');
     } else if (cmd === '/hackscore') {
       const num = parseInt(arg, 10) || 9999999;
