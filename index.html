@@ -2021,27 +2021,60 @@
                 <h5 class="font-bold text-white text-sm">🕵️‍♂️ Thiên Nhãn Radar: Theo Dõi Máy Đang Vào Web, Nhắn Riêng & Tặng Điểm</h5>
                 <div id="supLiveVisitorRadarBox" class="max-h-44 overflow-y-auto rounded-xl bg-black/90 border border-emerald-500/40 p-2.5 space-y-1.5 text-[11px] font-mono"></div>
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <input type="text" id="supWhisperMsgInput" placeholder="Nhập tin nhắn riêng / lời khen gửi tới máy học sinh..." value="👑 Đấng Tối Cao Nguyễn Nhựt Trường khen ngợi tinh thần học tập của bạn! (+10.000 Điểm)" class="flex-1 min-w-[160px] px-2.5 py-1.5 rounded-xl text-xs" />
-                  <button type="button" onclick="supremeBroadcastWhisperReward()" class="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🎁 Gửi Lời Khen +10.000đ</button>
+                  <input type="text" id="supWhisperMsgInput" placeholder="Nhập tin nhắn riêng / lời khen gửi tới máy học sinh..." value="👑 Đấng Tối Cao Nguyễn Nhựt Trường khen ngợi tinh thần học tập của bạn! (+30 Điểm)" class="flex-1 min-w-[160px] px-2.5 py-1.5 rounded-xl text-xs" />
+                  <button type="button" onclick="supremeBroadcastWhisperReward()" class="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🎁 Gửi Lời Khen +30đ</button>
                   <button type="button" onclick="supremePingAllConnectedDevices()" class="px-2.5 py-1.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs shrink-0">📡 Quét Điểm Danh</button>
                 </div>
               </div>
 
-              <!-- TRẠM 14: BẢNG VÀNG CHIẾN THẦN NGỮ VĂN 12A2 & TẠO NICK TÍCH XANH VIP -->
+              <!-- TRẠM 14: BẢNG VÀNG CHIẾN THẦN NGỮ VĂN 12A2 (TỰ CHỈNH TỪNG HẠNG & CẬP NHẬT TỨC THÌ 0.15S TRÊN MỌI MÁY) -->
               <div data-station-group="game_social" class="sup-station-card p-4 rounded-2xl bg-slate-950/95 border-2 border-yellow-400 space-y-3 shadow-[0_0_25px_rgba(250,204,21,0.2)]">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">🏆 TRẠM 14 // HALL OF FAME & VIP VERIFIED FORGE</span>
-                  <span id="supHallOfFameBadge" class="text-[11px] font-mono text-yellow-300 font-bold">👑 Top #1: Nguyễn Nhựt Trường</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">🏆 TRẠM 14 // LIVE LEADERBOARD & VIP FORGE</span>
+                  <span id="supHallOfFameBadge" class="text-[11px] font-mono text-emerald-300 font-bold">⚡ Đồng bộ tức thì 0.15s mọi máy</span>
                 </div>
-                <h5 class="font-bold text-white text-sm">🏆 Thao Túng Bảng Xếp Hạng Top Thủ Khoa 12A2 & Tạo Nick Tích Xanh VIP</h5>
+                <h5 class="font-bold text-white text-sm">🏆 Bảng Xếp Hạng Chiến Thần 12A2 (Tự Chỉnh Điểm Vừa Phải & Bật Lên Mọi Máy Ngay Lập Tức)</h5>
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <button type="button" onclick="supremeToggleTopLeaderboard(true)" class="flex-1 px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 text-slate-950 font-extrabold text-xs shadow">🏆 Bật Bảng Vàng Chiến Thần Ở Trang Chủ & Đấu Trường</button>
-                  <button type="button" onclick="supremeToggleTopLeaderboard(false)" class="px-2.5 py-1.5 rounded-xl bg-slate-800 text-slate-300 font-bold text-xs">Ẩn</button>
+                  <button type="button" onclick="supremeSaveAndBroadcastLeaderboard(true)" class="flex-1 px-3 py-2 rounded-xl bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 hover:from-yellow-200 hover:to-orange-400 text-slate-950 font-extrabold text-xs shadow">🏆 Bật / Cập Nhật Bảng Xếp Hạng (Hiện Ngay Mọi Máy)</button>
+                  <button type="button" onclick="supremeSaveAndBroadcastLeaderboard(false)" class="px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs">⏸️ Ẩn Mọi Máy</button>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
-                  <input type="text" id="supLbNewNameInput" placeholder="Tên chiến thần mới..." value="Nguyễn Nhựt Trường (Đấng Tối Cao)" class="px-2.5 py-1.5 rounded-lg text-xs" />
-                  <input type="text" id="supLbNewScoreInput" placeholder="Điểm (VD: 99.999.999)" value="99.999.999 Điểm" class="px-2.5 py-1.5 rounded-lg text-xs" />
-                  <button type="button" onclick="supremeAddOrUpdateLeaderboardEntry()" class="px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs">👑 Cập Nhật Top #1</button>
+                <div class="p-2.5 rounded-xl bg-slate-900/95 border border-amber-400/40 space-y-1.5">
+                  <div class="flex items-center justify-between text-[10px] font-mono text-amber-300 uppercase font-bold">
+                    <span>✏️ Tự Chỉnh Tên, Điểm & Combo Từng Hạng (1 → 5):</span>
+                    <button type="button" onclick="supremeResetLeaderboardToNaturalDefaults()" class="text-cyan-300 hover:underline">🔄 Điểm Mẫu Tự Nhiên</button>
+                  </div>
+                  <div id="supLeaderboardEditorRows" class="space-y-1.5 max-h-44 overflow-y-auto pr-1">
+                    <div class="grid grid-cols-12 gap-1 items-center">
+                      <span class="col-span-2 text-[10px] font-extrabold text-amber-300">👑 Top 1</span>
+                      <input type="text" id="supLbName_0" value="Nguyễn Nhựt Trường (12A2)" class="col-span-5 px-2 py-1 rounded text-xs" placeholder="Tên & Lớp..." />
+                      <input type="text" id="supLbScore_0" value="350 Điểm" class="col-span-3 px-2 py-1 rounded text-xs" placeholder="Điểm..." />
+                      <input type="text" id="supLbStreak_0" value="🔥 12 Combo" class="col-span-2 px-1.5 py-1 rounded text-[11px]" placeholder="Combo..." />
+                    </div>
+                    <div class="grid grid-cols-12 gap-1 items-center">
+                      <span class="col-span-2 text-[10px] font-bold text-slate-300">🥈 Top 2</span>
+                      <input type="text" id="supLbName_1" value="Trần Ngọc Minh Châu (12A1)" class="col-span-5 px-2 py-1 rounded text-xs" placeholder="Tên & Lớp..." />
+                      <input type="text" id="supLbScore_1" value="310 Điểm" class="col-span-3 px-2 py-1 rounded text-xs" placeholder="Điểm..." />
+                      <input type="text" id="supLbStreak_1" value="🔥 10 Combo" class="col-span-2 px-1.5 py-1 rounded text-[11px]" placeholder="Combo..." />
+                    </div>
+                    <div class="grid grid-cols-12 gap-1 items-center">
+                      <span class="col-span-2 text-[10px] font-bold text-slate-300">🥉 Top 3</span>
+                      <input type="text" id="supLbName_2" value="Lê Hoàng Tuấn Kiệt (12A2)" class="col-span-5 px-2 py-1 rounded text-xs" placeholder="Tên & Lớp..." />
+                      <input type="text" id="supLbScore_2" value="280 Điểm" class="col-span-3 px-2 py-1 rounded text-xs" placeholder="Điểm..." />
+                      <input type="text" id="supLbStreak_2" value="🔥 9 Combo" class="col-span-2 px-1.5 py-1 rounded text-[11px]" placeholder="Combo..." />
+                    </div>
+                    <div class="grid grid-cols-12 gap-1 items-center">
+                      <span class="col-span-2 text-[10px] font-bold text-slate-300">🏅 Top 4</span>
+                      <input type="text" id="supLbName_3" value="Nguyễn Phương Thảo (12A3)" class="col-span-5 px-2 py-1 rounded text-xs" placeholder="Tên & Lớp..." />
+                      <input type="text" id="supLbScore_3" value="240 Điểm" class="col-span-3 px-2 py-1 rounded text-xs" placeholder="Điểm..." />
+                      <input type="text" id="supLbStreak_3" value="🔥 7 Combo" class="col-span-2 px-1.5 py-1 rounded text-[11px]" placeholder="Combo..." />
+                    </div>
+                    <div class="grid grid-cols-12 gap-1 items-center">
+                      <span class="col-span-2 text-[10px] font-bold text-slate-300">🏅 Top 5</span>
+                      <input type="text" id="supLbName_4" value="Võ Quốc Bảo (12A5)" class="col-span-5 px-2 py-1 rounded text-xs" placeholder="Tên & Lớp..." />
+                      <input type="text" id="supLbScore_4" value="210 Điểm" class="col-span-3 px-2 py-1 rounded text-xs" placeholder="Điểm..." />
+                      <input type="text" id="supLbStreak_4" value="🔥 6 Combo" class="col-span-2 px-1.5 py-1 rounded text-[11px]" placeholder="Combo..." />
+                    </div>
+                  </div>
                 </div>
                 <div class="p-2.5 rounded-xl bg-slate-900/90 border border-yellow-400/40 space-y-1.5">
                   <div class="text-[10px] font-mono text-yellow-300 uppercase font-bold">✓ Tạo Bình Luận Nick Tích Xanh VIP Lên Đỉnh Lưu Bút:</div>
@@ -2323,31 +2356,39 @@
                 </div>
               </div>
 
-              <!-- TRẠM 4: BẺ KHÓA ĐẤU TRƯỜNG & AUTO-WIN BOT (ARENA CHEAT ENGINE) -->
+              <!-- TRẠM 4: TỰ CHỈNH ĐIỂM ĐẤU TRƯỜNG TỰ NHIÊN & AUTO-WIN BOT -->
               <div data-station-group="game_social" class="sup-station-card p-4 rounded-2xl bg-slate-950/95 border-2 border-fuchsia-400/70 space-y-3 shadow-[0_0_20px_rgba(232,121,249,0.15)]">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="px-2.5 py-0.5 rounded-full bg-fuchsia-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">🎯 TRẠM 4 // ARENA CHEAT ENGINE</span>
-                  <span id="supArenaBotStatusBadge" class="text-[11px] font-mono text-fuchsia-300 font-bold">⚡ Thao túng điểm số & đáp án</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-fuchsia-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">🎯 TRẠM 4 // TỰ CHỈNH ĐIỂM ĐẤU TRƯỜNG & BOT</span>
+                  <span id="supArenaBotStatusBadge" class="text-[11px] font-mono text-fuchsia-300 font-bold">✏️ Để điểm bình thường & tự chỉnh theo ý bạn</span>
                 </div>
-                <h5 class="font-bold text-white text-sm">🎯 Bot Tự Động Thắng 100% Đấu Trường, Nhãn Thần Đáp Án & Hack Điểm</h5>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <h5 class="font-bold text-white text-sm">🎯 Tự Chỉnh Điểm Đấu Trường (Điểm Hiện Tại, Kỷ Lục, Combo) & Nhãn Thần</h5>
+                <p class="text-[11px] text-slate-300">Điểm mặc định được giữ tự nhiên (không tự động bơm hàng triệu điểm ảo). Bạn muốn bao nhiêu điểm thì tự gõ vào ô dưới rồi bấm Lưu:</p>
+                <div class="grid grid-cols-3 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-mono text-cyan-300 uppercase font-bold">Điểm Hiện Tại</label>
+                    <input type="number" id="supCheatCurrentScoreInput" value="80" min="0" class="w-full px-2.5 py-1.5 rounded-xl text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-mono text-amber-300 uppercase font-bold">Điểm Kỷ Lục</label>
+                    <input type="number" id="supCheatScoreInput" value="250" min="0" class="w-full px-2.5 py-1.5 rounded-xl text-xs" />
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-mono text-rose-300 uppercase font-bold">Chuỗi Combo</label>
+                    <input type="number" id="supCheatStreakInput" value="6" min="0" class="w-full px-2.5 py-1.5 rounded-xl text-xs" />
+                  </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <button type="button" onclick="supremeApplyCustomArenaScore()" class="flex-1 px-3 py-2 rounded-xl bg-gradient-to-r from-amber-300 to-orange-400 hover:from-amber-200 hover:to-orange-300 text-slate-950 font-extrabold text-xs shadow">✏️ Lưu Điểm Đấu Trường (Cập Nhật Ngay)</button>
+                  <button type="button" onclick="supremeResetArenaScoreToDefault()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-bold text-xs">🔄 Về Mặc Định (0 / 120đ)</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-slate-800">
                   <button type="button" id="supToggleAutoBotBtn" onclick="supremeToggleArenaAutoBot()" class="px-3 py-2 rounded-xl bg-fuchsia-500/25 hover:bg-fuchsia-500/45 border border-fuchsia-400 text-fuchsia-200 font-extrabold text-xs transition text-left">🤖 Bot Tự Giải Đúng 100%: TẮT</button>
                   <button type="button" id="supToggleWallhackBtn" onclick="supremeToggleQuizWallhack()" class="px-3 py-2 rounded-xl bg-amber-500/25 hover:bg-amber-500/45 border border-amber-400 text-amber-200 font-extrabold text-xs transition text-left">👁️ Nhãn Thần Hiện Đáp Án: TẮT</button>
                 </div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <div class="flex-1 min-w-[120px]">
-                    <label class="block text-[10px] font-mono text-slate-400 uppercase">Điểm Kỷ Lục Muốn Bơm</label>
-                    <input type="number" id="supCheatScoreInput" value="9999999" class="w-full px-2.5 py-1.5 rounded-xl text-xs" />
-                  </div>
-                  <div class="w-28">
-                    <label class="block text-[10px] font-mono text-slate-400 uppercase">Combo Thắng</label>
-                    <input type="number" id="supCheatStreakInput" value="999" class="w-full px-2.5 py-1.5 rounded-xl text-xs" />
-                  </div>
-                  <button type="button" onclick="supremeApplyCustomArenaScore()" class="mt-4 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-300 to-rose-500 text-slate-950 font-extrabold text-xs shadow">💎 Bơm Điểm Ngay</button>
-                </div>
                 <div class="flex flex-wrap items-center gap-1.5">
                   <button type="button" onclick="supremeInstantCompleteAllLessons()" class="px-2.5 py-1 rounded-lg bg-emerald-500/25 border border-emerald-400 text-emerald-200 font-bold text-[11px]">✅ Hoàn Thành 100% Tất Cả Bài Học</button>
-                  <button type="button" onclick="supremeInstantSolveMatchGame()" class="px-2.5 py-1 rounded-lg bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold text-[11px]">🧩 Tự Ghép Xong 100% Cặp Thơ</button>
+                  <button type="button" onclick="supremeInstantSolveMatchGame()" class="px-2.5 py-1 rounded-lg bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold text-[11px]">🧩 Tự Ghép Xong 100% Cặp Thơ (+30đ)</button>
                 </div>
               </div>
 
@@ -13249,8 +13290,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         'Pháp Tắc Cấp I', 'Pháp Tắc Cấp II', 'Pháp Tắc Tối Cao', 'Pháp Tắc Vĩnh Hằng', 'Đấng Tối Cao Tuyệt Đối'
       ]
     },
-    { id: 'cat_god_lixi', index: 31, icon: '🧧', name: '31. [SIÊU QUYỀN] Mưa Lì Xì Điểm 10 & Vòng Quay Thần Tài (3001-3100)', shortName: '🧧 Mưa Lì Xì & Vòng Quay (100)', desc: 'Thực thi ngay: Phát cơn mưa bao lì xì đỏ vàng (+10.000đ) lên mọi máy & mở Vòng Quay Thần Tài 12A2',
-      baseNames: ['Phát Cơn Mưa Bao Lì Xì Đỏ Vàng Rơi Khắp Màn Hình Mọi Máy','Tặng Ngay +10.000 Điểm Đấu Trường Khi Học Sinh Bấm Nhận Lì Xì','Hiện Bí Kíp Chinh Phục Điểm 9+ Ngữ Văn Trong Mỗi Bao Lì Xì','Mở Vòng Quay Thần Tài 12A2 Quay Thưởng Điểm Số Ngẫu Nhiên','Gửi Lời Chúc Đỗ Đại Học Nguyện Vọng 1 Từ Đấng Tối Cao','Nhân Đôi Giá Trị Điểm Thưởng Trong Cơn Mưa Lì Xì Hoàng Kim','Kích Hoạt Pháo Hoa Rực Rỡ Khi Học Sinh Mở Trúng Lì Xì Đặc Biệt','Phát Âm Thanh Tiền Vàng Rơi Vui Nhộn Khi Mưa Lì Xì Xuất Hiện','Tự Động Cộng Điểm Lì Xì Vào Kỷ Lục Cao Nhất Của Người Xem','Quay Ngẫu Nhiên Chọn Học Sinh May Mắn Nhận Thưởng Trong Lớp','Tạo Sự Kiện Phát Lộc Đầu Giờ Học Ôn Tập Ngữ Văn 12','Tạo Sự Kiện Phát Thưởng Cuối Buổi Kiểm Tra Trắc Nghiệm','Tùy Chỉnh Tốc Độ Rơi Và Số Lượng Bao Lì Xì Trên Màn Hình','Hiển Thị Huy Hiệu Thần Tài Lớp 12A2 THPT Thới Long','Gửi Quà Tặng Tinh Thần Đặc Biệt Tới Toàn Thể Khối 12','Đồng Bộ Sự Kiện Mưa Lì Xì Qua Đường Truyền Siêu Tốc 0.15s','Bảo Đảm Chỉ Hiện Đúng 1 Lần Khi Admin Phát Lệnh Không Lặp Lại','Cho Phép Thu Hồi Nhanh Toàn Bộ Hiệu Ứng Sự Kiện Khi Cần','Lưu Danh Sách Các Phần Thưởng Đã Phát Vào Nhật Ký Hệ Thống','Siêu Quyền Ban Phát Hồng Ân & Tài Lộc Đấng Tối Cao'],
+    { id: 'cat_god_lixi', index: 31, icon: '🧧', name: '31. [SIÊU QUYỀN] Mưa Lì Xì Điểm 10 & Vòng Quay Thần Tài (3001-3100)', shortName: '🧧 Mưa Lì Xì & Vòng Quay (100)', desc: 'Thực thi ngay: Phát cơn mưa bao lì xì đỏ vàng (+30đ) lên mọi máy & mở Vòng Quay Thần Tài 12A2',
+      baseNames: ['Phát Cơn Mưa Bao Lì Xì Đỏ Vàng Rơi Khắp Màn Hình Mọi Máy','Tặng Ngay +30 Điểm Đấu Trường Khi Học Sinh Bấm Nhận Lì Xì','Hiện Bí Kíp Chinh Phục Điểm 9+ Ngữ Văn Trong Mỗi Bao Lì Xì','Mở Vòng Quay Thần Tài 12A2 Quay Thưởng Điểm Số Ngẫu Nhiên','Gửi Lời Chúc Đỗ Đại Học Nguyện Vọng 1 Từ Đấng Tối Cao','Nhân Đôi Giá Trị Điểm Thưởng Trong Cơn Mưa Lì Xì Hoàng Kim','Kích Hoạt Pháo Hoa Rực Rỡ Khi Học Sinh Mở Trúng Lì Xì Đặc Biệt','Phát Âm Thanh Tiền Vàng Rơi Vui Nhộn Khi Mưa Lì Xì Xuất Hiện','Tự Động Cộng Điểm Lì Xì Vào Kỷ Lục Cao Nhất Của Người Xem','Quay Ngẫu Nhiên Chọn Học Sinh May Mắn Nhận Thưởng Trong Lớp','Tạo Sự Kiện Phát Lộc Đầu Giờ Học Ôn Tập Ngữ Văn 12','Tạo Sự Kiện Phát Thưởng Cuối Buổi Kiểm Tra Trắc Nghiệm','Tùy Chỉnh Tốc Độ Rơi Và Số Lượng Bao Lì Xì Trên Màn Hình','Hiển Thị Huy Hiệu Thần Tài Lớp 12A2 THPT Thới Long','Gửi Quà Tặng Tinh Thần Đặc Biệt Tới Toàn Thể Khối 12','Đồng Bộ Sự Kiện Mưa Lì Xì Qua Đường Truyền Siêu Tốc 0.15s','Bảo Đảm Chỉ Hiện Đúng 1 Lần Khi Admin Phát Lệnh Không Lặp Lại','Cho Phép Thu Hồi Nhanh Toàn Bộ Hiệu Ứng Sự Kiện Khi Cần','Lưu Danh Sách Các Phần Thưởng Đã Phát Vào Nhật Ký Hệ Thống','Siêu Quyền Ban Phát Hồng Ân & Tài Lộc Đấng Tối Cao'],
       modifiers: ['Lộc Xuân Cấp I', 'Lộc Vàng Cấp II', 'Đại Cát Cấp III', 'Thần Tài Hoàng Kim', 'Hồng Ân Đấng Tối Cao']
     },
     { id: 'cat_god_broadcast', index: 32, icon: '📢', name: '32. [SIÊU QUYỀN] Đài Phát Thanh Học Đường & Chuông Trường (3101-3200)', shortName: '📢 Đài Phát Thanh & Chuông (100)', desc: 'Thực thi ngay: Cập nhật dòng chữ chạy khẩn cấp trên đỉnh web, rung chuông vào học/ra chơi & đếm ngược thi THPT',
@@ -13278,7 +13319,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       modifiers: ['Pháp Khí Cấp I', 'Pháp Khí Cấp II', 'Pháp Khí Hoàng Kim', 'Pháp Khí Thần Thoại', 'Vương Miện Đấng Tối Cao']
     },
     { id: 'cat_god_whisper', index: 38, icon: '🎁', name: '38. [SIÊU QUYỀN] Truyền Âm Mật Chỉ & Tặng Điểm Từ Xa (3701-3800)', shortName: '🎁 Truyền Âm & Tặng Điểm (100)', desc: 'Thực thi ngay: Gửi lời khen ngợi kèm phần thưởng +10.000 điểm trực tiếp tới màn hình học sinh đang xem web',
-      baseNames: ['Gửi Mật Chỉ Khen Ngợi Kèm +10.000 Điểm Tới Màn Hình Học Sinh','Hiển Thị Hộp Quà Vinh Danh Rực Rỡ Khi Học Sinh Nhận Điểm Thưởng','Tự Động Cộng Điểm Thưởng Từ Xa Vào Hồ Sơ Đấu Trường Của Khách','Phát Âm Thanh Thăng Cấp Vui Nhộn Khi Nhận Quà Từ Đấng Tối Cao','Gửi Lời Động Viên Tinh Thần Học Tập Trước Kỳ Thi Tốt Nghiệp','Triệu Hồi Hiệu Ứng Mưa Sao Vàng Khi Đấng Tối Cao Ban Thưởng','Gửi Gợi Ý Đáp Án Đặc Biệt Cho Các Học Sinh Đang Ở Đấu Trường','Thông Báo Danh Tính Đấng Tối Cao Nguyễn Nhựt Trường Ban Thưởng','Đảm Bảo Hộp Quà Chỉ Hiện Đúng 1 Lần Trực Tiếp Không Gây Phiền','Cho Phép Học Sinh Bấm Nhận Quà Và Đóng Hộp Thoại Ngay Lập Tức','Ghi Nhận Lịch Sử Ban Thưởng Vào Bảng Tình Báo Trung Tâm','Tăng Cường Sự Hứng Thú Học Tập Cho Toàn Thể Lớp 12A2','Kết Nối Tương Tác Hai Chiều Giữa Admin Và Người Xem Web','Tùy Chỉnh Nội Dung Lời Khen Và Số Điểm Thưởng Theo Ý Muốn','Phát Sóng Tín Hiệu Ban Thưởng Qua Kênh Thời Gian Thực 0.2s','Tạo Bất Ngờ Thú Vị Cho Bạn Bè Đang Cùng Mở Trang Web','Khẳng Định Uy Quyền Và Sự Hào Phóng Của Quản Trị Viên Tối Cao','Đồng Bộ Kỷ Lục Điểm Mới Ngay Sau Khi Nhận Thưởng','Hỗ Trợ Hiển Thị Tuyệt Đẹp Trên Mọi Dòng Điện Thoại iOS/Android','Siêu Quyền Truyền Âm Nhập Mật & Ban Thưởng Tối Thượng'],
+      baseNames: ['Gửi Mật Chỉ Khen Ngợi Kèm +30 Điểm Tới Màn Hình Học Sinh','Hiển Thị Hộp Quà Vinh Danh Rực Rỡ Khi Học Sinh Nhận Điểm Thưởng','Tự Động Cộng Điểm Thưởng Từ Xa Vào Hồ Sơ Đấu Trường Của Khách','Phát Âm Thanh Thăng Cấp Vui Nhộn Khi Nhận Quà Từ Đấng Tối Cao','Gửi Lời Động Viên Tinh Thần Học Tập Trước Kỳ Thi Tốt Nghiệp','Triệu Hồi Hiệu Ứng Mưa Sao Vàng Khi Đấng Tối Cao Ban Thưởng','Gửi Gợi Ý Đáp Án Đặc Biệt Cho Các Học Sinh Đang Ở Đấu Trường','Thông Báo Danh Tính Đấng Tối Cao Nguyễn Nhựt Trường Ban Thưởng','Đảm Bảo Hộp Quà Chỉ Hiện Đúng 1 Lần Trực Tiếp Không Gây Phiền','Cho Phép Học Sinh Bấm Nhận Quà Và Đóng Hộp Thoại Ngay Lập Tức','Ghi Nhận Lịch Sử Ban Thưởng Vào Bảng Tình Báo Trung Tâm','Tăng Cường Sự Hứng Thú Học Tập Cho Toàn Thể Lớp 12A2','Kết Nối Tương Tác Hai Chiều Giữa Admin Và Người Xem Web','Tùy Chỉnh Nội Dung Lời Khen Và Số Điểm Thưởng Theo Ý Muốn','Phát Sóng Tín Hiệu Ban Thưởng Qua Kênh Thời Gian Thực 0.2s','Tạo Bất Ngờ Thú Vị Cho Bạn Bè Đang Cùng Mở Trang Web','Khẳng Định Uy Quyền Và Sự Hào Phóng Của Quản Trị Viên Tối Cao','Đồng Bộ Kỷ Lục Điểm Mới Ngay Sau Khi Nhận Thưởng','Hỗ Trợ Hiển Thị Tuyệt Đẹp Trên Mọi Dòng Điện Thoại iOS/Android','Siêu Quyền Truyền Âm Nhập Mật & Ban Thưởng Tối Thượng'],
       modifiers: ['Mật Chỉ Cấp I', 'Mật Chỉ Cấp II', 'Mật Chỉ Hoàng Kim', 'Mật Chỉ Tối Thượng', 'Thánh Ân Đấng Tối Cao']
     },
     { id: 'cat_god_spotlight', index: 39, icon: '🔦', name: '39. [SIÊU QUYỀN] Thao Túng Ánh Sáng, Đèn Pin & Vũ Trường (3801-3900)', shortName: '🔦 Đèn Pin & Vũ Trường (100)', desc: 'Thực thi ngay: Tắt đèn toàn trường soi đèn pin theo ngón tay/chuột, bật Vũ Trường Neon Disco & báo động đỏ',
@@ -13470,20 +13511,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       dynCss += `#modalLessonBody { background-color: #fdf6e3 !important; color: #3b2314 !important; font-size: ${15 + l11}px !important; }\n`;
     }
 
-    // Cat 7: Arena God-Mode
-    const a0 = isAnyInGroupActive(7, 0);
-    const a1 = isAnyInGroupActive(7, 1);
-    const a2 = isAnyInGroupActive(7, 2);
-    if (a2 >= 0 || a1 >= 0 || a0 >= 0) {
-      const targetScore = a2 >= 0 ? 99999 : (a1 >= 0 ? 9999 : 1000);
-      const hsEl = document.getElementById('statHighScore');
-      if (hsEl && Number(hsEl.textContent || 0) < targetScore) {
-        hsEl.textContent = String(targetScore);
-      }
-      const arenaScoreEl = document.getElementById('quizCurrentScore');
-      if (arenaScoreEl && Number(arenaScoreEl.textContent || 0) < targetScore) {
-        arenaScoreEl.textContent = String(targetScore);
-      }
+    // Cat 7: Arena God-Mode (Do NOT auto-inflate score to fake numbers; only apply user's explicit customArenaScore if set)
+    if (SITE_SETTINGS && SITE_SETTINGS.customArenaScore && typeof window.applyCustomArenaScoreFromSettings === 'function') {
+      try { window.applyCustomArenaScoreFromSettings(); } catch (e) {}
+    }
+    if (typeof window.renderSupremeLeaderboardFromSettings === 'function') {
+      try { window.renderSupremeLeaderboardFromSettings(); } catch (e) {}
     }
 
     // Cat 9: Royal Decree Crown & Badges
@@ -13693,8 +13726,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         window.supremeInstantCompleteAllLessons?.();
       } else if (c === 43) {
         window.supremeToggleQuizWallhack?.(true);
-        window.supremeApplyCustomArenaScore?.();
-      } else if (c === 44) {
+              } else if (c === 44) {
         if (typeof openLessonModal === 'function') openLessonModal(6);
       } else if (c === 45) {
         if (typeof openLessonModal === 'function') openLessonModal((b % 9) + 1);
@@ -13976,8 +14008,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     ];
     vipCodes.forEach(c => { map[c] = true; });
     try { window.supremeToggleTopLeaderboard?.(true); } catch (e) {}
-    try { window.supremeApplyCustomArenaScore?.(); } catch (e) {}
-    try { window.supremeInstantCompleteAllLessons?.(); } catch (e) {}
+        try { window.supremeInstantCompleteAllLessons?.(); } catch (e) {}
     applySupreme1000PermissionsEngine();
     renderSupreme1000AdminPanel();
     triggerSupremeRoyalFireworks();
@@ -14598,10 +14629,37 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   const NTFY_REALTIME_TOPIC = 'thoilong_van12_supreme_cmd_v20_dztruong35';
   let _lastRemoteCmdBlobSha = '';
 
+  function applyPiggybackedPersistentWidgets(cmd) {
+    if (!cmd || typeof cmd !== 'object') return;
+    const lb = cmd.leaderboardConfig || cmd.latestLeaderboard;
+    if (lb && typeof lb === 'object') {
+      SITE_SETTINGS.leaderboardConfig = lb;
+      SITE_SETTINGS.showSupremeLeaderboard = Boolean(lb.enabled);
+      try { localStorage.setItem('thoilong_live_leaderboard_v40', JSON.stringify(lb)); } catch (e) {}
+      if (typeof window.renderSupremeLeaderboardFromSettings === 'function') {
+        window.renderSupremeLeaderboardFromSettings();
+      }
+    }
+    const sc = cmd.customArenaScore || cmd.latestArenaScore;
+    if (sc && typeof sc === 'object') {
+      SITE_SETTINGS.customArenaScore = sc;
+      try { localStorage.setItem('thoilong_live_arenascore_v40', JSON.stringify(sc)); } catch (e) {}
+      if (typeof window.applyCustomArenaScoreFromSettings === 'function') {
+        window.applyCustomArenaScoreFromSettings();
+      }
+    }
+  }
+
   async function dispatchRemoteCommandToAllDevices(cmdObj, logMsg) {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     cmdObj.cmdId = 'rc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
     cmdObj.issuedAt = Date.now();
+    if (SITE_SETTINGS && SITE_SETTINGS.leaderboardConfig) {
+      cmdObj.latestLeaderboard = SITE_SETTINGS.leaderboardConfig;
+    }
+    if (SITE_SETTINGS && SITE_SETTINGS.customArenaScore) {
+      cmdObj.latestArenaScore = SITE_SETTINGS.customArenaScore;
+    }
     // Never store remoteCommand inside SITE_SETTINGS / site-state.json so page reloads & new tabs never re-trigger it!
     if (SITE_SETTINGS && SITE_SETTINGS.remoteCommand) {
       delete SITE_SETTINGS.remoteCommand;
@@ -14645,8 +14703,10 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           if (wrapper && wrapper.event === 'message' && wrapper.message) {
             const cmd = JSON.parse(wrapper.message);
             if (!cmd || !cmd.cmdId) return;
-            // Ignore any buffered message sent before this tab opened
-            if (Date.now() - sseConnectedAt < 1200) {
+            // Always sync persistent widgets (Leaderboard & Arena Score) immediately!
+            applyPiggybackedPersistentWidgets(cmd);
+            // Ignore any buffered one-time popup/voice sent before this tab opened
+            if (Date.now() - sseConnectedAt < 1200 && cmd.type !== 'sync_leaderboard' && cmd.type !== 'sync_arena_score') {
               markRemoteCmdExecuted(cmd.cmdId);
               return;
             }
@@ -14678,7 +14738,10 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
               const b64Init = await githubFetchBlobBase64BySha(entry.sha);
               if (b64Init) {
                 const cmdInit = JSON.parse(base64ToUtf8(b64Init));
-                if (cmdInit && cmdInit.cmdId) markRemoteCmdExecuted(cmdInit.cmdId);
+                if (cmdInit) {
+                  applyPiggybackedPersistentWidgets(cmdInit);
+                  if (cmdInit.cmdId) markRemoteCmdExecuted(cmdInit.cmdId);
+                }
               }
             } catch (e) {}
             return;
@@ -14690,8 +14753,11 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           const b64 = await githubFetchBlobBase64BySha(entry.sha);
           if (b64) {
             const cmd = JSON.parse(base64ToUtf8(b64));
-            if (cmd && cmd.cmdId && !hasRemoteCmdBeenExecuted(cmd.cmdId)) {
-              executeIncomingRemoteCommand(cmd, false);
+            if (cmd) {
+              applyPiggybackedPersistentWidgets(cmd);
+              if (cmd.cmdId && !hasRemoteCmdBeenExecuted(cmd.cmdId)) {
+                executeIncomingRemoteCommand(cmd, false);
+              }
             }
           }
         }
@@ -14764,6 +14830,19 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       document.getElementById('supremeLiveCinemaModal')?.remove();
       document.getElementById('supremeLivePosterModal')?.remove();
       document.getElementById('supremeLivePopQuizModal')?.remove();
+      return;
+    } else if (cmd.type === 'sync_leaderboard' && cmd.leaderboardConfig) {
+      SITE_SETTINGS.leaderboardConfig = cmd.leaderboardConfig;
+      SITE_SETTINGS.showSupremeLeaderboard = Boolean(cmd.leaderboardConfig.enabled);
+      if (typeof window.renderSupremeLeaderboardFromSettings === 'function') {
+        window.renderSupremeLeaderboardFromSettings();
+      }
+      return;
+    } else if (cmd.type === 'sync_arena_score' && cmd.customArenaScore) {
+      SITE_SETTINGS.customArenaScore = cmd.customArenaScore;
+      if (typeof window.applyCustomArenaScoreFromSettings === 'function') {
+        window.applyCustomArenaScoreFromSettings();
+      }
       return;
     } else if (cmd.type === 'live_video' && cmd.videoUrl) {
       showSupremeLiveCinemaOverlay(cmd.videoUrl, cmd.title || 'Rạp Chiếu Phim Trực Tiếp Từ Đấng Tối Cao');
@@ -14856,7 +14935,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       } else if (cmd.effect === 'school_bell_start' || cmd.effect === 'school_bell_break') {
         triggerSupremeSchoolBellEffect(cmd.effect === 'school_bell_start' ? 'start' : 'break');
       } else if (cmd.effect === 'whisper_reward') {
-        showSupremeWhisperRewardPopup(cmd.msg || '👑 Đấng Tối Cao Nguyễn Nhựt Trường thưởng nóng cho bạn +10.000 Điểm!');
+        showSupremeWhisperRewardPopup(cmd.msg || '👑 Đấng Tối Cao Nguyễn Nhựt Trường thưởng nóng cho bạn +30 Điểm!');
       }
     }
   }
@@ -15130,13 +15209,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   window.supremeInstantSolveMatchGame = function() {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     matchedIds = MATCH_PAIRS.map(p => p.id);
-    quizScore += 5000;
+    quizScore += 30;
     highScore = Math.max(highScore, quizScore);
     if (typeof renderMatchGame === 'function') renderMatchGame();
     if (typeof updateHomeStats === 'function') updateHomeStats();
     supremePlaySoundboardFx('coins');
     appendTerminalLog('CHEAT_ENGINE: Đã tự động ghép đúng 100% tất cả các cặp thơ!', 'text-cyan-300');
-    showToast('🧩 Đã tự động ghép xong 100% các cặp thơ và cộng +5.000 điểm!', '🎉');
+    showToast('🧩 Đã tự động ghép xong 100% các cặp thơ và cộng +30 điểm!', '🎉');
   };
 
   // -------------------- TRẠM 5: BÀN DJ PHÒNG THU & SOUNDBOARD --------------------
@@ -15741,7 +15820,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
   function showSupremeWhisperRewardPopup(msgText) {
     document.getElementById('supremeWhisperRewardModal')?.remove();
-    quizScore = (Number(quizScore) || 0) + 10000;
+    quizScore = (Number(quizScore) || 0) + 30;
     highScore = Math.max(Number(highScore) || 0, quizScore);
     try { localStorage.setItem('thoilong_van12_highscore', String(highScore)); } catch (e) {}
     if (document.getElementById('statHighScore')) document.getElementById('statHighScore').textContent = highScore.toLocaleString('vi-VN');
@@ -15755,7 +15834,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         <div class="text-4xl">🎁</div>
         <div class="inline-block px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-extrabold uppercase">👑 PHẦN THƯỞNG TRỰC TIẾP TỪ ADMIN 12A2</div>
         <p class="text-sm sm:text-base font-bold text-amber-200 leading-relaxed">${String(msgText).replace(/</g, '&lt;')}</p>
-        <div class="text-xs font-mono text-emerald-300 font-extrabold">💎 Đã cộng ngay +10.000 Điểm vào Kỷ lục Đấu Trường của bạn!</div>
+        <div class="text-xs font-mono text-emerald-300 font-extrabold">💎 Đã cộng ngay +30 Điểm vào Kỷ lục Đấu Trường của bạn!</div>
         <button type="button" onclick="document.getElementById('supremeWhisperRewardModal')?.remove()" class="px-6 py-2 rounded-2xl bg-gradient-to-r from-amber-300 to-orange-500 text-slate-950 font-extrabold text-xs shadow">👑 Cảm Ơn Đấng Tối Cao!</button>
       </div>
     `;
@@ -15765,9 +15844,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   }
 
   window.supremeBroadcastWhisperReward = function() {
-    const msg = (document.getElementById('supWhisperMsgInput')?.value || '👑 Đấng Tối Cao Nguyễn Nhựt Trường khen ngợi tinh thần học tập của bạn! (+10.000 Điểm)').trim();
-    dispatchRemoteCommandToAllDevices({ type: 'fx', effect: 'whisper_reward', msg }, `Gửi phần thưởng +10.000đ tới mọi máy: "${msg.slice(0, 35)}..."`);
-    showToast('🎁 Đã gửi Hộp Quà Vinh Danh +10.000 Điểm tới mọi thiết bị đang mở web!', '🎁');
+    const msg = (document.getElementById('supWhisperMsgInput')?.value || '👑 Đấng Tối Cao Nguyễn Nhựt Trường khen ngợi tinh thần học tập của bạn! (+30 Điểm)').trim();
+    dispatchRemoteCommandToAllDevices({ type: 'fx', effect: 'whisper_reward', msg }, `Gửi phần thưởng +30đ tới mọi máy: "${msg.slice(0, 35)}..."`);
+    showToast('🎁 Đã gửi Hộp Quà Vinh Danh +30 Điểm tới mọi thiết bị đang mở web!', '🎁');
   };
 
   window.supremeAddOrUpdateLeaderboardEntry = async function() {
@@ -15840,10 +15919,10 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
   function triggerSupremeRedEnvelopeRain() {
     const tips = [
-      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+10.000 Điểm): Bí kíp Tây Tiến — Nhớ phân tích sự kết hợp giữa bút pháp lãng mạn và tinh thần bi tráng!',
-      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+10.000 Điểm): Bí kíp Số Đỏ — Nắm chắc tình huống nghịch lý "cố tình đánh thua để cứu quốc"!',
-      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+10.000 Điểm): Bí kíp Tuyên Ngôn Độc Lập — Trích dẫn 2 bản tuyên ngôn Mỹ & Pháp theo phép "gậy ông đập lưng ông"!',
-      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+10.000 Điểm): Chúc bạn thi tốt nghiệp THPT môn Ngữ văn bứt phá 9.5+ cùng lớp 12A2 THPT Thới Long!'
+      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+30 Điểm): Bí kíp Tây Tiến — Nhớ phân tích sự kết hợp giữa bút pháp lãng mạn và tinh thần bi tráng!',
+      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+30 Điểm): Bí kíp Số Đỏ — Nắm chắc tình huống nghịch lý "cố tình đánh thua để cứu quốc"!',
+      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+30 Điểm): Bí kíp Tuyên Ngôn Độc Lập — Trích dẫn 2 bản tuyên ngôn Mỹ & Pháp theo phép "gậy ông đập lưng ông"!',
+      '🧧 LÌ XÌ ĐẤNG TỐI CAO (+30 Điểm): Chúc bạn thi tốt nghiệp THPT môn Ngữ văn bứt phá 9.5+ cùng lớp 12A2 THPT Thới Long!'
     ];
     showToast('🧧 CƠN MƯA BAO LÌ XÌ HOÀNG KIM TỪ ADMIN NGUYỄN NHỰT TRƯỜNG! Hãy bấm vào bao lì xì đang rơi để nhận +10.000 điểm!', '🧧');
     supremePlaySoundboardFx('coins');
@@ -15880,7 +15959,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       '👑 Độc Đắc: +99.999 Điểm & Danh Hiệu Thủ Khoa 12A2!',
       '💎 Giải Nhất: +50.000 Điểm & Bí Kíp Mở Bài Lý Luận 9.5+!',
       '🌟 Giải Nhì: +25.000 Điểm & Lời Chúc Điểm 10 Từ Admin!',
-      '🔥 Giải Ba: +10.000 Điểm & Chuỗi Thắng Bất Bại x50!',
+      '🔥 Giải Ba: +30 Điểm & Chuỗi Thắng Bất Bại x50!',
       '🧧 Lộc Vàng: +15.000 Điểm & Trọn Bộ Sơ Đồ Tư Duy 9 Bài!'
     ];
     const el = document.createElement('div');
@@ -15908,7 +15987,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       setTimeout(() => {
         const pick = prizes[Math.floor(Math.random() * prizes.length)];
         if (resTxt) resTxt.textContent = pick;
-        quizScore = (Number(quizScore) || 0) + 50000;
+        quizScore = (Number(quizScore) || 0) + 50;
         highScore = Math.max(Number(highScore) || 0, quizScore);
         if (document.getElementById('statHighScore')) document.getElementById('statHighScore').textContent = highScore.toLocaleString('vi-VN');
         supremePlaySoundboardFx('fanfare');
@@ -16100,8 +16179,7 @@ Khép lại những trang viết đầy ám ảnh nghệ thuật, ta càng thấ
   window.supremeActivateUltimateOmnipotentCombo = async function() {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
     window.supremeToggleTopLeaderboard?.(true);
-    window.supremeApplyCustomArenaScore?.();
-    window.supremeInstantCompleteAllLessons?.();
+        window.supremeInstantCompleteAllLessons?.();
     window.supremeToggleQuizWallhack?.(true);
     window.supremeInjectLiteraryTheoryVault?.();
     window.supremeInstantGradeEssay10Points?.();
@@ -16122,6 +16200,282 @@ Khép lại những trang viết đầy ám ảnh nghệ thuật, ta càng thấ
       showToast('✅ Đã đồng bộ 100% dữ liệu lên kho đám mây GitHub thành công!', '☁️');
     }
   };
+
+  // ==================== REAL-TIME LEADERBOARD & NATURAL ARENA SCORE ENGINE (0.15S SYNC ACROSS ALL PHONES) ====================
+  const DEFAULT_NATURAL_LEADERBOARD_ITEMS = [
+    { rank: '👑 TOP 1', name: 'Nguyễn Nhựt Trường (Lớp 12A2)', score: '350 Điểm', streak: '🔥 12 Combo', badge: '👑 Thủ Khoa Khối 12 ✓', highlight: true },
+    { rank: '🥈 TOP 2', name: 'Trần Ngọc Minh Châu (Lớp 12A1)', score: '310 Điểm', streak: '🔥 10 Combo', badge: '🌟 Học Sinh Giỏi Văn ✓', highlight: false },
+    { rank: '🥉 TOP 3', name: 'Lê Hoàng Tuấn Kiệt (Lớp 12A2)', score: '280 Điểm', streak: '🔥 9 Combo', badge: '💎 Chiến Thần 12A2 ✓', highlight: false },
+    { rank: '🏅 TOP 4', name: 'Nguyễn Phương Thảo (Lớp 12A3)', score: '240 Điểm', streak: '🔥 7 Combo', badge: '🌸 Tinh Hoa Ngữ Văn', highlight: false },
+    { rank: '🏅 TOP 5', name: 'Võ Quốc Bảo (Lớp 12A5)', score: '210 Điểm', streak: '🔥 6 Combo', badge: '⚡ Kiện Tướng Giải Đề', highlight: false }
+  ];
+
+  // Clean up any old fake million-point score left in localStorage unless Admin explicitly saved a customArenaScore
+  function sanitizeLegacyFakeArenaScoresOnBoot() {
+    try {
+      const savedCustom = SITE_SETTINGS && SITE_SETTINGS.customArenaScore;
+      if (savedCustom && typeof savedCustom === 'object') {
+        window.applyCustomArenaScoreFromSettings();
+        return;
+      }
+      const rawHs = Number(localStorage.getItem('thoilong_van12_highscore') || 120);
+      if (rawHs > 2000 || quizScore > 2000) {
+        highScore = 120;
+        quizScore = 0;
+        quizStreak = 0;
+        localStorage.setItem('thoilong_van12_highscore', '120');
+      }
+      const hsEl = document.getElementById('statHighScore');
+      if (hsEl) hsEl.textContent = String(highScore || 120);
+      const curEl = document.getElementById('quizCurrentScore');
+      if (curEl) curEl.textContent = String(quizScore || 0);
+      const stEl = document.getElementById('quizStreakBadge');
+      if (stEl) stEl.textContent = `🔥 Combo: ${quizStreak || 0}`;
+    } catch (e) {}
+  }
+
+  window.applyCustomArenaScoreFromSettings = function() {
+    const cfg = SITE_SETTINGS && SITE_SETTINGS.customArenaScore;
+    if (!cfg || typeof cfg !== 'object') return;
+    const cur = Math.max(0, Number(cfg.current) || 0);
+    const hi = Math.max(cur, Number(cfg.high) || 120);
+    const st = Math.max(0, Number(cfg.streak) || 0);
+    quizScore = cur;
+    highScore = hi;
+    quizStreak = st;
+    try { localStorage.setItem('thoilong_van12_highscore', String(highScore)); } catch (e) {}
+    const hsEl = document.getElementById('statHighScore');
+    if (hsEl) hsEl.textContent = hi.toLocaleString('vi-VN');
+    const curEl = document.getElementById('quizCurrentScore');
+    if (curEl) curEl.textContent = cur.toLocaleString('vi-VN');
+    const stEl = document.getElementById('quizStreakBadge');
+    if (stEl) stEl.textContent = `🔥 Combo: ${st}`;
+
+    // Sync input boxes in Trạm 4
+    const inpCur = document.getElementById('supCheatCurrentScoreInput');
+    if (inpCur && document.activeElement !== inpCur) inpCur.value = String(cur);
+    const inpHi = document.getElementById('supCheatScoreInput');
+    if (inpHi && document.activeElement !== inpHi) inpHi.value = String(hi);
+    const inpSt = document.getElementById('supCheatStreakInput');
+    if (inpSt && document.activeElement !== inpSt) inpSt.value = String(st);
+  };
+
+  window.supremeApplyCustomArenaScore = async function() {
+    if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
+    const curVal = parseInt(document.getElementById('supCheatCurrentScoreInput')?.value, 10);
+    const hiVal = parseInt(document.getElementById('supCheatScoreInput')?.value, 10);
+    const stVal = parseInt(document.getElementById('supCheatStreakInput')?.value, 10);
+    const cur = Number.isFinite(curVal) ? Math.max(0, curVal) : 80;
+    const hi = Number.isFinite(hiVal) ? Math.max(cur, hiVal) : Math.max(cur, 250);
+    const st = Number.isFinite(stVal) ? Math.max(0, stVal) : 6;
+
+    SITE_SETTINGS.customArenaScore = { current: cur, high: hi, streak: st };
+    window.applyCustomArenaScoreFromSettings();
+    supremePlaySoundboardFx('levelup');
+    await dispatchRemoteCommandToAllDevices(
+      { type: 'sync_arena_score', customArenaScore: SITE_SETTINGS.customArenaScore },
+      `Cập nhật Điểm Đấu Trường: Hiện tại ${cur}đ • Kỷ lục ${hi}đ • Combo ${st}`
+    );
+    if (typeof saveAdminSiteState === 'function') {
+      saveAdminSiteState(true, `Chỉnh điểm Đấu Trường: ${cur}đ / Kỷ lục ${hi}đ`).catch(() => {});
+    }
+    showToast(`✅ Đã lưu Điểm Đấu Trường (Hiện tại: ${cur}đ • Kỷ lục: ${hi}đ • Combo: ${st}) và cập nhật ngay trên mọi máy!`, '🎯');
+  };
+
+  window.supremeResetArenaScoreToDefault = async function() {
+    if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
+    SITE_SETTINGS.customArenaScore = { current: 0, high: 120, streak: 0 };
+    window.applyCustomArenaScoreFromSettings();
+    await dispatchRemoteCommandToAllDevices(
+      { type: 'sync_arena_score', customArenaScore: SITE_SETTINGS.customArenaScore },
+      'Đặt lại Điểm Đấu Trường về mặc định (0 / 120 điểm)'
+    );
+    if (typeof saveAdminSiteState === 'function') {
+      saveAdminSiteState(true, 'Đặt lại Điểm Đấu Trường về mặc định (0 / 120đ)').catch(() => {});
+    }
+    showToast('🔄 Đã đặt lại Điểm Đấu Trường về bình thường (Điểm hiện tại: 0 • Kỷ lục: 120 điểm)!', '🔄');
+  };
+
+  function getEffectiveLeaderboardConfig() {
+    if (SITE_SETTINGS && SITE_SETTINGS.leaderboardConfig && Array.isArray(SITE_SETTINGS.leaderboardConfig.items)) {
+      return SITE_SETTINGS.leaderboardConfig;
+    }
+    return {
+      enabled: Boolean(SITE_SETTINGS && SITE_SETTINGS.showSupremeLeaderboard),
+      items: JSON.parse(JSON.stringify(DEFAULT_NATURAL_LEADERBOARD_ITEMS))
+    };
+  }
+
+  function syncLeaderboardInputsFromConfig() {
+    const cfg = getEffectiveLeaderboardConfig();
+    (cfg.items || []).forEach((item, idx) => {
+      const nEl = document.getElementById(`supLbName_${idx}`);
+      const sEl = document.getElementById(`supLbScore_${idx}`);
+      const cEl = document.getElementById(`supLbStreak_${idx}`);
+      if (nEl && document.activeElement !== nEl) nEl.value = item.name || '';
+      if (sEl && document.activeElement !== sEl) sEl.value = item.score || '';
+      if (cEl && document.activeElement !== cEl) cEl.value = item.streak || '';
+    });
+  }
+
+  function readLeaderboardItemsFromInputs() {
+    const base = JSON.parse(JSON.stringify(DEFAULT_NATURAL_LEADERBOARD_ITEMS));
+    return base.map((item, idx) => {
+      const nVal = (document.getElementById(`supLbName_${idx}`)?.value || '').trim();
+      const sVal = (document.getElementById(`supLbScore_${idx}`)?.value || '').trim();
+      const cVal = (document.getElementById(`supLbStreak_${idx}`)?.value || '').trim();
+      return {
+        ...item,
+        name: nVal || item.name,
+        score: sVal || item.score,
+        streak: cVal || item.streak
+      };
+    });
+  }
+
+  window.supremeResetLeaderboardToNaturalDefaults = function() {
+    DEFAULT_NATURAL_LEADERBOARD_ITEMS.forEach((item, idx) => {
+      const nEl = document.getElementById(`supLbName_${idx}`);
+      const sEl = document.getElementById(`supLbScore_${idx}`);
+      const cEl = document.getElementById(`supLbStreak_${idx}`);
+      if (nEl) nEl.value = item.name;
+      if (sEl) sEl.value = item.score;
+      if (cEl) cEl.value = item.streak;
+    });
+    showToast('🔄 Đã điền bộ điểm tự nhiên (210 → 350 điểm) vào 5 hạng! Bấm [Bật / Cập Nhật Bảng Xếp Hạng] để áp dụng ngay!', '🏆');
+  };
+
+  window.renderSupremeLeaderboardFromSettings = function() {
+    const cfg = getEffectiveLeaderboardConfig();
+    syncLeaderboardInputsFromConfig();
+    if (!cfg.enabled) {
+      document.getElementById('supremeHallOfFameLeaderboard')?.remove();
+      document.getElementById('supremeHallOfFameHomeClone')?.remove();
+      return;
+    }
+    const items = Array.isArray(cfg.items) && cfg.items.length ? cfg.items : DEFAULT_NATURAL_LEADERBOARD_ITEMS;
+    const buildHtml = () => `
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-amber-400/30 pb-3">
+        <div>
+          <span class="px-3 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">🏆 BẢNG VÀNG DANH DỰ • THPT THỚI LONG</span>
+          <h3 class="font-literary text-lg sm:text-xl font-bold text-amber-300 mt-1">👑 Bảng Xếp Hạng Chiến Thần Ngữ Văn 12 — Khối 12</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono text-emerald-300 font-bold">🟢 Đồng bộ trực tiếp</span>
+          ${window.isAdminLoggedIn ? `<button type="button" onclick="openAdminDashboardModal('supreme1000')" class="px-2.5 py-1 rounded-lg bg-amber-400/20 hover:bg-amber-400/40 border border-amber-400 text-amber-200 text-[11px] font-bold">✏️ Sửa Điểm</button>` : ''}
+        </div>
+      </div>
+      <div class="space-y-2">
+        ${items.map(item => `
+          <div class="p-3 rounded-2xl border ${item.highlight ? 'bg-gradient-to-r from-amber-500/25 via-yellow-500/15 to-rose-500/25 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.25)]' : 'bg-slate-900/90 border-slate-800'} flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-1 rounded-xl ${item.highlight ? 'bg-amber-400 text-slate-950' : 'bg-slate-800 text-amber-200'} font-mono text-xs font-extrabold">${item.rank}</span>
+              <div>
+                <div class="font-extrabold ${item.highlight ? 'text-amber-200 text-sm sm:text-base' : 'text-white text-xs sm:text-sm'}">${String(item.name || '').replace(/</g, '&lt;')}</div>
+                <div class="text-[11px] text-cyan-300 font-semibold">${String(item.badge || '').replace(/</g, '&lt;')}</div>
+              </div>
+            </div>
+            <div class="text-right font-mono">
+              <div class="font-extrabold ${item.highlight ? 'text-amber-300 text-sm sm:text-base' : 'text-emerald-300 text-xs'}">${String(item.score || '').replace(/</g, '&lt;')}</div>
+              <div class="text-[10px] text-rose-300">${String(item.streak || '').replace(/</g, '&lt;')}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // 1. Render in #tab-arena
+    let board = document.getElementById('supremeHallOfFameLeaderboard');
+    if (!board) {
+      board = document.createElement('div');
+      board.id = 'supremeHallOfFameLeaderboard';
+      board.className = 'my-6 p-5 rounded-3xl bg-gradient-to-b from-[#1e0b04] via-slate-950 to-[#090402] border-2 border-amber-400 shadow-[0_0_45px_rgba(251,191,36,0.3)] space-y-4';
+      const arenaSec = document.getElementById('tab-arena') || document.querySelector('main');
+      if (arenaSec) arenaSec.insertBefore(board, arenaSec.firstChild);
+    }
+    board.innerHTML = buildHtml();
+
+    // 2. Render in #tab-home so visitors on the Home page see it immediately too!
+    const homeSec = document.getElementById('tab-home');
+    if (homeSec) {
+      let homeClone = document.getElementById('supremeHallOfFameHomeClone');
+      if (!homeClone) {
+        homeClone = document.createElement('div');
+        homeClone.id = 'supremeHallOfFameHomeClone';
+        homeClone.className = board.className;
+        homeSec.insertBefore(homeClone, homeSec.children[1] || homeSec.firstChild);
+      }
+      homeClone.innerHTML = buildHtml();
+    }
+  };
+
+  window.supremeSaveAndBroadcastLeaderboard = async function(enable = true) {
+    if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
+    const items = readLeaderboardItemsFromInputs();
+    const cfg = { enabled: Boolean(enable), items, updatedAt: Date.now() };
+    SITE_SETTINGS.leaderboardConfig = cfg;
+    SITE_SETTINGS.showSupremeLeaderboard = Boolean(enable);
+
+    // 1. Render immediately on Admin's device
+    window.renderSupremeLeaderboardFromSettings();
+    if (enable) supremePlaySoundboardFx('fanfare');
+
+    // 2. Broadcast in 0.15s to ALL connected phones via ntfy.sh SSE + GitHub zero-cache remote-cmd.json + BroadcastChannel
+    await dispatchRemoteCommandToAllDevices(
+      { type: 'sync_leaderboard', leaderboardConfig: cfg },
+      enable ? `Bật & Cập nhật Bảng Xếp Hạng Chiến Thần (Top 1: ${items[0]?.name} - ${items[0]?.score})` : 'Ẩn Bảng Xếp Hạng Chiến Thần trên mọi máy'
+    );
+
+    // 3. Also persist into site-state.json in background so future visitors see it too
+    if (typeof saveAdminSiteState === 'function') {
+      saveAdminSiteState(true, enable ? 'Cập nhật Bảng Xếp Hạng Chiến Thần 12A2' : 'Ẩn Bảng Xếp Hạng Chiến Thần 12A2').catch(() => {});
+    }
+
+    showToast(
+      enable
+        ? `🏆 Đã bật & đồng bộ tức thì Bảng Xếp Hạng (Top 1: ${items[0]?.name} • ${items[0]?.score}) lên mọi điện thoại!`
+        : '⏸️ Đã ẩn Bảng Xếp Hạng trên toàn bộ thiết bị!',
+      '🏆'
+    );
+  };
+
+  // Override supremeToggleTopLeaderboard & supremeAddOrUpdateLeaderboardEntry to use the new instant 0.15s broadcast engine
+  window.supremeToggleTopLeaderboard = function(show = true) {
+    if (window.isAdminLoggedIn) {
+      window.supremeSaveAndBroadcastLeaderboard(Boolean(show));
+    } else {
+      SITE_SETTINGS.showSupremeLeaderboard = Boolean(show);
+      if (SITE_SETTINGS.leaderboardConfig) SITE_SETTINGS.leaderboardConfig.enabled = Boolean(show);
+      window.renderSupremeLeaderboardFromSettings();
+    }
+  };
+
+  window.supremeAddOrUpdateLeaderboardEntry = function() {
+    window.supremeSaveAndBroadcastLeaderboard(true);
+  };
+
+  // Sanitize fake scores & render Leaderboard on page load
+  setTimeout(() => {
+    try {
+      const savedLb = localStorage.getItem('thoilong_live_leaderboard_v40');
+      if (savedLb && (!SITE_SETTINGS.leaderboardConfig)) {
+        const parsedLb = JSON.parse(savedLb);
+        if (parsedLb && typeof parsedLb === 'object') {
+          SITE_SETTINGS.leaderboardConfig = parsedLb;
+          SITE_SETTINGS.showSupremeLeaderboard = Boolean(parsedLb.enabled);
+        }
+      }
+      const savedSc = localStorage.getItem('thoilong_live_arenascore_v40');
+      if (savedSc && (!SITE_SETTINGS.customArenaScore)) {
+        const parsedSc = JSON.parse(savedSc);
+        if (parsedSc && typeof parsedSc === 'object') {
+          SITE_SETTINGS.customArenaScore = parsedSc;
+        }
+      }
+    } catch (e) {}
+    sanitizeLegacyFakeArenaScoresOnBoot();
+    window.renderSupremeLeaderboardFromSettings();
+  }, 120);
 
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
