@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ngữ Văn THPT Thới Long - Lớp 12 Kết Nối Tri Thức Với Cuộc Sống</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
@@ -608,6 +610,134 @@
     }
     body.admin-mobile-frame-mode header,
     body.admin-mobile-frame-mode main,
+    
+    /* ==================== KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (CUTE x COOL EDITION) ==================== */
+    #examAdminEditModal > div,
+    #examDeleteConfirmModal > div {
+      background: linear-gradient(160deg, #050814 0%, #0b1124 55%, #140b29 100%) !important;
+      color: #f8fafc !important;
+    }
+    #examAdminEditModal input:not([type="file"]):not([type="checkbox"]),
+    #examAdminEditModal select,
+    #examAdminEditModal textarea {
+      background: rgba(15, 23, 42, 0.92) !important;
+      border: 1px solid rgba(34, 211, 238, 0.45) !important;
+      color: #f8fafc !important;
+    }
+    #examAdminEditModal input:not([type="file"]):not([type="checkbox"])::placeholder,
+    #examAdminEditModal textarea::placeholder {
+      color: #94a3b8 !important;
+    }
+    #examAdminEditModal input:not([type="file"]):not([type="checkbox"]):focus,
+    #examAdminEditModal select:focus,
+    #examAdminEditModal textarea:focus {
+      outline: none !important;
+      border-color: #22d3ee !important;
+      box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25) !important;
+    }
+    .exam-hero-banner {
+      background: radial-gradient(circle at 15% 20%, rgba(244, 114, 182, 0.28) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.25) 0%, transparent 45%),
+                  radial-gradient(circle at 50% 90%, rgba(251, 191, 36, 0.22) 0%, transparent 55%),
+                  linear-gradient(135deg, #1b0a1c 0%, #2d1233 38%, #151936 74%, #0f172a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .exam-hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .exam-cute-float {
+      animation: examCuteFloat 3.6s ease-in-out infinite;
+    }
+    @keyframes examCuteFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(1.5deg); }
+    }
+    .exam-card-fancy {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .exam-card-fancy:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 45px -12px rgba(120, 53, 15, 0.22), 0 0 25px rgba(245, 158, 11, 0.18);
+    }
+    .exam-mini-paper {
+      background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
+      background-image: repeating-linear-gradient(transparent, transparent 23px, rgba(217, 119, 6, 0.08) 23px, rgba(217, 119, 6, 0.08) 24px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 4px 14px rgba(15, 23, 42, 0.06);
+    }
+    .exam-dropzone-active {
+      border-color: #06b6d4 !important;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), rgba(244, 114, 182, 0.14)) !important;
+      transform: scale(1.01);
+    }
+    /* Full-Page A4 Exam Sheet Styling */
+    .exam-a4-sheet {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: 20px;
+      padding: 32px 40px;
+      transition: all 0.25s ease;
+      font-family: "Times New Roman", Times, Georgia, serif;
+      line-height: 1.75;
+    }
+    @media (max-width: 640px) {
+      .exam-a4-sheet {
+        padding: 18px 16px;
+        border-radius: 14px;
+      }
+    }
+    .exam-a4-sheet[data-paper-theme="white"] {
+      background: #ffffff;
+      color: #111827;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(203, 213, 225, 0.8);
+    }
+    .exam-a4-sheet[data-paper-theme="vintage"] {
+      background: linear-gradient(180deg, #fdf8ee 0%, #f8eed9 100%);
+      color: #291d12;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(180, 83, 9, 0.35);
+    }
+    .exam-a4-sheet[data-paper-theme="dark"] {
+      background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+      color: #e2e8f0;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(34, 211, 238, 0.35);
+    }
+    .exam-a4-sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+    }
+    .exam-a4-sheet table td,
+    .exam-a4-sheet table th {
+      border: 1px solid rgba(120, 113, 108, 0.45);
+      padding: 8px 12px;
+      vertical-align: top;
+    }
+    .exam-a4-sheet h1, .exam-a4-sheet h2, .exam-a4-sheet h3, .exam-a4-sheet h4 {
+      font-weight: 700;
+      margin-top: 1em;
+      margin-bottom: 0.45em;
+    }
+    .exam-a4-sheet p {
+      margin-bottom: 0.65em;
+    }
+    .exam-pdf-canvas-page {
+      display: block;
+      max-width: 100%;
+      height: auto !important;
+      margin: 0 auto 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      background: #ffffff;
+    }
+
     body.admin-mobile-frame-mode footer {
       max-width: 420px !important;
       margin-left: auto !important;
@@ -710,6 +840,9 @@
           <span>🎵</span><span>Đĩa Nhạc Giải Tỏa</span>
         </button>
         <button type="button" data-tab="ai" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition flex items-center gap-1.5 text-amber-100/80 hover:bg-amber-900/60 hover:text-white"><span aria-hidden="true">✦</span><span>AI · Trường Đẹp Trai</span></button>
+        <button type="button" data-tab="exams" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition flex items-center gap-1.5 text-amber-100/80 hover:bg-amber-900/60 hover:text-white">
+          <span>📄</span><span id="navTabLabel_exams">Đóng Góp Đề Thi</span>
+        </button>
         <button type="button" data-tab="contact" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition flex items-center gap-1.5 text-amber-100/80 hover:bg-amber-900/60 hover:text-white">
           <span>💌</span><span>Tác Giả & Liên Hệ</span>
         </button>
@@ -758,6 +891,7 @@
           <button type="button" id="quickAdminUniversalImgBtn" class="px-2.5 py-1 rounded-lg bg-indigo-500/25 hover:bg-indigo-500/40 border border-indigo-400/70 text-indigo-200 font-extrabold transition">📷 Kho Ảnh</button>
           <button type="button" id="quickAdminAddVideoBtn" class="px-2.5 py-1 rounded-lg bg-red-500/25 hover:bg-red-500/40 border border-red-400/60 text-red-200 font-extrabold transition" title="Gắn video bài giảng vào bài học">🎬 + Video YT</button>
           <button type="button" id="quickAdminAddMusicBtn" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/40 border border-amber-400/40 text-amber-200 font-bold transition">🎵 + Nhạc MP3</button>
+          <button type="button" id="quickAdminExamsBtn" onclick="switchTab('exams')" class="px-2.5 py-1 rounded-lg bg-pink-500/25 hover:bg-pink-500/45 border border-pink-400/70 text-pink-200 font-extrabold transition" title="Quản trị & đóng góp Kho Đề Thi Word/PDF">📄 Kho Đề Thi</button>
           <button type="button" id="quickAdminCommentsBtn" class="px-2.5 py-1 rounded-lg bg-teal-500/20 hover:bg-teal-500/40 border border-teal-400/40 text-teal-200 font-bold transition">💬 Bình Luận</button>
           <button type="button" id="quickAdminGithubConfigBtn" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-extrabold transition shadow-[0_0_14px_rgba(16,185,129,0.45)]" title="Cấu hình GitHub Token & Auto-Commit liên tục lên GitHub">🐙 Kết Nối GitHub Sync</button>
           <button type="button" id="quickAdminAllContentBtn" class="px-3 py-1 rounded-lg bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-500 hover:from-cyan-300 hover:to-purple-400 text-slate-950 font-extrabold transition shadow-[0_0_15px_rgba(0,245,212,0.45)]">👑 Trung Tâm Tối Cao</button>
@@ -1570,6 +1704,314 @@
       </div>
     </section>
 
+    <!-- ==================== TAB MỚI (TRƯỚC TÁC GIẢ): ĐÓNG GÓP & CHIA SẺ ĐỀ THI (WORD / PDF) ==================== -->
+    <section id="tab-exams" class="tab-panel hidden space-y-6">
+      <!-- 1. HERO BANNER SIÊU ĐẸP, DỄ THƯƠNG & NGẦU -->
+      <div class="exam-hero-banner rounded-3xl p-6 sm:p-8 text-white shadow-2xl border border-pink-400/30">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div class="space-y-3.5 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="exam-cute-float inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-pink-500 via-rose-400 to-amber-400 text-slate-950 text-xs font-extrabold shadow-lg">
+                <span>🦊✨</span>
+                <span>TRẠM ĐÓNG GÓP ĐỀ THI • CUTE &amp; COOL STUDIO</span>
+              </span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-300/50 text-cyan-200 text-xs font-mono font-bold">
+                📘 WORD (.DOCX / .DOC) • 📕 PDF (.PDF) • TỐI ĐA ~15MB+
+              </span>
+              <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-300/50 text-amber-200 text-xs font-bold">
+                ⚡ Click vào đề là hiện nguyên trang đề thi chuẩn A4!
+              </span>
+            </div>
+            <h2 class="font-literary text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-white via-amber-200 to-pink-200 bg-clip-text text-transparent">
+              Kho Đóng Góp &amp; Thư Viện Đề Thi Ngữ Văn 12
+            </h2>
+            <p class="text-xs sm:text-sm text-pink-100/90 leading-relaxed">
+              Cùng nhau đóng góp và chia sẻ bộ đề chất lượng nhất: <strong>Đề thi THPT Quốc gia</strong>, <strong>Đề thi 45 phút</strong>, <strong>Đề thi 1 tiết</strong>, <strong>Đề thi 15 phút</strong>, <strong>Đề kiểm tra thường xuyên</strong> và <strong>Đề thi Học kỳ</strong>. Cho phép tải lên tệp Word (.docx, .doc) hoặc PDF (.pdf); khi click vào bất kỳ đề nào sẽ <strong>hiện đầy đủ nguyên trang đề đó lên luôn</strong>!
+            </p>
+            <div class="flex flex-wrap items-center gap-2.5 pt-1">
+              <button type="button" id="examHeroOpenUploadBtn" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-400 via-pink-500 to-purple-500 hover:from-amber-300 hover:to-purple-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow-[0_0_25px_rgba(244,114,182,0.5)] transition flex items-center gap-2">
+                <span>🚀</span>
+                <span>+ Tải File Đề Thi Lên Đóng Góp Ngay</span>
+              </button>
+              <button type="button" id="examHeroRandomReadBtn" class="px-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/25 text-amber-100 font-bold text-xs sm:text-sm backdrop-blur-md transition flex items-center gap-1.5">
+                <span>🎲</span>
+                <span>Mở Ngẫu Nhiên 1 Trang Đề</span>
+              </button>
+              <button type="button" id="examHeroAdminLoginBtn" onclick="openAdminLoginModal()" class="guest-only-item px-3.5 py-2.5 rounded-2xl bg-slate-950/80 hover:bg-slate-900 border border-cyan-400/50 text-cyan-300 font-bold text-xs transition flex items-center gap-1.5">
+                <span>👑</span>
+                <span>Đăng Nhập Quyền Admin</span>
+              </button>
+              <button type="button" id="examHeroOpenAdminPanelBtn" onclick="openAdminDashboardModal('exams')" class="admin-only-item hidden px-4 py-2.5 rounded-2xl bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-extrabold text-xs shadow-lg transition flex items-center gap-1.5">
+                <span>👑</span>
+                <span>Mở Trung Tâm Admin Kho Đề</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Thống Kê Nhanh 4 Ô Cực Xinh (Mặc định 0 đề khi chưa đăng đề nào) -->
+          <div class="grid grid-cols-2 gap-2.5 shrink-0 lg:w-80">
+            <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+              <div class="text-[11px] text-pink-200 font-semibold">📚 Tổng Số Đề Thi</div>
+              <div id="examStatTotalCount" class="text-xl sm:text-2xl font-extrabold text-amber-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-slate-300">Hiện đầy đủ nguyên trang</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+              <div class="text-[11px] text-cyan-200 font-semibold">🎓 THPT Quốc Gia</div>
+              <div id="examStatThptCount" class="text-xl sm:text-2xl font-extrabold text-cyan-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-slate-300">Đề chính thức &amp; đề cũ/mới</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+              <div class="text-[11px] text-emerald-200 font-semibold">⏱️ 45p • 1 Tiết • 15p • TX</div>
+              <div id="examStatMidCount" class="text-xl sm:text-2xl font-extrabold text-emerald-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-slate-300">Đầy đủ các cột điểm</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+              <div class="text-[11px] text-amber-200 font-semibold">🙋 Đề Của Bạn Đăng</div>
+              <div id="examStatMyCount" class="text-xl sm:text-2xl font-extrabold text-pink-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-slate-300">Bạn có quyền tự xoá</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. TRẠM QUYỀN LỰC TỐI CAO ADMIN NGAY TRONG TAB ĐỀ THI (CHỈ HIỆN KHI ĐĂNG NHẬP ADMIN) -->
+      <div id="examAdminSupremeBar" class="admin-only-item hidden p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-slate-950 via-[#150d2a] to-slate-950 border-2 border-cyan-400/80 text-cyan-100 shadow-[0_0_30px_rgba(0,245,212,0.2)] space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-300 via-yellow-400 to-rose-500 text-slate-950 font-mono text-[11px] font-extrabold uppercase">
+              👑 QUYỀN NĂNG TỐI CAO ADMIN // KHO ĐỀ THI
+            </span>
+            <span class="text-xs text-cyan-200 font-semibold">
+              Đấng Tối Cao toàn quyền: Thêm đề mới, Sửa nội dung mọi đề, Thay file Word/PDF, Ghim đỉnh &amp; Xoá bất kỳ đề nào!
+            </span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="examAdminQuickCreateBtn" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-extrabold text-xs shadow transition">
+              ➕ Admin Tạo Đề Mới
+            </button>
+            <button type="button" id="examAdminVerifyAllBtn" class="px-3 py-1.5 rounded-xl bg-amber-500/25 hover:bg-amber-500/40 border border-amber-400/80 text-amber-200 font-extrabold text-xs transition">
+              👑 Đóng Dấu "Chuẩn Admin" Tất Cả
+            </button>
+            <button type="button" id="examAdminClearAllBtn" class="px-3 py-1.5 rounded-xl bg-rose-950 hover:bg-rose-800 border border-rose-500/60 text-rose-200 font-bold text-xs transition">
+              🗑️ Xoá Sạch Kho Đề (Về 0 Đề)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. STUDIO TẢI LÊN & ĐÓNG GÓP ĐỀ THI (WORD .DOCX/.DOC & PDF .PDF TỐI ĐA ~15MB) -->
+      <div id="examContributionStudioCard" class="bg-white rounded-3xl p-5 sm:p-7 shadow-xl border-2 border-amber-200/90 space-y-5 relative overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-amber-100 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-amber-500 to-purple-600 text-white flex items-center justify-center text-2xl shadow-md">
+              📤
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-literary text-lg sm:text-xl font-bold text-stone-900">
+                  Đóng Góp Đề Thi Mới (Tải File Word / PDF Lên Hiện Nguyên Trang Đề)
+                </h3>
+                <span class="px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-800 text-[11px] font-extrabold border border-pink-300">
+                  ✨ Mở tự do cho mọi người cùng đóng góp!
+                </span>
+              </div>
+              <p class="text-xs text-stone-600 mt-0.5">
+                Hỗ trợ tệp <strong>Word (.docx, .doc)</strong> và <strong>PDF (.pdf)</strong> dung lượng tới <strong>15MB</strong>. Khi tải lên, hệ thống tự động dựng thành <strong>Trang Đề Thi đầy đủ</strong> để mọi người nhấn vào xem trực tiếp!
+              </p>
+            </div>
+          </div>
+          <button type="button" id="toggleExamUploadFormBtn" class="px-3.5 py-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition">
+            🔼 Thu gọn / Mở rộng khung tải đề
+          </button>
+        </div>
+
+        <form id="examContributionUploadForm" class="space-y-4">
+          <!-- Bước 1: Chọn Mục Đề Thi (Đầy đủ các mục theo yêu cầu) -->
+          <div class="space-y-2">
+            <label class="block text-xs font-extrabold text-stone-800 uppercase tracking-wider">
+              1. Chọn Loại Đề Thi Muốn Đóng Góp *
+            </label>
+            <div id="examUploadCategoryPills" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+              <button type="button" data-upload-cat="thptqg" class="exam-upload-cat-btn p-2.5 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-950 font-extrabold text-xs text-left transition flex flex-col gap-0.5 shadow-sm">
+                <span class="text-base">🎓</span>
+                <span>Đề thi THPT Quốc gia</span>
+                <span class="text-[10px] text-rose-700 font-normal">Đề chính thức &amp; đề cũ/mới</span>
+              </button>
+              <button type="button" data-upload-cat="45p" class="exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5">
+                <span class="text-base">⏱️</span>
+                <span>Đề thi 45 phút</span>
+                <span class="text-[10px] text-stone-500 font-normal">Kiểm tra 45 phút</span>
+              </button>
+              <button type="button" data-upload-cat="1tiet" class="exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5">
+                <span class="text-base">📘</span>
+                <span>Đề thi 1 tiết</span>
+                <span class="text-[10px] text-stone-500 font-normal">Đề kiểm tra 1 tiết</span>
+              </button>
+              <button type="button" data-upload-cat="15p" class="exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5">
+                <span class="text-base">⚡</span>
+                <span>Đề thi 15 phút</span>
+                <span class="text-[10px] text-stone-500 font-normal">Kiểm tra 15 phút</span>
+              </button>
+              <button type="button" data-upload-cat="thuongxuyen" class="exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5">
+                <span class="text-base">📝</span>
+                <span>Đề kiểm tra thường xuyên</span>
+                <span class="text-[10px] text-stone-500 font-normal">Đánh giá thường xuyên</span>
+              </button>
+              <button type="button" data-upload-cat="hocky" class="exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5">
+                <span class="text-base">🏛️</span>
+                <span>Đề thi Học kỳ</span>
+                <span class="text-[10px] text-stone-500 font-normal">Đề thi HK I &amp; HK II</span>
+              </button>
+            </div>
+            <input type="hidden" id="examUploadCategoryInput" value="thptqg" />
+          </div>
+
+          <!-- Bước 2: Khu vực Kéo Thả / Chọn File Word (.docx/.doc) hoặc PDF (.pdf) -->
+          <div class="space-y-2">
+            <label class="block text-xs font-extrabold text-stone-800 uppercase tracking-wider">
+              2. Chọn Hoặc Kéo Thả Tệp Đề Thi (File Word .DOCX / .DOC hoặc File PDF .PDF — Tối đa ~15MB) *
+            </label>
+            <div id="examFileDropZone" class="border-2 border-dashed border-amber-400 hover:border-pink-500 rounded-3xl p-6 bg-gradient-to-br from-amber-50/70 via-pink-50/40 to-cyan-50/40 text-center cursor-pointer transition space-y-2">
+              <input type="file" id="examFileInput" accept=".pdf,.doc,.docx,.txt,.html,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden" />
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-500 text-white flex items-center justify-center text-2xl shadow-lg">
+                📂
+              </div>
+              <div class="text-sm font-extrabold text-stone-900">
+                Nhấn vào đây để tải tệp <span class="text-blue-700">Word (.docx, .doc)</span> hoặc <span class="text-rose-700">PDF (.pdf)</span> lên (hoặc kéo thả vào đây)
+              </div>
+              <p class="text-xs text-stone-500">
+                Dung lượng thoải mái tới <strong>15 MB / tệp</strong> • Tự động chuyển hóa và hiển thị <strong>nguyên trang đề thi</strong> ngay khi click vào!
+              </p>
+              <div class="pt-1 flex flex-wrap items-center justify-center gap-2 text-[11px] font-bold">
+                <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200">📘 File Word (.docx / .doc)</span>
+                <span class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-200">📕 File PDF (.pdf)</span>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">✨ Hiện nguyên trang đề trực tiếp</span>
+              </div>
+            </div>
+
+            <!-- Hộp Hiển Thị File Đã Chọn & Trạng Thái Trích Xuất -->
+            <div id="examSelectedFileBanner" class="hidden p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 border-2 border-emerald-400 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div id="examSelectedFileIcon" class="w-11 h-11 rounded-xl bg-rose-600 text-white font-extrabold text-xs flex items-center justify-center shrink-0 shadow">
+                  PDF
+                </div>
+                <div class="min-w-0">
+                  <div id="examSelectedFileName" class="font-extrabold text-stone-900 text-xs sm:text-sm truncate">de_thi_ngu_van_12.pdf</div>
+                  <div id="examSelectedFileMeta" class="text-[11px] text-emerald-800 font-semibold">2.4 MB • Đã đọc toàn bộ trang đề sẵn sàng hiển thị!</div>
+                </div>
+              </div>
+              <button type="button" id="examClearSelectedFileBtn" class="px-3 py-1.5 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold text-xs shrink-0 transition">
+                ✕ Chọn tệp khác
+              </button>
+            </div>
+          </div>
+
+          <!-- Bước 3: Thông tin Đề thi & Người đóng góp -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div class="sm:col-span-2">
+              <label for="examUploadTitleInput" class="block text-xs font-bold text-stone-700 mb-1">Tên đề thi hiển thị *</label>
+              <input type="text" id="examUploadTitleInput" required placeholder="VD: Đề thi THPT Quốc gia môn Ngữ văn - Mã đề 101" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            </div>
+            <div>
+              <label for="examUploadAuthorInput" class="block text-xs font-bold text-stone-700 mb-1">Tên người tải lên (Đóng góp) *</label>
+              <input type="text" id="examUploadAuthorInput" required placeholder="VD: Minh Thư (12A2)" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            </div>
+            <div>
+              <label for="examUploadDurationInput" class="block text-xs font-bold text-stone-700 mb-1">Thời gian làm bài &amp; Năm</label>
+              <input type="text" id="examUploadDurationInput" value="120 phút • Năm 2026" placeholder="VD: 120 phút • Năm 2026" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            </div>
+          </div>
+
+          <!-- Bước 4: Nội dung Trang Đề -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="examUploadContentInput" class="block text-xs font-bold text-stone-700">
+                  Nội dung Trang Đề Thi (Tự động trích xuất từ file Word/PDF hoặc nhập thêm)
+                </label>
+                <span class="text-[10px] text-amber-800 font-semibold">Hiện nguyên trang khi click vào đề</span>
+              </div>
+              <textarea id="examUploadContentInput" rows="4" placeholder="Khi chọn file Word (.docx) hoặc PDF (.pdf), toàn bộ nội dung trang đề sẽ tự động nạp vào đây (hoặc bạn có thể gõ/dán nội dung đề thi vào đây)..." class="w-full px-3.5 py-2 rounded-xl border border-amber-300 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="examUploadAnswerInput" class="block text-xs font-bold text-stone-700">
+                  Đáp án &amp; Hướng dẫn chấm chi tiết (Tùy chọn)
+                </label>
+                <span class="text-[10px] text-emerald-700 font-semibold">Hiển thị ở tab Đáp án</span>
+              </div>
+              <textarea id="examUploadAnswerInput" rows="4" placeholder="Dán thêm hướng dẫn chấm, thang điểm hoặc gợi ý giải đề (nếu có)..." class="w-full px-3.5 py-2 rounded-xl border border-amber-300 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+            <div class="text-[11px] text-stone-600 bg-amber-50/90 border border-amber-200 px-3.5 py-2 rounded-xl">
+              🛡️ <strong>Quy tắc phân quyền:</strong> Người truy cập bình thường <strong>chỉ được xoá đề thi do chính mình tải lên</strong> (không được xoá đề của người khác). <strong>👑 Admin</strong> có toàn quyền chỉnh sửa, thay file, thêm hoặc xoá bất kỳ đề nào.
+            </div>
+            <button type="submit" id="examSubmitUploadBtn" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-extrabold text-xs sm:text-sm shadow-xl transition flex items-center gap-2">
+              <span>🚀</span>
+              <span>Đăng Đề Thi Lên Trang Web Ngay</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 4. THANH LỌC DANH MỤC ĐỀ THI & TÌM KIẾM THÔNG MINH -->
+      <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-md border border-amber-200/80 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-1.5" id="examCategoryFilterBar">
+            <button type="button" data-exam-filter="all" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-extrabold bg-gradient-to-r from-amber-500 to-pink-500 text-white shadow transition">
+              🌟 Tất cả đề thi
+            </button>
+            <button type="button" data-exam-filter="thptqg" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              🎓 Đề thi THPT Quốc gia
+            </button>
+            <button type="button" data-exam-filter="45p" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              ⏱️ Đề thi 45 phút
+            </button>
+            <button type="button" data-exam-filter="1tiet" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              📘 Đề thi 1 tiết
+            </button>
+            <button type="button" data-exam-filter="15p" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              ⚡ Đề thi 15 phút
+            </button>
+            <button type="button" data-exam-filter="thuongxuyen" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              📝 Đề kiểm tra thường xuyên
+            </button>
+            <button type="button" data-exam-filter="hocky" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
+              🏛️ Đề thi Học kỳ
+            </button>
+            <button type="button" data-exam-filter="mine" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-pink-50 hover:bg-pink-100 text-pink-800 border border-pink-200 transition">
+              🙋 Đề tôi đã tải lên
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+          <div class="sm:col-span-6 relative">
+            <input type="text" id="examSearchInput" placeholder="🔍 Tìm kiếm đề thi theo tên, tác phẩm, người đóng góp..." class="w-full pl-3.5 pr-9 py-2.5 rounded-2xl border border-amber-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          </div>
+          <div class="sm:col-span-3">
+            <select id="examFileTypeFilterSelect" class="w-full px-3 py-2.5 rounded-2xl border border-amber-300 text-xs sm:text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="all">📂 Mọi định dạng (Word &amp; PDF)</option>
+              <option value="pdf">📕 Chỉ tệp PDF (.pdf)</option>
+              <option value="word">📘 Chỉ tệp Word (.docx / .doc)</option>
+            </select>
+          </div>
+          <div class="sm:col-span-3">
+            <select id="examSortSelect" class="w-full px-3 py-2.5 rounded-2xl border border-amber-300 text-xs sm:text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="featured">✨ Đề ghim nổi bật &amp; Mới nhất</option>
+              <option value="newest">🕒 Mới tải lên gần đây nhất</option>
+              <option value="views">🔥 Nhiều lượt mở xem nhất</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. LƯỚI THẺ ĐỀ THI (CLICK VÀO LÀ HIỆN NGUYÊN TRANG ĐỀ THI LÊN LUÔN) -->
+      <div id="examCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
     <!-- ==================== TAB 7: THÔNG TIN LIÊN HỆ & TÁC GIẢ ==================== -->
     <section id="tab-contact" class="tab-panel hidden space-y-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -1883,6 +2325,7 @@
         <button type="button" data-adm-tab="music" class="adm-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-cyan-200 border border-cyan-500/30 hover:bg-slate-800">🎵 Nhạc MP3 (<span id="admMusicCount">8</span>)</button>
         <button type="button" data-adm-tab="lessons" class="adm-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-cyan-200 border border-cyan-500/30 hover:bg-slate-800">📚 Bài Học & Trích Dẫn</button>
         <button type="button" data-adm-tab="arena" class="adm-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-cyan-200 border border-cyan-500/30 hover:bg-slate-800">🎮 Câu Hỏi • Flashcard • Đề Viết • Ảnh</button>
+        <button type="button" data-adm-tab="exams" class="adm-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-cyan-200 border border-cyan-500/30 hover:bg-slate-800">📄 Kho Đề Thi (<span id="admExamsCount">0</span>)</button>
         <button type="button" data-adm-tab="comments" class="adm-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-cyan-200 border border-cyan-500/30 hover:bg-slate-800">💬 Bình Luận (<span id="admCommentCount">3</span>)</button>
       </div>
 
@@ -2286,6 +2729,7 @@
                       <option value="writing">✍️ Luyện Viết</option>
                       <option value="music">🎵 Đĩa Nhạc</option>
                       <option value="ai">✦ Trợ Lý AI</option>
+                      <option value="exams">📄 Kho Đề Thi</option>
                       <option value="contact">💌 Lưu Bút</option>
                     </select>
                     <button type="button" onclick="supremeRemoteForceTab()" class="px-2.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0">🚀 Ép Tab</button>
@@ -3313,6 +3757,31 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           </div>
         </div>
 
+        <!-- PANEL EXAMS: QUẢN TRỊ TỐI CAO KHO ĐÓNG GÓP ĐỀ THI (WORD / PDF) -->
+        <div id="adm-panel-exams" class="adm-subpanel hidden space-y-5">
+          <div class="shadow-ops-card p-4 sm:p-5 rounded-2xl border-2 border-cyan-400/70 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">👑 SUPREME EXAM VAULT CONTROLLER</span>
+                <h4 class="font-bold text-white text-base mt-1">Quản Trị Tối Cao Kho Đóng Góp Đề Thi (Word &amp; PDF)</h4>
+                <p class="text-xs text-slate-300">Admin đứng tối cao: Toàn quyền thêm đề mới, sửa nội dung bất kỳ đề nào, tải file Word/PDF thay thế, ghim đề hoặc xoá bất kỳ đề nào.</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-extrabold text-xs shadow">
+                  ➕ Thêm Đề Thi Mới (Admin)
+                </button>
+                <button type="button" onclick="adminVerifyAllExams()" class="px-3 py-2 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-200 font-bold text-xs">
+                  👑 Đóng Dấu Chuẩn Admin Tất Cả
+                </button>
+                <button type="button" onclick="adminClearAllExams()" class="px-3 py-2 rounded-xl bg-rose-950 border border-rose-500/60 text-rose-200 font-bold text-xs">
+                  🗑️ Xoá Sạch Kho Đề (Về 0 Đề)
+                </button>
+              </div>
+            </div>
+            <div id="admExamsListContainer" class="space-y-2.5 max-h-96 overflow-y-auto pr-1 pt-2"></div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Modal Footer -->
@@ -3334,6 +3803,277 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     </div>
   </div>
 
+
+  <!-- ==================== MODAL XEM TRỌN VẸN NGUYÊN TRANG ĐỀ THI (FULL-PAGE EXAM PAPER VIEWER) ==================== -->
+  <div id="examFullPageReaderModal" class="fixed inset-0 z-[72] hidden bg-slate-950/90 backdrop-blur-md flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="examReaderModalTitle">
+    <!-- Top Sticky Control Bar -->
+    <div class="bg-gradient-to-r from-[#140818] via-[#1e1136] to-[#0f172a] border-b border-pink-400/30 px-3 sm:px-6 py-3 text-white shrink-0 shadow-xl">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <button type="button" id="closeExamFullPageReaderBtn" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-rose-600 text-white font-extrabold text-xs border border-white/20 transition flex items-center gap-1.5 shrink-0">
+            <span>←</span>
+            <span>Quay lại Kho Đề</span>
+          </button>
+          <span id="examReaderCatBadge" class="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 font-extrabold text-[11px] shrink-0">🎓 Đề thi THPT Quốc gia</span>
+          <span id="examReaderFileBadge" class="px-2.5 py-1 rounded-full bg-rose-600 text-white font-mono font-bold text-[11px] shrink-0">📕 PDF</span>
+          <h3 id="examReaderModalTitle" class="font-literary font-bold text-sm sm:text-base text-amber-100 truncate">Trang Đề Thi</h3>
+        </div>
+
+        <!-- Chuyển chế độ xem: Nguyên Trang Đề A4 / File Gốc / Đáp Án + Bấm giờ + Giao diện giấy -->
+        <div class="flex flex-wrap items-center gap-1.5">
+          <div class="inline-flex rounded-xl bg-slate-900/90 p-1 border border-white/15">
+            <button type="button" id="examViewModeSheetBtn" onclick="switchExamReaderViewMode('sheet')" class="px-3 py-1.5 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 to-pink-500 text-slate-950 transition">
+              📄 Nguyên Trang Đề A4
+            </button>
+            <button type="button" id="examViewModeNativeBtn" onclick="switchExamReaderViewMode('native')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">
+              📑 Xem Tệp Gốc (PDF/Word)
+            </button>
+            <button type="button" id="examViewModeAnswerBtn" onclick="switchExamReaderViewMode('answer')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">
+              💡 Đáp Án &amp; Chấm Điểm
+            </button>
+          </div>
+
+          <!-- Bấm giờ làm đề trực tiếp -->
+          <div class="inline-flex items-center gap-1 bg-slate-900/90 px-2.5 py-1.5 rounded-xl border border-cyan-400/40 text-xs">
+            <span>⏱️</span>
+            <span id="examReaderTimerDisplay" class="font-mono font-extrabold text-cyan-300">120:00</span>
+            <button type="button" id="examReaderTimerToggleBtn" onclick="toggleExamReaderLiveTimer()" class="px-2 py-0.5 rounded bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-[11px]">Bắt đầu</button>
+            <button type="button" onclick="resetExamReaderLiveTimer()" class="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px]" title="Đặt lại đồng hồ">↺</button>
+          </div>
+
+          <!-- Đổi màu giấy & Cỡ chữ -->
+          <div class="hidden sm:inline-flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-white/15 text-xs">
+            <button type="button" onclick="setExamReaderPaperTheme('white')" class="px-2 py-1 rounded-lg bg-white text-slate-900 font-bold text-[11px]" title="Giấy trắng chuẩn phòng thi">📜 Trắng</button>
+            <button type="button" onclick="setExamReaderPaperTheme('vintage')" class="px-2 py-1 rounded-lg bg-amber-100 text-amber-950 font-bold text-[11px]" title="Giấy dó cổ điển chống mỏi mắt">📜 Giấy Dó</button>
+            <button type="button" onclick="setExamReaderPaperTheme('dark')" class="px-2 py-1 rounded-lg bg-slate-800 text-cyan-200 font-bold text-[11px]" title="Chế độ ban đêm">🌙 Đêm</button>
+            <button type="button" onclick="adjustExamReaderZoom(-1)" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-[11px]">A-</button>
+            <button type="button" onclick="adjustExamReaderZoom(1)" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-[11px]">A+</button>
+          </div>
+
+          <button type="button" id="examReaderPrintBtn" onclick="printCurrentExamSheet()" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs transition">
+            🖨️ In Đề
+          </button>
+          <button type="button" id="examReaderDownloadBtn" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-extrabold text-xs shadow transition">
+            ⬇️ Tải File Đề Về Máy
+          </button>
+          <button type="button" id="examReaderOwnerDeleteBtn" class="hidden px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs shadow transition">
+            🗑️ Xoá Đề Của Tôi
+          </button>
+        </div>
+      </div>
+
+      <!-- Thanh Quyền Năng Tối Cao Admin Ngay Trên Trang Đề (Chỉ hiện khi đăng nhập Admin) -->
+      <div id="examReaderAdminBar" class="admin-only-item hidden max-w-7xl mx-auto mt-2.5 pt-2.5 border-t border-cyan-500/40 flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono font-extrabold text-[10px] uppercase">👑 ADMIN SUPREME CONTROL</span>
+          <span class="text-cyan-200 font-semibold">Bạn có thể gõ sửa trực tiếp lên mặt tờ giấy đề thi bên dưới, thay file Word/PDF hoặc xoá đề này:</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button type="button" id="examReaderInlineEditToggleBtn" onclick="toggleAdminExamSheetInlineEdit()" class="px-3 py-1 rounded-lg bg-fuchsia-500/30 hover:bg-fuchsia-500/50 border border-fuchsia-400 text-fuchsia-200 font-extrabold transition">
+            ✍️ Gõ Sửa Trực Tiếp Trên Tờ Đề: TẮT
+          </button>
+          <button type="button" id="examReaderAdminFullEditBtn" class="px-3 py-1 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold transition">
+            ✏️ Sửa Toàn Diện (Form)
+          </button>
+          <button type="button" id="examReaderAdminReplaceFileBtn" class="px-3 py-1 rounded-lg bg-indigo-500/30 hover:bg-indigo-500/50 border border-indigo-400 text-indigo-200 font-extrabold transition">
+            📂 Thay File Word/PDF Mới
+          </button>
+          <button type="button" id="examReaderAdminPinBtn" class="px-3 py-1 rounded-lg bg-amber-500/30 hover:bg-amber-500/50 border border-amber-400 text-amber-200 font-extrabold transition">
+            📌 Ghim Đề
+          </button>
+          <button type="button" id="examReaderAdminDeleteBtn" class="px-3 py-1 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-extrabold transition">
+            🗑️ Xoá Đề Này (Admin)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable Full Exam Sheet Canvas -->
+    <div class="flex-1 overflow-y-auto p-3 sm:p-8 space-y-6" id="examFullPageScrollViewport">
+      <!-- Chế độ 1: Tờ Giấy Đề Thi Chuẩn A4 (Hiện nguyên trang đề đầy đủ) -->
+      <article id="examFullPageA4Container" class="exam-a4-sheet" data-paper-theme="white">
+        <!-- Quốc hiệu & Tiêu đề chuẩn -->
+        <div class="border-b-2 border-current pb-4 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
+            <div class="space-y-0.5">
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wide">SỞ GIÁO DỤC VÀ ĐÀO TẠO TP. CẦN THƠ</div>
+              <div id="examSheetSchoolHeader" class="text-xs sm:text-sm font-extrabold uppercase underline">TRƯỜNG THPT THỚI LONG</div>
+              <div class="text-[11px] italic opacity-80">(Đề thi hiển thị đầy đủ nguyên trang)</div>
+            </div>
+            <div class="space-y-0.5">
+              <div id="examSheetCategoryHeader" class="text-xs sm:text-sm font-extrabold uppercase">KỲ THI TỐT NGHIỆP THPT QUỐC GIA</div>
+              <div class="text-xs sm:text-sm font-bold uppercase">Môn thi: NGỮ VĂN 12</div>
+              <div id="examSheetDurationHeader" class="text-xs italic">Thời gian làm bài: 120 phút (không kể thời gian phát đề)</div>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-dashed border-current/30 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div><strong>📌 Tên đề:</strong> <span id="examSheetSubTitle">Đề thi Ngữ văn 12</span></div>
+            <div><strong>👤 Người đóng góp:</strong> <span id="examSheetContributor">Nguyễn Nhựt Trường (12A2)</span></div>
+            <div><strong>📎 Tệp đính kèm:</strong> <span id="examSheetFileMeta">Đề chuẩn A4</span></div>
+          </div>
+        </div>
+
+        <!-- Nội dung Toàn Bộ Trang Đề Thi -->
+        <div id="examFullPageBodyContent" class="space-y-4 text-sm sm:text-base leading-relaxed"></div>
+
+        <!-- Nếu là file PDF đã tải lên, hiển thị luôn toàn bộ các trang PDF sắc nét ngay bên dưới hoặc trong trang đề -->
+        <div id="examInlinePdfPagesWrapper" class="hidden mt-6 pt-6 border-t-2 border-dashed border-current/30 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h4 class="font-bold text-sm sm:text-base uppercase">📑 Toàn Bộ Các Trang Tệp PDF Đính Kèm (Hiển thị trực tiếp):</h4>
+            <span id="examInlinePdfPageStatus" class="text-xs font-semibold px-3 py-1 rounded-full bg-rose-100 text-rose-900">Đang dựng trang PDF...</span>
+          </div>
+          <div id="examInlinePdfCanvasList" class="space-y-4"></div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t-2 border-current text-center space-y-1">
+          <div class="font-extrabold tracking-widest text-sm uppercase">— HẾT —</div>
+          <div class="text-xs italic opacity-75">(Thí sinh không được sử dụng tài liệu. Cán bộ coi thi không giải thích gì thêm.)</div>
+        </div>
+      </article>
+
+      <!-- Chế độ 2: Xem Bản Gốc File Word / PDF Toàn Màn Hình -->
+      <div id="examFullPageNativeFileContainer" class="hidden max-w-5xl mx-auto bg-slate-900 rounded-3xl p-4 sm:p-6 border border-cyan-500/30 text-white space-y-4 shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="font-bold text-sm sm:text-base text-cyan-300">📑 Trình Chiếu Nguyên Bản Tệp Đề Thi Đã Tải Lên</h4>
+            <p id="examNativeViewerSub" class="text-xs text-slate-400">Hiển thị trực tiếp từng trang từ tệp gốc trên trình duyệt.</p>
+          </div>
+          <button type="button" onclick="switchExamReaderViewMode('sheet')" class="px-3.5 py-1.5 rounded-xl bg-amber-400 text-slate-950 font-extrabold text-xs">
+            📄 Chuyển sang Tờ Giấy Đề A4
+          </button>
+        </div>
+        <div id="examNativeFileViewport" class="min-h-[65vh] rounded-2xl bg-slate-950 p-3 sm:p-6 overflow-y-auto space-y-4"></div>
+      </div>
+
+      <!-- Chế độ 3: Đáp Án & Hướng Dẫn Chấm Chi Tiết -->
+      <div id="examFullPageAnswerContainer" class="hidden exam-a4-sheet" data-paper-theme="white">
+        <div class="border-b-2 border-emerald-700 pb-3 mb-5 flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-extrabold text-xs uppercase">💡 HƯỚNG DẪN CHẤM &amp; ĐÁP ÁN CHI TIẾT</span>
+            <h4 id="examAnswerSheetTitle" class="font-bold text-lg sm:text-xl mt-2">Đáp Án &amp; Thang Điểm Chính Thức</h4>
+          </div>
+          <button type="button" onclick="switchExamReaderViewMode('sheet')" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs">
+            ← Quay lại Trang Đề Thi
+          </button>
+        </div>
+        <div id="examFullPageAnswerBody" class="space-y-4 text-sm sm:text-base leading-relaxed"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL ADMIN THÊM / SỬA TOÀN DIỆN ĐỀ THI & THAY FILE ==================== -->
+  <div id="examAdminEditModal" class="fixed inset-0 z-[78] hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-5" role="dialog" aria-modal="true" aria-labelledby="examAdminEditModalTitle">
+    <div class="shadow-cyber-grid rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden border-2 border-cyan-400/70">
+      <div class="bg-gradient-to-r from-[#040711] via-[#101938] to-[#240b36] px-6 py-4 flex items-center justify-between border-b border-cyan-500/40">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-300 via-cyan-400 to-purple-500 text-slate-950 font-extrabold flex items-center justify-center text-lg shadow">👑</span>
+          <div>
+            <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-300">SUPREME ADMIN // EXAM EDITOR</span>
+            <h3 id="examAdminEditModalTitle" class="font-literary text-lg font-bold text-white">Chỉnh Sửa Toàn Diện Đề Thi (Quyền Tối Cao Admin)</h3>
+          </div>
+        </div>
+        <button type="button" id="closeExamAdminEditModalBtn" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-rose-600 border border-cyan-500/40 text-white font-bold flex items-center justify-center">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-4 flex-1 text-xs sm:text-sm text-slate-100">
+        <input type="hidden" id="admEditExamIdInput" value="" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div class="sm:col-span-2">
+            <label for="admEditExamTitleInput" class="block text-xs font-mono font-bold text-cyan-300 mb-1">1. Tên Đề Thi *</label>
+            <input type="text" id="admEditExamTitleInput" placeholder="Nhập tên đề thi..." class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm" />
+          </div>
+          <div>
+            <label for="admEditExamCatSelect" class="block text-xs font-mono font-bold text-cyan-300 mb-1">2. Danh Mục Đề Thi *</label>
+            <select id="admEditExamCatSelect" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm">
+              <option value="thptqg">🎓 Đề thi THPT Quốc gia</option>
+              <option value="45p">⏱️ Đề thi 45 phút</option>
+              <option value="1tiet">📘 Đề thi 1 tiết</option>
+              <option value="15p">⚡ Đề thi 15 phút</option>
+              <option value="thuongxuyen">📝 Đề kiểm tra thường xuyên</option>
+              <option value="hocky">🏛️ Đề thi Học kỳ</option>
+            </select>
+          </div>
+          <div>
+            <label for="admEditExamDurationInput" class="block text-xs font-mono font-bold text-cyan-300 mb-1">3. Thời Gian Làm Bài &amp; Năm Học</label>
+            <input type="text" id="admEditExamDurationInput" placeholder="VD: 120 phút • Năm 2026" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm" />
+          </div>
+          <div>
+            <label for="admEditExamAuthorInput" class="block text-xs font-mono font-bold text-cyan-300 mb-1">4. Tên Người Đăng / Nguồn Đề</label>
+            <input type="text" id="admEditExamAuthorInput" placeholder="VD: 👑 Admin Nguyễn Nhựt Trường (12A2)" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm" />
+          </div>
+          <div>
+            <label for="admEditExamSchoolInput" class="block text-xs font-mono font-bold text-cyan-300 mb-1">5. Trường / Đơn Vị Ra Đề</label>
+            <input type="text" id="admEditExamSchoolInput" placeholder="VD: Trường THPT Thới Long" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm" />
+          </div>
+        </div>
+
+        <!-- Tải File Word / PDF Mới Thay Thế Trong Quyền Admin -->
+        <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-cyan-500/40 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div class="font-bold text-amber-300 text-xs">📂 Đính kèm hoặc Thay thế Tệp Word (.docx/.doc) / PDF (.pdf)</div>
+              <div id="admEditExamCurrentFileLabel" class="text-[11px] text-slate-300">Chưa chọn tệp thay thế mới (Giữ nguyên tệp hiện tại)</div>
+            </div>
+            <label class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-slate-950 font-extrabold text-xs cursor-pointer shadow">
+              <span>📤 Chọn File Mới (Tới 15MB)</span>
+              <input type="file" id="admEditExamFileInput" accept=".pdf,.doc,.docx,.txt,.html,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden" />
+            </label>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 pt-1">
+          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-bold text-amber-300">
+            <input type="checkbox" id="admEditExamPinnedChk" class="w-4 h-4 accent-amber-400" />
+            <span>📌 Ghim Đề Này Lên Đầu Kho Đề Thi</span>
+          </label>
+          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-bold text-emerald-300">
+            <input type="checkbox" id="admEditExamVerifiedChk" checked class="w-4 h-4 accent-emerald-400" />
+            <span>👑 Đóng Dấu "Đề Chuẩn Admin Đã Kiểm Duyệt"</span>
+          </label>
+        </div>
+
+        <div>
+          <label for="admEditExamContentInput" class="block text-xs font-mono font-bold text-cyan-300 mb-1">6. Nội Dung Đầy Đủ Trang Đề Thi (Hỗ trợ cả Văn bản &amp; HTML) *</label>
+          <textarea id="admEditExamContentInput" rows="7" placeholder="Nhập hoặc chỉnh sửa toàn bộ nội dung trang đề thi (hoặc tải file Word/PDF ở mục trên để tự động trích xuất)..." class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm font-mono"></textarea>
+        </div>
+
+        <div>
+          <label for="admEditExamAnswerInput" class="block text-xs font-mono font-bold text-emerald-300 mb-1">7. Đáp Án &amp; Hướng Dẫn Chấm Chi Tiết</label>
+          <textarea id="admEditExamAnswerInput" rows="4" placeholder="Nhập đáp án và hướng dẫn chấm..." class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm"></textarea>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 px-6 py-4 border-t border-cyan-500/30 flex items-center justify-end gap-2.5">
+        <button type="button" id="cancelExamAdminEditModalBtn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs">Hủy</button>
+        <button type="button" id="saveExamAdminEditModalBtn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-500 text-slate-950 font-extrabold text-xs shadow-lg">
+          💾 Lưu Đề Thi &amp; Đồng Bộ Ngay
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL XÁC NHẬN XOÁ ĐỀ THI (AN TOÀN TRONG CANVAS & MỌI TRÌNH DUYỆT) ==================== -->
+  <div id="examDeleteConfirmModal" class="fixed inset-0 z-[82] hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="examDeleteConfirmTitle">
+    <div class="bg-slate-950 border-2 border-rose-500 rounded-3xl max-w-md w-full p-6 text-white shadow-2xl space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-2xl bg-rose-600/30 border border-rose-500 text-rose-300 flex items-center justify-center text-xl font-bold">🗑️</span>
+        <div>
+          <span id="examDeleteRoleBadge" class="text-[10px] font-mono font-bold uppercase text-rose-300">XÁC NHẬN XOÁ ĐỀ THI</span>
+          <h4 id="examDeleteConfirmTitle" class="font-bold text-base text-white">Bạn muốn xoá đề thi này?</h4>
+        </div>
+      </div>
+      <p id="examDeleteConfirmDesc" class="text-xs text-slate-300 leading-relaxed">
+        Đề thi sẽ được xoá khỏi Kho Đóng Góp Đề Thi.
+      </p>
+      <div class="flex items-center justify-end gap-2.5 pt-2">
+        <button type="button" id="cancelExamDeleteConfirmBtn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs">Giữ lại</button>
+        <button type="button" id="confirmExamDeleteBtn" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs shadow-lg">🗑️ Xác Nhận Xoá Ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input ẩn dành cho Admin thay nhanh file Word/PDF của bất kỳ đề nào -->
+  <input type="file" id="adminQuickReplaceExamFileInput" accept=".pdf,.doc,.docx,.txt,.html,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden" />
 
   <!-- ==================== FLOATING SHADOW COMMAND DOCK (CHỈ HIỆN KHI ĐĂNG NHẬP ADMIN) ==================== -->
   <div id="adminFloatingDock" class="fixed bottom-4 left-4 z-[62] hidden flex flex-wrap items-center gap-1.5 p-2 rounded-2xl bg-[#050814]/95 border border-amber-400/80 text-cyan-200 backdrop-blur-md shadow-2xl">
@@ -6935,6 +7675,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         writing: { icon: "✍️", text: "Luyện Viết & Sơ Đồ" },
         music: { icon: "🎵", text: "Đĩa Nhạc Giải Tỏa" },
         ai: { icon: "✦", text: "AI · Trường Đẹp Trai" },
+        exams: { icon: "📄", text: "Đóng Góp Đề Thi" },
         contact: { icon: "💌", text: "Tác Giả & Liên Hệ" }
       },
       customStatsCards: [
@@ -6966,6 +7707,1146 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       if (savedRevs) ADMIN_REVISIONS_HISTORY = JSON.parse(savedRevs) || [];
     } catch (e) {}
 
+
+    // ==================== HỆ THỐNG KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (WORD / PDF - MẶC ĐỊNH 0 ĐỀ KHI CHƯA ĐĂNG) ====================
+    const EXAMS_STORAGE_KEY = "thoilong_van12_exams_vault_v2";
+    const EXAMS_IDB_KEY = "__exams_vault_state_v2__";
+    try { localStorage.removeItem("thoilong_van12_exams_vault_v1"); } catch (e) {}
+
+    const EXAM_CATEGORY_META = {
+      thptqg: {
+        id: "thptqg",
+        label: "Đề thi THPT Quốc gia",
+        shortLabel: "THPT Quốc gia",
+        icon: "🎓",
+        headerTitle: "KỲ THI TỐT NGHIỆP TRUNG HỌC PHỔ THÔNG QUỐC GIA",
+        badgeClass: "bg-gradient-to-r from-rose-600 to-amber-500 text-white",
+        pillClass: "bg-rose-100 text-rose-900 border-rose-300",
+        borderGlow: "hover:border-rose-400"
+      },
+      "45p": {
+        id: "45p",
+        label: "Đề thi 45 phút",
+        shortLabel: "Đề 45 phút",
+        icon: "⏱️",
+        headerTitle: "BÀI KIỂM TRA ĐỊNH KỲ 45 PHÚT — MÔN NGỮ VĂN 12",
+        badgeClass: "bg-gradient-to-r from-indigo-600 to-cyan-500 text-white",
+        pillClass: "bg-indigo-100 text-indigo-900 border-indigo-300",
+        borderGlow: "hover:border-indigo-400"
+      },
+      "1tiet": {
+        id: "1tiet",
+        label: "Đề thi 1 tiết",
+        shortLabel: "Đề 1 tiết",
+        icon: "📘",
+        headerTitle: "ĐỀ KIỂM TRA 1 TIẾT CHƯƠNG TRÌNH NGỮ VĂN 12",
+        badgeClass: "bg-gradient-to-r from-emerald-600 to-teal-500 text-white",
+        pillClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
+        borderGlow: "hover:border-emerald-400"
+      },
+      "15p": {
+        id: "15p",
+        label: "Đề thi 15 phút",
+        shortLabel: "Đề 15 phút",
+        icon: "⚡",
+        headerTitle: "ĐỀ KIỂM TRA NHANH 15 PHÚT — NGỮ VĂN 12",
+        badgeClass: "bg-gradient-to-r from-pink-500 to-rose-500 text-white",
+        pillClass: "bg-pink-100 text-pink-900 border-pink-300",
+        borderGlow: "hover:border-pink-400"
+      },
+      thuongxuyen: {
+        id: "thuongxuyen",
+        label: "Đề kiểm tra thường xuyên",
+        shortLabel: "KT Thường xuyên",
+        icon: "📝",
+        headerTitle: "BÀI KIỂM TRA ĐÁNH GIÁ THƯỜNG XUYÊN — NGỮ VĂN 12",
+        badgeClass: "bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white",
+        pillClass: "bg-purple-100 text-purple-900 border-purple-300",
+        borderGlow: "hover:border-purple-400"
+      },
+      hocky: {
+        id: "hocky",
+        label: "Đề thi Học kỳ",
+        shortLabel: "Đề Học kỳ",
+        icon: "🏛️",
+        headerTitle: "ĐỀ KIỂM TRA HỌC KỲ — MÔN NGỮ VĂN 12",
+        badgeClass: "bg-gradient-to-r from-amber-500 to-orange-600 text-white",
+        pillClass: "bg-amber-100 text-amber-900 border-amber-300",
+        borderGlow: "hover:border-amber-400"
+      }
+    };
+
+    // Mặc định hoàn toàn trống (0 đề) khi chưa có ai đăng đề thi!
+    const DEFAULT_EXAMS_DATA = [];
+
+    function sanitizeExamsList(arr) {
+      if (!Array.isArray(arr)) return [];
+      return arr.filter(item => item && typeof item === "object" && !String(item.id || "").startsWith("exam_default_"));
+    }
+
+    let EXAMS_DATA = [];
+    let currentExamFilterCat = "all";
+    let currentExamReaderId = null;
+    let currentExamReaderViewMode = "sheet";
+    let currentExamReaderZoom = 100;
+    let currentExamReaderPaperTheme = "white";
+    let examReaderTimerInterval = null;
+    let examReaderTimerSecondsLeft = 7200;
+    let examReaderTimerRunning = false;
+    let pendingUploadExamFileObj = null;
+    let pendingAdminEditExamFileObj = null;
+    let pendingDeleteExamId = null;
+    let pendingQuickReplaceExamId = null;
+
+    // Load local exams state if user/Admin has uploaded any
+    try {
+      const rawSavedExams = localStorage.getItem(EXAMS_STORAGE_KEY);
+      if (rawSavedExams) {
+        const parsed = JSON.parse(rawSavedExams);
+        if (Array.isArray(parsed)) {
+          EXAMS_DATA = sanitizeExamsList(parsed);
+        }
+      }
+    } catch (e) {}
+
+    function formatFileSizeHuman(bytes) {
+      const b = Number(bytes) || 0;
+      if (b <= 0) return "850 KB";
+      if (b < 1024) return b + " B";
+      if (b < 1024 * 1024) return (b / 1024).toFixed(1) + " KB";
+      return (b / (1024 * 1024)).toFixed(2) + " MB";
+    }
+
+    function escapeExamHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function convertPlainTextToExamHtml(text) {
+      const raw = String(text || "").trim();
+      if (!raw) return "<p><em>(Nội dung trang đề thi đang được hiển thị từ tệp đính kèm.)</em></p>";
+      if (/<(p|div|h1|h2|h3|h4|table|ul|ol|blockquote|br)\b/i.test(raw)) {
+        return raw;
+      }
+      return raw
+        .split(/\n{2,}/)
+        .map(block => {
+          const lines = block.split(/\n/).map(l => escapeExamHtml(l.trim())).filter(Boolean);
+          return `<p>${lines.join("<br/>")}</p>`;
+        })
+        .join("\n");
+    }
+
+    // Native Pure-JS Fallback .DOCX ZIP + XML Extractor (Works even offline without CDN!)
+    async function extractDocxHtmlNativeFallback(arrayBuffer) {
+      try {
+        const bytes = new Uint8Array(arrayBuffer);
+        const view = new DataView(arrayBuffer);
+        let offset = 0;
+        while (offset + 30 < bytes.length) {
+          if (view.getUint32(offset, true) !== 0x04034b50) {
+            offset++;
+            continue;
+          }
+          const compression = view.getUint16(offset + 8, true);
+          const compSize = view.getUint32(offset + 18, true);
+          const nameLen = view.getUint16(offset + 26, true);
+          const extraLen = view.getUint16(offset + 28, true);
+          const nameBytes = bytes.subarray(offset + 30, offset + 30 + nameLen);
+          const entryName = new TextDecoder("utf-8").decode(nameBytes);
+          const dataStart = offset + 30 + nameLen + extraLen;
+          if (entryName === "word/document.xml" && compSize > 0 && dataStart + compSize <= bytes.length) {
+            const compData = bytes.subarray(dataStart, dataStart + compSize);
+            let xmlText = "";
+            if (compression === 0) {
+              xmlText = new TextDecoder("utf-8").decode(compData);
+            } else if (compression === 8 && typeof DecompressionStream !== "undefined") {
+              const ds = new DecompressionStream("deflate-raw");
+              const writer = ds.writable.getWriter();
+              writer.write(compData);
+              writer.close();
+              const decompressedBuf = await new Response(ds.readable).arrayBuffer();
+              xmlText = new TextDecoder("utf-8").decode(decompressedBuf);
+            }
+            if (xmlText) {
+              const xmlDoc = new DOMParser().parseFromString(xmlText, "application/xml");
+              const paragraphs = Array.from(xmlDoc.getElementsByTagName("w:p"));
+              const htmlParts = [];
+              let plainParts = [];
+              for (const p of paragraphs) {
+                const tNodes = Array.from(p.getElementsByTagName("w:t"));
+                const lineText = tNodes.map(n => n.textContent || "").join("").trim();
+                if (lineText) {
+                  plainParts.push(lineText);
+                  if (/^(PHẦN|I\.|II\.|III\.|CÂU\s+\d+|ĐỀ\s+THI|BÀI\s+)/i.test(lineText)) {
+                    htmlParts.push(`<p><strong>${escapeExamHtml(lineText)}</strong></p>`);
+                  } else {
+                    htmlParts.push(`<p>${escapeExamHtml(lineText)}</p>`);
+                  }
+                }
+              }
+              if (htmlParts.length > 0) {
+                return { html: htmlParts.join("\n"), text: plainParts.join("\n\n") };
+              }
+            }
+            break;
+          }
+          offset = dataStart + Math.max(1, compSize);
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    // Parse uploaded Word (.docx/.doc) or PDF (.pdf) file into full Exam Page HTML + Text + DataURL
+    async function processUploadedExamFile(file) {
+      if (!file) return null;
+      const maxBytes = 25 * 1024 * 1024; // 25 MB limit (comfortably supports ~10MB+ files)
+      if (file.size > maxBytes) {
+        throw new Error("Tệp vượt quá dung lượng tối đa 25MB. Vui lòng chọn tệp nhẹ hơn 25MB nhé!");
+      }
+      const ext = (file.name.split(".").pop() || "").toLowerCase();
+      const isPdf = ext === "pdf" || file.type === "application/pdf";
+      const isWord = ext === "docx" || ext === "doc" || file.type.includes("word");
+      const fileType = isPdf ? "pdf" : "word";
+
+      const arrayBuffer = await file.arrayBuffer();
+      const dataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ""));
+        reader.onerror = () => reject(new Error("Không đọc được tệp đã chọn."));
+        reader.readAsDataURL(file);
+      });
+
+      let extractedHtml = "";
+      let extractedText = "";
+      let pageCount = 1;
+
+      if (isWord && ext === "docx") {
+        if (window.mammoth && typeof window.mammoth.convertToHtml === "function") {
+          try {
+            const res = await window.mammoth.convertToHtml({ arrayBuffer });
+            const rawTextRes = await window.mammoth.extractRawText({ arrayBuffer });
+            if (res && res.value && res.value.trim()) {
+              extractedHtml = res.value;
+              extractedText = (rawTextRes && rawTextRes.value ? rawTextRes.value : "").trim();
+            }
+          } catch (e) {}
+        }
+        if (!extractedHtml) {
+          const nativeRes = await extractDocxHtmlNativeFallback(arrayBuffer);
+          if (nativeRes) {
+            extractedHtml = nativeRes.html;
+            extractedText = nativeRes.text;
+          }
+        }
+      } else if (isPdf) {
+        if (window.pdfjsLib) {
+          try {
+            if (!window.pdfjsLib.GlobalWorkerOptions.workerSrc) {
+              window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            }
+            const pdfDoc = await window.pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+            pageCount = pdfDoc.numPages || 1;
+            const pageTexts = [];
+            const pageHtmls = [];
+            const maxExtractPages = Math.min(pageCount, 20);
+            for (let p = 1; p <= maxExtractPages; p++) {
+              const page = await pdfDoc.getPage(p);
+              const textContent = await page.getTextContent();
+              let lastY = null;
+              let lines = [];
+              let currentLine = "";
+              for (const item of textContent.items) {
+                const str = item.str || "";
+                const y = item.transform ? Math.round(item.transform[5]) : 0;
+                if (lastY !== null && Math.abs(y - lastY) > 6) {
+                  if (currentLine.trim()) lines.push(currentLine.trim());
+                  currentLine = str;
+                } else {
+                  currentLine += (currentLine && !currentLine.endsWith(" ") && !str.startsWith(" ") ? " " : "") + str;
+                }
+                lastY = y;
+              }
+              if (currentLine.trim()) lines.push(currentLine.trim());
+              const pageJoined = lines.join("\n");
+              if (pageJoined.trim()) {
+                pageTexts.push(`--- TRANG ${p}/${pageCount} ---\n` + pageJoined);
+                pageHtmls.push(
+                  `<div class="p-4 rounded-xl bg-amber-50/40 border border-amber-200/70 space-y-1.5">` +
+                  `<div class="text-xs font-extrabold uppercase text-rose-800 border-b border-amber-200 pb-1 mb-2">📄 Nội dung Trang ${p} / ${pageCount}</div>` +
+                  lines.map(l => `<p>${escapeExamHtml(l)}</p>`).join("") +
+                  `</div>`
+                );
+              }
+            }
+            extractedText = pageTexts.join("\n\n");
+            extractedHtml = pageHtmls.join("\n");
+          } catch (e) {}
+        }
+      } else {
+        try {
+          const rawStr = new TextDecoder("utf-8", { fatal: false }).decode(new Uint8Array(arrayBuffer));
+          const cleanAscii = rawStr.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]+/g, " ").trim();
+          if (cleanAscii.length > 20) {
+            extractedText = cleanAscii.slice(0, 25000);
+            extractedHtml = convertPlainTextToExamHtml(extractedText);
+          }
+        } catch (e) {}
+      }
+
+      if (!extractedHtml) {
+        extractedHtml = `<div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-stone-800 space-y-2">
+          <p class="font-bold">📎 Tệp đề thi gốc: <strong>${escapeExamHtml(file.name)}</strong> (${formatFileSizeHuman(file.size)})</p>
+          <p>Tệp đề thi đã được lưu đầy đủ trong hệ thống. Bạn có thể xem trực tiếp trang đề bên dưới hoặc nhấn nút <strong>⬇️ Tải File Đề Về Máy</strong> để mở tệp gốc.</p>
+        </div>`;
+      }
+
+      return {
+        fileName: file.name,
+        fileSize: file.size,
+        fileSizeLabel: formatFileSizeHuman(file.size),
+        fileType,
+        pageCount,
+        dataUrl,
+        blob: file,
+        extractedHtml,
+        extractedText
+      };
+    }
+
+    async function saveExamBinaryToIDB(examId, fileInfo) {
+      if (!examId || !fileInfo || !fileInfo.dataUrl) return;
+      await saveMp3ToIndexedDB("exam_file_" + examId, fileInfo.blob || null, fileInfo.dataUrl, fileInfo.fileName || "exam_file");
+    }
+
+    async function getExamBinaryFromIDB(examId) {
+      if (!examId) return null;
+      return await getMp3FromIndexedDB("exam_file_" + examId);
+    }
+
+    async function deleteExamBinaryFromIDB(examId) {
+      if (!examId) return;
+      await deleteMp3FromIndexedDB("exam_file_" + examId);
+    }
+
+    async function persistExamsVaultState(reasonLabel = "Cập nhật Kho Đóng Góp Đề Thi") {
+      try {
+        const lightCopy = EXAMS_DATA.map(ex => {
+          const copy = { ...ex };
+          if (copy.fileDataUrl && copy.fileDataUrl.length > 180000) {
+            copy.hasIdbBinary = true;
+            delete copy.fileDataUrl;
+          }
+          return copy;
+        });
+        localStorage.setItem(EXAMS_STORAGE_KEY, JSON.stringify(lightCopy));
+      } catch (e) {}
+      try {
+        const db = await openAudioIndexedDB();
+        if (db) {
+          await new Promise((resolve) => {
+            const tx = db.transaction(IDB_STORE, "readwrite");
+            tx.objectStore(IDB_STORE).put({ id: EXAMS_IDB_KEY, exams: EXAMS_DATA, savedAt: Date.now() });
+            tx.oncomplete = () => resolve(true);
+            tx.onerror = () => resolve(false);
+          });
+        }
+      } catch (e) {}
+      if (window.isAdminLoggedIn && typeof saveAdminSiteState === "function") {
+        await saveAdminSiteState(true, reasonLabel);
+      } else if (typeof isGithubWriteReady === "function" && isGithubWriteReady()) {
+        try {
+          enqueueGithubWrite(async () => {
+            const currentDoc = (await githubReadJsonFile("data/site-state.json", false)) || {};
+            currentDoc.adminState = currentDoc.adminState || compactStateForCloud(buildSerializableAdminState());
+            currentDoc.adminState.examsData = EXAMS_DATA.map(ex => {
+              const c = { ...ex };
+              if (c.fileDataUrl && c.fileDataUrl.length > 180000) delete c.fileDataUrl;
+              return c;
+            });
+            currentDoc.updatedAt = Date.now();
+            await githubPutUtf8File("data/site-state.json", JSON.stringify(currentDoc), `📄 ${reasonLabel}`);
+          });
+        } catch (e) {}
+      }
+    }
+
+    function canCurrentUserDeleteExam(exam) {
+      if (!exam) return false;
+      if (window.isAdminLoggedIn) return true;
+      const myOwnerId = getOrCreateGuestbookOwnerId();
+      return Boolean(exam.ownerId && exam.ownerId === myOwnerId);
+    }
+
+    function updateExamHeroStats() {
+      const myOwnerId = getOrCreateGuestbookOwnerId();
+      const total = EXAMS_DATA.length;
+      const thpt = EXAMS_DATA.filter(e => e.category === "thptqg").length;
+      const mid = EXAMS_DATA.filter(e => e.category !== "thptqg").length;
+      const mine = EXAMS_DATA.filter(e => e.ownerId === myOwnerId || (window.isAdminLoggedIn && e.ownerId === "__admin_root__")).length;
+
+      const elTotal = document.getElementById("examStatTotalCount");
+      const elThpt = document.getElementById("examStatThptCount");
+      const elMid = document.getElementById("examStatMidCount");
+      const elMy = document.getElementById("examStatMyCount");
+      const elAdmCount = document.getElementById("admExamsCount");
+
+      if (elTotal) elTotal.textContent = `${total} đề`;
+      if (elThpt) elThpt.textContent = `${thpt} đề`;
+      if (elMid) elMid.textContent = `${mid} đề`;
+      if (elMy) elMy.textContent = `${mine} đề`;
+      if (elAdmCount) elAdmCount.textContent = String(total);
+    }
+
+    function stripHtmlToPreviewSnippet(htmlStr, maxLen = 190) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = String(htmlStr || "");
+      const txt = (tmp.textContent || tmp.innerText || "").replace(/\s+/g, " ").trim();
+      if (!txt) return "Nhấn vào thẻ đề thi để xem đầy đủ nguyên trang đề thi chuẩn A4 và tải tệp gốc về máy.";
+      return txt.length > maxLen ? txt.slice(0, maxLen) + "…" : txt;
+    }
+
+    function renderExamsVaultSection() {
+      updateExamHeroStats();
+      const grid = document.getElementById("examCardsGrid");
+      if (!grid) return;
+
+      const myOwnerId = getOrCreateGuestbookOwnerId();
+      const isAdmin = Boolean(window.isAdminLoggedIn);
+      const q = (document.getElementById("examSearchInput")?.value || "").toLowerCase().trim();
+      const fileFilter = document.getElementById("examFileTypeFilterSelect")?.value || "all";
+      const sortMode = document.getElementById("examSortSelect")?.value || "featured";
+
+      document.querySelectorAll("#examCategoryFilterBar .exam-filter-pill").forEach(btn => {
+        const cat = btn.getAttribute("data-exam-filter");
+        const isCurrent = cat === currentExamFilterCat;
+        if (isCurrent) {
+          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-extrabold bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 text-white shadow-md transition";
+        } else if (cat === "mine") {
+          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-pink-50 hover:bg-pink-100 text-pink-800 border border-pink-200 transition";
+        } else {
+          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition";
+        }
+      });
+
+      let filtered = EXAMS_DATA.filter(exam => {
+        if (currentExamFilterCat === "mine") {
+          if (exam.ownerId !== myOwnerId && !(isAdmin && exam.ownerId === "__admin_root__")) return false;
+        } else if (currentExamFilterCat !== "all" && exam.category !== currentExamFilterCat) {
+          return false;
+        }
+        if (fileFilter !== "all" && exam.fileType !== fileFilter) return false;
+        if (q) {
+          const hay = `${exam.title} ${exam.author} ${exam.school || ""} ${exam.duration || ""} ${exam.fileName || ""} ${stripHtmlToPreviewSnippet(exam.contentHtml, 600)}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      filtered.sort((a, b) => {
+        if (sortMode === "featured") {
+          if (Boolean(b.isPinned) !== Boolean(a.isPinned)) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+        }
+        if (sortMode === "views") {
+          return (Number(b.views) || 0) - (Number(a.views) || 0);
+        }
+        return new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime();
+      });
+
+      if (filtered.length === 0) {
+        const emptyTitle = EXAMS_DATA.length === 0
+          ? "Hiện chưa có đề thi nào được đăng lên (0 đề)"
+          : "Chưa có đề thi nào trong mục lọc này";
+        const emptySub = EXAMS_DATA.length === 0
+          ? "Kho đề thi đang hoàn toàn trống. Bạn hoặc Admin hãy là người đầu tiên tải file Word (.docx/.doc) hoặc PDF (.pdf) lên để hiển thị nguyên trang đề thi tại đây nhé!"
+          : "Bạn hãy chọn mục lọc khác hoặc tải lên đề thi mới cho danh mục này nhé!";
+        grid.innerHTML = `
+          <div class="col-span-full p-8 sm:p-10 rounded-3xl bg-white border-2 border-dashed border-amber-300 text-center space-y-3 shadow-sm">
+            <div class="text-4xl">🦊📄</div>
+            <h4 class="font-literary font-bold text-lg text-stone-900">${emptyTitle}</h4>
+            <p class="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
+              ${emptySub}
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-2.5 pt-1">
+              <button type="button" onclick="document.getElementById('examContributionStudioCard')?.scrollIntoView({behavior:'smooth'});document.getElementById('examUploadTitleInput')?.focus();" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 text-white font-extrabold text-xs shadow-md transition">
+                🚀 + Tải File Đề Thi Đầu Tiên Lên Ngay
+              </button>
+              ${isAdmin ? `
+                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2.5 rounded-2xl bg-slate-950 hover:bg-slate-900 border border-cyan-400 text-cyan-300 font-extrabold text-xs shadow transition">
+                  👑 Admin Tạo Đề Mới
+                </button>
+              ` : ""}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(exam => {
+        const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+        const isMine = Boolean(exam.ownerId && exam.ownerId === myOwnerId);
+        const isPdf = exam.fileType === "pdf";
+        const fileBadge = isPdf
+          ? `<span class="px-2.5 py-0.5 rounded-lg bg-rose-600 text-white font-mono font-extrabold text-[10px] shadow-sm">📕 PDF</span>`
+          : `<span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-mono font-extrabold text-[10px] shadow-sm">📘 WORD</span>`;
+        const snippet = stripHtmlToPreviewSnippet(exam.contentHtml, 175);
+        const safeId = String(exam.id).replace(/'/g, "\\'");
+
+        return `
+          <article class="exam-card-fancy bg-white rounded-3xl border-2 ${exam.isPinned ? 'border-amber-400 shadow-lg' : 'border-amber-200/80 shadow-md'} ${meta.borderGlow} flex flex-col justify-between overflow-hidden group">
+            <!-- Top Ribbon & Clickable Area to Open Full Exam Page -->
+            <div class="p-5 space-y-3.5 cursor-pointer flex-1 flex flex-col justify-between" onclick="openExamFullPageModal('${safeId}')">
+              <div class="space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-1.5">
+                  <span class="px-3 py-1 rounded-full ${meta.badgeClass} font-extrabold text-[11px] shadow-sm flex items-center gap-1">
+                    <span>${meta.icon}</span>
+                    <span>${meta.label}</span>
+                  </span>
+                  <div class="flex items-center gap-1">
+                    ${exam.isPinned ? `<span class="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-extrabold text-[10px]" title="Đề trọng tâm được ghim">📌 GHIM</span>` : ""}
+                    ${fileBadge}
+                  </div>
+                </div>
+
+                <h3 class="font-literary font-bold text-base sm:text-lg text-stone-900 group-hover:text-rose-700 transition leading-snug line-clamp-2">
+                  ${escapeExamHtml(exam.title)}
+                </h3>
+
+                <!-- Mini A4 Exam Sheet Preview Thumbnail -->
+                <div class="exam-mini-paper rounded-2xl p-3.5 border border-amber-200/80 space-y-1.5 relative overflow-hidden">
+                  <div class="flex items-center justify-between text-[10px] font-bold text-amber-900 border-b border-amber-200/70 pb-1">
+                    <span class="truncate">${escapeExamHtml(exam.school || "TRƯỜNG THPT THỚI LONG")}</span>
+                    <span class="shrink-0 text-rose-700">📄 Trang đề A4</span>
+                  </div>
+                  <p class="text-xs text-stone-700 leading-relaxed line-clamp-3 font-serif">
+                    ${escapeExamHtml(snippet)}
+                  </p>
+                  <div class="pt-1 flex items-center justify-between text-[10px] font-extrabold text-pink-700">
+                    <span>✨ Nhấn vào để hiện nguyên trang đề thi →</span>
+                    <span>👁️ ${Number(exam.views) || 1} lượt xem</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Metadata Footer -->
+              <div class="pt-2 border-t border-stone-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-stone-600">
+                <div class="truncate">
+                  👤 <strong>${escapeExamHtml(exam.author)}</strong>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 font-semibold">${escapeExamHtml(exam.fileSizeLabel || "1.2 MB")}</span>
+                  ${isMine ? `<span class="px-2 py-0.5 rounded-md bg-pink-100 text-pink-800 font-extrabold">🙋 Đề của bạn</span>` : (exam.isVerified ? `<span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold">👑 Đề chuẩn</span>` : "")}
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons Bar -->
+            <div class="px-5 py-3.5 bg-gradient-to-r from-amber-50/90 via-pink-50/50 to-amber-50/90 border-t border-amber-200/70 space-y-2">
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="event.stopPropagation();openExamFullPageModal('${safeId}')" class="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-extrabold text-xs shadow transition flex items-center justify-center gap-1.5">
+                  <span>📖</span>
+                  <span>Xem Nguyên Trang Đề</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation();downloadExamFileById('${safeId}')" class="py-2 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-amber-200 font-bold text-xs transition flex items-center gap-1 shrink-0" title="Tải tệp đề thi về máy">
+                  <span>⬇️</span>
+                  <span>Tải File</span>
+                </button>
+                ${(!isAdmin && isMine) ? `
+                  <button type="button" onclick="event.stopPropagation();requestDeleteExamById('${safeId}')" class="py-2 px-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs shadow transition shrink-0" title="Xoá đề thi do chính bạn tải lên">
+                    🗑️ Xoá
+                  </button>
+                ` : ""}
+              </div>
+
+              ${(!isAdmin && !isMine) ? `
+                <div class="text-[10px] text-stone-500 flex items-center justify-between">
+                  <span>🔒 Chỉ người đăng đề này hoặc Admin mới được quyền xoá</span>
+                  <span class="font-semibold text-amber-900">${escapeExamHtml(exam.duration || "120 phút")}</span>
+                </div>
+              ` : ""}
+
+              ${isAdmin ? `
+                <div class="pt-1.5 border-t border-amber-300/60 flex flex-wrap items-center justify-between gap-1">
+                  <span class="text-[10px] font-mono font-extrabold text-slate-900 bg-amber-300 px-2 py-0.5 rounded">👑 ADMIN</span>
+                  <div class="flex flex-wrap items-center gap-1">
+                    <button type="button" onclick="event.stopPropagation();adminTogglePinExam('${safeId}')" class="px-2 py-1 rounded-lg ${exam.isPinned ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 text-amber-200'} font-bold text-[10px]" title="Ghim hoặc bỏ ghim đề này">
+                      📌 ${exam.isPinned ? "Bỏ ghim" : "Ghim"}
+                    </button>
+                    <button type="button" onclick="event.stopPropagation();openAdminExamEditModal('${safeId}')" class="px-2.5 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-[10px]" title="Chỉnh sửa toàn diện nội dung đề thi">
+                      ✏️ Sửa đề
+                    </button>
+                    <button type="button" onclick="event.stopPropagation();adminTriggerReplaceExamFile('${safeId}')" class="px-2 py-1 rounded-lg bg-indigo-900 hover:bg-indigo-800 text-indigo-100 font-bold text-[10px]" title="Tải file Word/PDF khác đè lên đề này">
+                      📂 Thay file
+                    </button>
+                    <button type="button" onclick="event.stopPropagation();requestDeleteExamById('${safeId}')" class="px-2.5 py-1 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-extrabold text-[10px]" title="Quyền Admin xoá bất kỳ đề nào">
+                      🗑️ Xoá
+                    </button>
+                  </div>
+                </div>
+              ` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderAdminExamsDashboardList() {
+      const container = document.getElementById("admExamsListContainer");
+      if (!container) return;
+      const countBadge = document.getElementById("admExamsCount");
+      if (countBadge) countBadge.textContent = String(EXAMS_DATA.length);
+
+      if (EXAMS_DATA.length === 0) {
+        container.innerHTML = `<div class="p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/30 text-slate-300 text-xs text-center space-y-2">
+          <div class="text-2xl">📭</div>
+          <div class="font-bold text-white">Hiện chưa có đề thi nào được đăng (0 đề)</div>
+          <p class="text-slate-400">Admin có thể nhấn nút <strong>[➕ Thêm Đề Thi Mới (Admin)]</strong> ở góc trên hoặc ra ngoài mục <strong>📄 Đóng Góp Đề Thi</strong> để tải file Word/PDF lên.</p>
+        </div>`;
+        return;
+      }
+
+      container.innerHTML = EXAMS_DATA.map((exam, idx) => {
+        const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+        const safeId = String(exam.id).replace(/'/g, "\\'");
+        return `
+          <div class="p-3 rounded-2xl bg-slate-950/90 border border-cyan-500/30 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div class="min-w-0 flex-1 space-y-0.5">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold">#${idx + 1} • ${meta.shortLabel}</span>
+                <span class="px-2 py-0.5 rounded ${exam.fileType === 'pdf' ? 'bg-rose-600 text-white' : 'bg-blue-600 text-white'} font-mono text-[10px] font-bold uppercase">${exam.fileType}</span>
+                ${exam.isPinned ? `<span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px]">📌 ĐÃ GHIM</span>` : ""}
+                <span class="text-white font-bold truncate">${escapeExamHtml(exam.title)}</span>
+              </div>
+              <div class="text-[11px] text-slate-400">
+                Người đăng: <strong class="text-amber-300">${escapeExamHtml(exam.author)}</strong> • Tệp: ${escapeExamHtml(exam.fileName || "de_thi.docx")} (${escapeExamHtml(exam.fileSizeLabel || "1MB")})
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button type="button" onclick="closeAdminDashboardModal();openExamFullPageModal('${safeId}');" class="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold">📖 Xem trang đề</button>
+              <button type="button" onclick="adminTogglePinExam('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 border border-amber-400 text-amber-200 font-bold">📌</button>
+              <button type="button" onclick="openAdminExamEditModal('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold">✏️ Sửa</button>
+              <button type="button" onclick="adminTriggerReplaceExamFile('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold">📂 Đổi file</button>
+              <button type="button" onclick="requestDeleteExamById('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-extrabold">🗑️ Xoá</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Render PDF pages onto <canvas> inside the Full-Page Exam Viewer
+    async function renderPdfPagesIntoContainers(dataUrl, canvasHostEl, statusEl) {
+      if (!canvasHostEl || !dataUrl) return;
+      canvasHostEl.innerHTML = "";
+      if (window.pdfjsLib) {
+        try {
+          if (!window.pdfjsLib.GlobalWorkerOptions.workerSrc) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+          }
+          const commaIdx = dataUrl.indexOf(",");
+          const b64 = commaIdx >= 0 ? dataUrl.slice(commaIdx + 1) : dataUrl;
+          const bytes = base64ToUint8Array(b64);
+          const pdfDoc = await window.pdfjsLib.getDocument({ data: bytes }).promise;
+          const totalPages = pdfDoc.numPages || 1;
+          if (statusEl) statusEl.textContent = `Đã hiển thị đầy đủ ${totalPages} trang PDF`;
+          for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+            const page = await pdfDoc.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 1.45 });
+            const wrapper = document.createElement("div");
+            wrapper.className = "space-y-1.5 text-center";
+            const pageLabel = document.createElement("div");
+            pageLabel.className = "text-xs font-mono font-bold text-amber-700 uppercase";
+            pageLabel.textContent = `— Trang ${pageNum} / ${totalPages} —`;
+            const canvas = document.createElement("canvas");
+            canvas.className = "exam-pdf-canvas-page";
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext("2d");
+            wrapper.append(pageLabel, canvas);
+            canvasHostEl.appendChild(wrapper);
+            await page.render({ canvasContext: ctx, viewport }).promise;
+          }
+          return;
+        } catch (e) {}
+      }
+      if (statusEl) statusEl.textContent = "Đang hiển thị khung PDF trực tiếp";
+      const embed = document.createElement("iframe");
+      embed.src = dataUrl;
+      embed.className = "w-full h-[78vh] rounded-2xl border border-amber-300 bg-white";
+      canvasHostEl.appendChild(embed);
+    }
+
+    // Open Full-Page Exam Paper Viewer ("click vô là sẽ hiện nguyên cái trang đề đó lên luôn")
+    window.openExamFullPageModal = async function(examId) {
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(examId));
+      if (!exam) return;
+      currentExamReaderId = exam.id;
+      exam.views = (Number(exam.views) || 0) + 1;
+      renderExamsVaultSection();
+
+      const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+      const modal = document.getElementById("examFullPageReaderModal");
+      if (!modal) return;
+
+      document.getElementById("examReaderCatBadge").textContent = `${meta.icon} ${meta.label}`;
+      const fileBadge = document.getElementById("examReaderFileBadge");
+      if (fileBadge) {
+        fileBadge.textContent = exam.fileType === "pdf" ? `📕 PDF (${exam.fileSizeLabel || "1.5 MB"})` : `📘 WORD (${exam.fileSizeLabel || "850 KB"})`;
+        fileBadge.className = exam.fileType === "pdf"
+          ? "px-2.5 py-1 rounded-full bg-rose-600 text-white font-mono font-bold text-[11px] shrink-0"
+          : "px-2.5 py-1 rounded-full bg-blue-600 text-white font-mono font-bold text-[11px] shrink-0";
+      }
+      document.getElementById("examReaderModalTitle").textContent = exam.title;
+      document.getElementById("examSheetSchoolHeader").textContent = exam.school || "TRƯỜNG THPT THỚI LONG";
+      document.getElementById("examSheetCategoryHeader").textContent = meta.headerTitle;
+      document.getElementById("examSheetDurationHeader").textContent = `Thời gian làm bài: ${exam.duration || "120 phút"} (không kể thời gian phát đề)`;
+      document.getElementById("examSheetSubTitle").textContent = exam.title;
+      document.getElementById("examSheetContributor").textContent = exam.author || "Thành viên đóng góp";
+      document.getElementById("examSheetFileMeta").textContent = `${exam.fileName || "de_thi_ngu_van_12.docx"} • ${exam.fileSizeLabel || "1.2 MB"}`;
+
+      const bodyEl = document.getElementById("examFullPageBodyContent");
+      if (bodyEl) {
+        bodyEl.innerHTML = convertPlainTextToExamHtml(exam.contentHtml || exam.contentText || "");
+        bodyEl.removeAttribute("contenteditable");
+        bodyEl.style.outline = "";
+        bodyEl.style.padding = "";
+      }
+      const inlineBtn = document.getElementById("examReaderInlineEditToggleBtn");
+      if (inlineBtn) inlineBtn.textContent = "✍️ Gõ Sửa Trực Tiếp Trên Tờ Đề: TẮT";
+
+      const ansTitle = document.getElementById("examAnswerSheetTitle");
+      if (ansTitle) ansTitle.textContent = `Hướng Dẫn Chấm & Đáp Án: ${exam.title}`;
+      const ansBody = document.getElementById("examFullPageAnswerBody");
+      if (ansBody) {
+        ansBody.innerHTML = exam.answerHtml
+          ? convertPlainTextToExamHtml(exam.answerHtml)
+          : `<p><em>Đề thi này chưa đính kèm đáp án rời hoặc đáp án đã nằm sẵn ở cuối trang đề thi chính. Admin có thể bấm <strong>✏️ Sửa Toàn Diện</strong> để bổ sung hướng dẫn chấm bất kỳ lúc nào!</em></p>`;
+      }
+
+      const mins = Number(exam.durationMinutes) || (exam.category === "15p" ? 15 : (exam.category === "thuongxuyen" ? 20 : (exam.category === "45p" || exam.category === "1tiet" ? 45 : (exam.category === "hocky" ? 90 : 120))));
+      if (examReaderTimerInterval) {
+        clearInterval(examReaderTimerInterval);
+        examReaderTimerInterval = null;
+      }
+      examReaderTimerRunning = false;
+      examReaderTimerSecondsLeft = mins * 60;
+      updateExamReaderTimerUI();
+
+      const dlBtn = document.getElementById("examReaderDownloadBtn");
+      if (dlBtn) dlBtn.onclick = () => window.downloadExamFileById(exam.id);
+
+      const ownerDelBtn = document.getElementById("examReaderOwnerDeleteBtn");
+      const myOwnerId = getOrCreateGuestbookOwnerId();
+      if (ownerDelBtn) {
+        const showOwnerDel = !window.isAdminLoggedIn && Boolean(exam.ownerId && exam.ownerId === myOwnerId);
+        ownerDelBtn.classList.toggle("hidden", !showOwnerDel);
+        ownerDelBtn.onclick = () => window.requestDeleteExamById(exam.id);
+      }
+
+      const admBar = document.getElementById("examReaderAdminBar");
+      if (admBar) admBar.classList.toggle("hidden", !window.isAdminLoggedIn);
+      const admFullEditBtn = document.getElementById("examReaderAdminFullEditBtn");
+      if (admFullEditBtn) admFullEditBtn.onclick = () => window.openAdminExamEditModal(exam.id);
+      const admReplaceBtn = document.getElementById("examReaderAdminReplaceFileBtn");
+      if (admReplaceBtn) admReplaceBtn.onclick = () => window.adminTriggerReplaceExamFile(exam.id);
+      const admPinBtn = document.getElementById("examReaderAdminPinBtn");
+      if (admPinBtn) {
+        admPinBtn.textContent = exam.isPinned ? "📌 Bỏ Ghim Đề" : "📌 Ghim Đề Lên Đầu";
+        admPinBtn.onclick = () => window.adminTogglePinExam(exam.id);
+      }
+      const admDelBtn = document.getElementById("examReaderAdminDeleteBtn");
+      if (admDelBtn) admDelBtn.onclick = () => window.requestDeleteExamById(exam.id);
+
+      let binaryDataUrl = exam.fileDataUrl || "";
+      if (!binaryDataUrl) {
+        const idbRec = await getExamBinaryFromIDB(exam.id);
+        if (idbRec && idbRec.dataUrl) binaryDataUrl = idbRec.dataUrl;
+      }
+
+      const inlinePdfWrap = document.getElementById("examInlinePdfPagesWrapper");
+      const inlinePdfList = document.getElementById("examInlinePdfCanvasList");
+      const inlinePdfStatus = document.getElementById("examInlinePdfPageStatus");
+      const nativeViewport = document.getElementById("examNativeFileViewport");
+
+      if (binaryDataUrl && exam.fileType === "pdf") {
+        if (inlinePdfWrap) inlinePdfWrap.classList.remove("hidden");
+        renderPdfPagesIntoContainers(binaryDataUrl, inlinePdfList, inlinePdfStatus);
+        if (nativeViewport) {
+          renderPdfPagesIntoContainers(binaryDataUrl, nativeViewport, null);
+        }
+      } else {
+        if (inlinePdfWrap) inlinePdfWrap.classList.add("hidden");
+        if (inlinePdfList) inlinePdfList.innerHTML = "";
+        if (nativeViewport) {
+          nativeViewport.innerHTML = `
+            <div class="exam-a4-sheet" data-paper-theme="white">
+              ${convertPlainTextToExamHtml(exam.contentHtml || exam.contentText || "")}
+            </div>
+          `;
+        }
+      }
+
+      window.switchExamReaderViewMode("sheet");
+      modal.classList.remove("hidden");
+    };
+
+    function closeExamFullPageModal() {
+      if (examReaderTimerInterval) {
+        clearInterval(examReaderTimerInterval);
+        examReaderTimerInterval = null;
+      }
+      examReaderTimerRunning = false;
+      document.getElementById("examFullPageReaderModal")?.classList.add("hidden");
+    }
+
+    window.switchExamReaderViewMode = function(mode) {
+      currentExamReaderViewMode = mode || "sheet";
+      const sheetEl = document.getElementById("examFullPageA4Container");
+      const nativeEl = document.getElementById("examFullPageNativeFileContainer");
+      const ansEl = document.getElementById("examFullPageAnswerContainer");
+
+      if (sheetEl) sheetEl.classList.toggle("hidden", currentExamReaderViewMode !== "sheet");
+      if (nativeEl) nativeEl.classList.toggle("hidden", currentExamReaderViewMode !== "native");
+      if (ansEl) ansEl.classList.toggle("hidden", currentExamReaderViewMode !== "answer");
+
+      const btnSheet = document.getElementById("examViewModeSheetBtn");
+      const btnNative = document.getElementById("examViewModeNativeBtn");
+      const btnAns = document.getElementById("examViewModeAnswerBtn");
+
+      const activeCls = "px-3 py-1.5 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 to-pink-500 text-slate-950 transition";
+      const idleCls = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition";
+      if (btnSheet) btnSheet.className = currentExamReaderViewMode === "sheet" ? activeCls : idleCls;
+      if (btnNative) btnNative.className = currentExamReaderViewMode === "native" ? activeCls : idleCls;
+      if (btnAns) btnAns.className = currentExamReaderViewMode === "answer" ? activeCls : idleCls;
+    };
+
+    window.setExamReaderPaperTheme = function(theme) {
+      currentExamReaderPaperTheme = theme || "white";
+      document.getElementById("examFullPageA4Container")?.setAttribute("data-paper-theme", currentExamReaderPaperTheme);
+      document.getElementById("examFullPageAnswerContainer")?.setAttribute("data-paper-theme", currentExamReaderPaperTheme);
+    };
+
+    window.adjustExamReaderZoom = function(delta) {
+      currentExamReaderZoom = Math.min(145, Math.max(80, currentExamReaderZoom + delta * 10));
+      const bodyEl = document.getElementById("examFullPageBodyContent");
+      const ansEl = document.getElementById("examFullPageAnswerBody");
+      if (bodyEl) bodyEl.style.fontSize = `${currentExamReaderZoom}%`;
+      if (ansEl) ansEl.style.fontSize = `${currentExamReaderZoom}%`;
+    };
+
+    function updateExamReaderTimerUI() {
+      const disp = document.getElementById("examReaderTimerDisplay");
+      const btn = document.getElementById("examReaderTimerToggleBtn");
+      const m = Math.floor(examReaderTimerSecondsLeft / 60);
+      const s = examReaderTimerSecondsLeft % 60;
+      if (disp) disp.textContent = `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+      if (btn) btn.textContent = examReaderTimerRunning ? "Tạm dừng" : "Bắt đầu";
+    }
+
+    window.toggleExamReaderLiveTimer = function() {
+      if (examReaderTimerRunning) {
+        clearInterval(examReaderTimerInterval);
+        examReaderTimerInterval = null;
+        examReaderTimerRunning = false;
+        updateExamReaderTimerUI();
+      } else {
+        examReaderTimerRunning = true;
+        updateExamReaderTimerUI();
+        examReaderTimerInterval = setInterval(() => {
+          if (examReaderTimerSecondsLeft > 0) {
+            examReaderTimerSecondsLeft--;
+            updateExamReaderTimerUI();
+          } else {
+            clearInterval(examReaderTimerInterval);
+            examReaderTimerInterval = null;
+            examReaderTimerRunning = false;
+            updateExamReaderTimerUI();
+            showToast("⏰ Đã hết thời gian làm bài đề thi! Hãy đối chiếu với tab Đáp Án & Hướng Dẫn Chấm nhé!", "🔔");
+          }
+        }, 1000);
+      }
+    };
+
+    window.resetExamReaderLiveTimer = function() {
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(currentExamReaderId));
+      const mins = exam ? (Number(exam.durationMinutes) || 120) : 120;
+      if (examReaderTimerInterval) {
+        clearInterval(examReaderTimerInterval);
+        examReaderTimerInterval = null;
+      }
+      examReaderTimerRunning = false;
+      examReaderTimerSecondsLeft = mins * 60;
+      updateExamReaderTimerUI();
+    };
+
+    window.printCurrentExamSheet = function() {
+      window.print();
+    };
+
+    // Admin Live Edit directly on the A4 Exam Sheet inside the Full-Page Viewer
+    window.toggleAdminExamSheetInlineEdit = async function() {
+      if (!window.isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(currentExamReaderId));
+      const bodyEl = document.getElementById("examFullPageBodyContent");
+      const btn = document.getElementById("examReaderInlineEditToggleBtn");
+      if (!exam || !bodyEl) return;
+
+      const isEditing = bodyEl.getAttribute("contenteditable") === "true";
+      if (!isEditing) {
+        window.switchExamReaderViewMode("sheet");
+        bodyEl.setAttribute("contenteditable", "true");
+        bodyEl.style.outline = "2px dashed #ec4899";
+        bodyEl.style.padding = "12px";
+        bodyEl.style.borderRadius = "12px";
+        bodyEl.focus();
+        if (btn) btn.textContent = "💾 Đang Gõ Sửa Trên Tờ Đề (Bấm Để Lưu)";
+        showToast("✍️ Admin có thể gõ sửa trực tiếp lên mặt tờ giấy đề thi! Sửa xong hãy bấm lại nút này để Lưu.", "👑");
+      } else {
+        bodyEl.removeAttribute("contenteditable");
+        bodyEl.style.outline = "";
+        bodyEl.style.padding = "";
+        exam.contentHtml = bodyEl.innerHTML;
+        if (btn) btn.textContent = "✍️ Gõ Sửa Trực Tiếp Trên Tờ Đề: TẮT";
+        renderExamsVaultSection();
+        renderAdminExamsDashboardList();
+        await persistExamsVaultState(`Admin sửa trực tiếp trang đề: ${exam.title}`);
+        showToast("👑 Đã lưu nội dung trang đề thi trực tiếp!", "✅");
+      }
+    };
+
+    // Download Exam File
+    window.downloadExamFileById = async function(examId) {
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(examId));
+      if (!exam) return;
+
+      let binaryDataUrl = exam.fileDataUrl || "";
+      if (!binaryDataUrl) {
+        const idbRec = await getExamBinaryFromIDB(exam.id);
+        if (idbRec && idbRec.dataUrl) binaryDataUrl = idbRec.dataUrl;
+      }
+
+      if (binaryDataUrl && binaryDataUrl.startsWith("data:")) {
+        const a = document.createElement("a");
+        a.href = binaryDataUrl;
+        a.download = exam.fileName || (exam.fileType === "pdf" ? "De_Thi_Ngu_Van_12.pdf" : "De_Thi_Ngu_Van_12.docx");
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast(`⬇️ Đang tải tệp gốc "${a.download}" về máy!`, "📥");
+        return;
+      }
+
+      const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+      const docContent = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="utf-8"><title>${escapeExamHtml(exam.title)}</title>
+<style>
+  body { font-family: "Times New Roman", serif; font-size: 13pt; line-height: 1.6; color: #000; max-width: 800px; margin: 24px auto; }
+  h1, h2, h3 { text-align: center; }
+  blockquote { border-left: 3px solid #888; padding-left: 12px; font-style: italic; }
+</style>
+</head>
+<body>
+  <p style="text-align:center;font-weight:bold;text-transform:uppercase;">${escapeExamHtml(exam.school || "TRƯỜNG THPT THỚI LONG")} — ${escapeExamHtml(meta.headerTitle)}</p>
+  <h2 style="text-align:center;">${escapeExamHtml(exam.title)}</h2>
+  <p style="text-align:center;font-style:italic;">Thời gian làm bài: ${escapeExamHtml(exam.duration || "120 phút")} • Người đóng góp: ${escapeExamHtml(exam.author)}</p>
+  <hr/>
+  ${exam.contentHtml || ""}
+  ${exam.answerHtml ? `<hr/><h3>HƯỚNG DẪN CHẤM & ĐÁP ÁN</h3>${exam.answerHtml}` : ""}
+</body></html>`;
+
+      const blob = new Blob(["\ufeff", docContent], { type: "application/msword;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const baseName = (exam.fileName || "De_Thi_Ngu_Van_12").replace(/\.(pdf|docx|doc)$/i, "");
+      a.href = url;
+      a.download = `${baseName}.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      showToast(`⬇️ Đã tải tệp đề thi "${a.download}" về máy!`, "📥");
+    };
+
+    // Request Delete Exam (Enforces Owner-only for normal users, Supreme Delete for Admin)
+    window.requestDeleteExamById = function(examId) {
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(examId));
+      if (!exam) return;
+
+      if (!canCurrentUserDeleteExam(exam)) {
+        showToast("🔒 Bạn chỉ được xoá đề thi do chính bạn tải lên! Không thể xoá đề của người khác.", "⚠️");
+        return;
+      }
+
+      pendingDeleteExamId = exam.id;
+      const modal = document.getElementById("examDeleteConfirmModal");
+      const roleBadge = document.getElementById("examDeleteRoleBadge");
+      const titleEl = document.getElementById("examDeleteConfirmTitle");
+      const descEl = document.getElementById("examDeleteConfirmDesc");
+
+      if (roleBadge) {
+        roleBadge.textContent = window.isAdminLoggedIn ? "👑 QUYỀN TỐI CAO ADMIN // XOÁ ĐỀ THI" : "🙋 XOÁ ĐỀ THI DO BẠN ĐÓNG GÓP";
+      }
+      if (titleEl) titleEl.textContent = `Xoá đề: "${exam.title}"?`;
+      if (descEl) {
+        descEl.textContent = window.isAdminLoggedIn
+          ? `Với quyền Admin Tối Cao, đề thi của "${exam.author}" sẽ bị xoá vĩnh viễn khỏi Kho Đóng Góp Đề Thi.`
+          : `Bạn đang xoá đề thi do chính bạn tải lên ("${exam.fileName || exam.title}"). Hành động này không ảnh hưởng tới các đề của thành viên khác.`;
+      }
+      modal?.classList.remove("hidden");
+    };
+
+    async function executeConfirmedExamDelete() {
+      if (!pendingDeleteExamId) return;
+      if (pendingDeleteExamId === "__CLEAR_ALL_ADMIN__") {
+        if (!window.isAdminLoggedIn) return;
+        for (const item of EXAMS_DATA) {
+          await deleteExamBinaryFromIDB(item.id);
+        }
+        EXAMS_DATA = [];
+        pendingDeleteExamId = null;
+        document.getElementById("examDeleteConfirmModal")?.classList.add("hidden");
+        closeExamFullPageModal();
+        renderExamsVaultSection();
+        renderAdminExamsDashboardList();
+        await persistExamsVaultState("Admin làm trống toàn bộ Kho Đề Thi về 0 đề");
+        showToast("🗑️ Admin đã xoá sạch toàn bộ Kho Đề Thi (Về 0 đề)!", "👑");
+        return;
+      }
+
+      const idx = EXAMS_DATA.findIndex(e => String(e.id) === String(pendingDeleteExamId));
+      if (idx === -1) {
+        document.getElementById("examDeleteConfirmModal")?.classList.add("hidden");
+        return;
+      }
+      const target = EXAMS_DATA[idx];
+      if (!canCurrentUserDeleteExam(target)) {
+        document.getElementById("examDeleteConfirmModal")?.classList.add("hidden");
+        showToast("🔒 Bạn không có quyền xoá đề thi của người khác!", "⚠️");
+        return;
+      }
+
+      EXAMS_DATA.splice(idx, 1);
+      await deleteExamBinaryFromIDB(target.id);
+      document.getElementById("examDeleteConfirmModal")?.classList.add("hidden");
+      if (String(currentExamReaderId) === String(target.id)) {
+        closeExamFullPageModal();
+      }
+      pendingDeleteExamId = null;
+      renderExamsVaultSection();
+      renderAdminExamsDashboardList();
+      if (typeof logAdminCyberAction === "function" && window.isAdminLoggedIn) {
+        logAdminCyberAction(`Xoá đề thi: "${target.title}"`);
+      }
+      await persistExamsVaultState(`Xoá đề thi: ${target.title}`);
+      showToast(window.isAdminLoggedIn ? `👑 Admin đã xoá đề thi "${target.title}"!` : "🗑️ Đã xoá đề thi của bạn thành công!", "🗑️");
+    }
+
+    // Admin Supreme Actions on Exams
+    window.adminTogglePinExam = async function(examId) {
+      if (!window.isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(examId));
+      if (!exam) return;
+      exam.isPinned = !exam.isPinned;
+      renderExamsVaultSection();
+      renderAdminExamsDashboardList();
+      const admPinBtn = document.getElementById("examReaderAdminPinBtn");
+      if (admPinBtn && String(currentExamReaderId) === String(exam.id)) {
+        admPinBtn.textContent = exam.isPinned ? "📌 Bỏ Ghim Đề" : "📌 Ghim Đề Lên Đầu";
+      }
+      await persistExamsVaultState(`${exam.isPinned ? "Ghim" : "Bỏ ghim"} đề thi: ${exam.title}`);
+      showToast(exam.isPinned ? `📌 Đã ghim "${exam.title}" lên đầu Kho Đề Thi!` : `Đã bỏ ghim "${exam.title}".`, "📌");
+    };
+
+    window.openAdminExamEditModal = function(examId) {
+      if (!window.isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
+      pendingAdminEditExamFileObj = null;
+      const modal = document.getElementById("examAdminEditModal");
+      if (!modal) return;
+      const exam = examId ? EXAMS_DATA.find(e => String(e.id) === String(examId)) : null;
+
+      document.getElementById("examAdminEditModalTitle").textContent = exam
+        ? `👑 Admin Sửa Đề Thi: ${exam.title.slice(0, 45)}`
+        : "👑 Admin Thêm Đề Thi Mới Vào Hệ Thống";
+      document.getElementById("admEditExamIdInput").value = exam ? exam.id : "";
+      document.getElementById("admEditExamTitleInput").value = exam ? exam.title : "";
+      document.getElementById("admEditExamCatSelect").value = exam ? exam.category : "thptqg";
+      document.getElementById("admEditExamDurationInput").value = exam ? (exam.duration || "120 phút • Năm 2026") : "120 phút • Năm 2026";
+      document.getElementById("admEditExamAuthorInput").value = exam ? (exam.author || "👑 Admin Nguyễn Nhựt Trường (12A2)") : "👑 Admin Nguyễn Nhựt Trường (12A2)";
+      document.getElementById("admEditExamSchoolInput").value = exam ? (exam.school || "TRƯỜNG THPT THỚI LONG") : "TRƯỜNG THPT THỚI LONG";
+      document.getElementById("admEditExamPinnedChk").checked = exam ? Boolean(exam.isPinned) : true;
+      document.getElementById("admEditExamVerifiedChk").checked = exam ? Boolean(exam.isVerified) : true;
+      document.getElementById("admEditExamContentInput").value = exam ? (exam.contentHtml || "") : "";
+      document.getElementById("admEditExamAnswerInput").value = exam ? (exam.answerHtml || "") : "";
+      document.getElementById("admEditExamCurrentFileLabel").textContent = exam
+        ? `Tệp hiện tại: ${exam.fileName || "de_thi.docx"} (${exam.fileSizeLabel || "1.2 MB"})`
+        : "Chưa chọn tệp Word/PDF (Có thể chọn tệp tới 15MB hoặc nhập trực tiếp nội dung bên dưới)";
+      const fileInp = document.getElementById("admEditExamFileInput");
+      if (fileInp) fileInp.value = "";
+
+      modal.classList.remove("hidden");
+    };
+
+    function closeAdminExamEditModal() {
+      document.getElementById("examAdminEditModal")?.classList.add("hidden");
+    }
+
+    window.adminTriggerReplaceExamFile = function(examId) {
+      if (!window.isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
+      pendingQuickReplaceExamId = examId;
+      const inp = document.getElementById("adminQuickReplaceExamFileInput");
+      if (inp) {
+        inp.value = "";
+        inp.click();
+      }
+    };
+
+    window.adminVerifyAllExams = async function() {
+      if (!window.isAdminLoggedIn) return openAdminLoginModal();
+      if (EXAMS_DATA.length === 0) {
+        showToast("📭 Kho đề thi hiện đang có 0 đề! Hãy đăng đề thi lên trước nhé.", "📄");
+        return;
+      }
+      EXAMS_DATA.forEach(ex => { ex.isVerified = true; });
+      renderExamsVaultSection();
+      renderAdminExamsDashboardList();
+      await persistExamsVaultState("Admin đóng dấu kiểm duyệt toàn bộ Kho Đề Thi");
+      showToast("👑 Đã đóng dấu 'Đề Chuẩn Admin' cho toàn bộ đề thi trên hệ thống!", "👑");
+    };
+
+    window.adminClearAllExams = function() {
+      if (!window.isAdminLoggedIn) return openAdminLoginModal();
+      if (EXAMS_DATA.length === 0) {
+        showToast("📭 Kho đề thi hiện đã ở trạng thái 0 đề rồi!", "✅");
+        return;
+      }
+      pendingDeleteExamId = "__CLEAR_ALL_ADMIN__";
+      const modal = document.getElementById("examDeleteConfirmModal");
+      const roleBadge = document.getElementById("examDeleteRoleBadge");
+      const titleEl = document.getElementById("examDeleteConfirmTitle");
+      const descEl = document.getElementById("examDeleteConfirmDesc");
+      if (roleBadge) roleBadge.textContent = "👑 QUYỀN TỐI CAO ADMIN // XOÁ SẠCH KHO ĐỀ";
+      if (titleEl) titleEl.textContent = `Xoá toàn bộ ${EXAMS_DATA.length} đề thi về 0 đề?`;
+      if (descEl) descEl.textContent = "Tất cả đề thi hiện có sẽ được xoá sạch để đưa Kho Đề Thi về trạng thái trống (0 đề).";
+      modal?.classList.remove("hidden");
+    };
+
+    window.adminRestoreDefaultExams = window.adminClearAllExams;
+
     const FACTORY_DEFAULTS = {
       lessons: JSON.parse(JSON.stringify(LESSONS_DATA)),
       videoLectures: JSON.parse(JSON.stringify(VIDEO_LECTURES)),
@@ -6976,6 +8857,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       matchPairs: JSON.parse(JSON.stringify(MATCH_PAIRS)),
       writingPrompts: JSON.parse(JSON.stringify(WRITING_PROMPTS)),
       vinylTracks: JSON.parse(JSON.stringify(VINYL_TRACKS)),
+      examsData: [],
       lessonVideos: JSON.parse(JSON.stringify(LESSON_VIDEOS)),
       storySummaries: JSON.parse(JSON.stringify(STORY_SUMMARIES)),
       customModules: JSON.parse(JSON.stringify(CUSTOM_MODULES)),
@@ -7186,6 +9068,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         activeRevNumber: window.currentActiveRevNumber || 0,
         activeRevLabel: window.currentActiveRevLabel || "Bản gốc mặc định",
         vinylTracks: cleanTracks,
+        examsData: EXAMS_DATA.map(ex => { const c = { ...ex }; if (c.fileDataUrl && c.fileDataUrl.length > 180000) delete c.fileDataUrl; return c; }),
         lessonVideos: LESSON_VIDEOS,
         deletedCommentIds,
         lessons: LESSONS_DATA,
@@ -7439,6 +9322,10 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     async function applyStateObject(rawState) {
       if (!rawState || typeof rawState !== "object") return;
       const state = expandStateFromCloud(rawState);
+      if (Array.isArray(state.examsData)) {
+        replaceArrayInPlace(EXAMS_DATA, sanitizeExamsList(state.examsData));
+        try { localStorage.setItem(EXAMS_STORAGE_KEY, JSON.stringify(EXAMS_DATA)); } catch (e) {}
+      }
       if (Array.isArray(state.vinylTracks)) {
         // Preserve existing in-memory blobUrls for custom tracks that already downloaded
         const oldBlobMap = new Map();
@@ -7704,6 +9591,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       try { renderMatchGame(); } catch (e) {}
       try { renderWritingPromptSelectOptions(); } catch (e) {}
       try { renderVinylTracklist(); } catch (e) {}
+      try { renderExamsVaultSection(); } catch (e) {}
+      try { renderAdminExamsDashboardList(); } catch (e) {}
       try { renderGuestbook(); } catch (e) {}
       try {
         if (DAILY_QUOTES.length) {
@@ -7741,6 +9630,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
     function switchAdminModalTab(tabName) {
       if (tabName === 'supreme1000' && typeof window.renderSupreme1000AdminPanel === 'function') window.renderSupreme1000AdminPanel();
+      if (tabName === 'exams' && typeof renderAdminExamsDashboardList === 'function') renderAdminExamsDashboardList();
       if (tabName === 'cms') {
         try { (window.renderAdminUniversalImgVault || renderAdminUniversalImgVault)?.(); } catch (e) {}
         try { (window.renderAdminUniversalTextsList || renderAdminUniversalTextsList)?.(); } catch (e) {}
@@ -8240,7 +10130,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         "quizOptionsGrid", "matchLeftCol", "matchRightCol", "writingOutlineBox",
         "writingEvaluationResult", "vinylTracklist", "guestbookList", "modalLessonBody",
         "adminQuickToolbar", "adminLoginModal", "adminDashboardModal",
-        "adminUniversalTextModal", "adminUniversalImageModal", "adminFloatingDock",
+        "adminUniversalTextModal", "adminUniversalImageModal", "examFullPageReaderModal", "examAdminEditModal", "examDeleteConfirmModal", "adminFloatingDock",
         "toastBox", "ai-messages"
       ]);
 
@@ -8306,7 +10196,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       document.addEventListener("click", (e) => {
         if (!window.isAdminLoggedIn || !window.adminLiveEditMode) return;
         // Ignore clicks inside Admin modals or Floating dock or on explicit admin action buttons
-        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, .admin-img-edit-btn")) {
+        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminQuickToolbar, .admin-img-edit-btn")) {
           return;
         }
         const boundEl = e.target.closest("[data-cms-bind]");
@@ -9566,6 +11456,339 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         pomoSeconds = 25 * 60;
         updatePomoDisplay();
         document.getElementById("pomoStartPauseBtn").textContent = "Bắt đầu";
+      });
+
+      // ==================== SỰ KIỆN KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (WORD / PDF) ====================
+      renderExamsVaultSection();
+      renderAdminExamsDashboardList();
+
+      // Category pills in Upload Studio
+      document.querySelectorAll("#examUploadCategoryPills .exam-upload-cat-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const cat = btn.getAttribute("data-upload-cat") || "thptqg";
+          const catInp = document.getElementById("examUploadCategoryInput");
+          if (catInp) catInp.value = cat;
+          const durInp = document.getElementById("examUploadDurationInput");
+          if (durInp) {
+            const defaultDurMap = {
+              thptqg: "120 phút • Năm 2026",
+              "45p": "45 phút • Kiểm tra định kỳ",
+              "1tiet": "45 phút (1 Tiết) • Năm 2026",
+              "15p": "15 phút • Kiểm tra nhanh",
+              thuongxuyen: "20 phút • Đánh giá thường xuyên",
+              hocky: "90 phút • Thi Học kỳ"
+            };
+            durInp.value = defaultDurMap[cat] || "120 phút • Năm 2026";
+          }
+          document.querySelectorAll("#examUploadCategoryPills .exam-upload-cat-btn").forEach(b => {
+            const isSel = b.getAttribute("data-upload-cat") === cat;
+            b.className = isSel
+              ? "exam-upload-cat-btn p-2.5 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-950 font-extrabold text-xs text-left transition flex flex-col gap-0.5 shadow-sm"
+              : "exam-upload-cat-btn p-2.5 rounded-2xl border border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-800 font-bold text-xs text-left transition flex flex-col gap-0.5";
+          });
+        });
+      });
+
+      // Toggle upload form visibility
+      document.getElementById("toggleExamUploadFormBtn")?.addEventListener("click", () => {
+        const form = document.getElementById("examContributionUploadForm");
+        if (form) form.classList.toggle("hidden");
+      });
+
+      document.getElementById("examHeroOpenUploadBtn")?.addEventListener("click", () => {
+        const form = document.getElementById("examContributionUploadForm");
+        if (form) form.classList.remove("hidden");
+        document.getElementById("examContributionStudioCard")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => document.getElementById("examUploadTitleInput")?.focus(), 350);
+      });
+
+      document.getElementById("examHeroRandomReadBtn")?.addEventListener("click", () => {
+        if (!EXAMS_DATA.length) {
+          showToast("📭 Hiện chưa có đề thi nào được đăng lên (0 đề)! Bạn hãy tải lên đề thi đầu tiên nhé!", "📄");
+          return;
+        }
+        const rand = EXAMS_DATA[Math.floor(Math.random() * EXAMS_DATA.length)];
+        if (rand) window.openExamFullPageModal(rand.id);
+      });
+
+      // File DropZone & File Input handling (.docx, .doc, .pdf up to ~15MB+)
+      const dropZone = document.getElementById("examFileDropZone");
+      const fileInp = document.getElementById("examFileInput");
+
+      async function handleUserSelectedExamFile(file) {
+        if (!file) return;
+        try {
+          showToast(`⏳ Đang đọc và dựng nguyên trang đề từ tệp "${file.name}"...`, "📂");
+          const info = await processUploadedExamFile(file);
+          pendingUploadExamFileObj = info;
+
+          const banner = document.getElementById("examSelectedFileBanner");
+          const iconEl = document.getElementById("examSelectedFileIcon");
+          const nameEl = document.getElementById("examSelectedFileName");
+          const metaEl = document.getElementById("examSelectedFileMeta");
+          if (banner) banner.classList.remove("hidden");
+          if (iconEl) {
+            iconEl.textContent = info.fileType === "pdf" ? "PDF" : "WORD";
+            iconEl.className = info.fileType === "pdf"
+              ? "w-11 h-11 rounded-xl bg-rose-600 text-white font-extrabold text-xs flex items-center justify-center shrink-0 shadow"
+              : "w-11 h-11 rounded-xl bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center shrink-0 shadow";
+          }
+          if (nameEl) nameEl.textContent = info.fileName;
+          if (metaEl) {
+            metaEl.textContent = `${info.fileSizeLabel} • ${info.fileType === 'pdf' ? `Định dạng PDF (${info.pageCount} trang)` : 'Định dạng Microsoft Word'} • Đã dựng xong nguyên trang đề!`;
+          }
+
+          const titleInp = document.getElementById("examUploadTitleInput");
+          if (titleInp && !titleInp.value.trim()) {
+            const cleanName = file.name.replace(/\.(pdf|docx|doc|txt|html)$/i, "").replace(/[_-]+/g, " ").trim();
+            titleInp.value = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+          }
+
+          const contentInp = document.getElementById("examUploadContentInput");
+          if (contentInp && info.extractedText && !contentInp.value.trim()) {
+            contentInp.value = info.extractedText.slice(0, 15000);
+          }
+          showToast(`✅ Đã nạp tệp "${file.name}" (${info.fileSizeLabel}) sẵn sàng hiển thị nguyên trang đề!`, "🎉");
+        } catch (err) {
+          showToast("❌ " + (err.message || "Không thể đọc tệp đã chọn."), "⚠️");
+        }
+      }
+
+      dropZone?.addEventListener("click", () => fileInp?.click());
+      fileInp?.addEventListener("change", (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (f) handleUserSelectedExamFile(f);
+      });
+      dropZone?.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("exam-dropzone-active");
+      });
+      dropZone?.addEventListener("dragleave", () => {
+        dropZone.classList.remove("exam-dropzone-active");
+      });
+      dropZone?.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("exam-dropzone-active");
+        const f = e.dataTransfer?.files && e.dataTransfer.files[0];
+        if (f) handleUserSelectedExamFile(f);
+      });
+
+      document.getElementById("examClearSelectedFileBtn")?.addEventListener("click", () => {
+        pendingUploadExamFileObj = null;
+        if (fileInp) fileInp.value = "";
+        document.getElementById("examSelectedFileBanner")?.classList.add("hidden");
+      });
+
+      // Submit New Exam Contribution (Visitor or Admin)
+      document.getElementById("examContributionUploadForm")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const title = (document.getElementById("examUploadTitleInput")?.value || "").trim();
+        const author = (document.getElementById("examUploadAuthorInput")?.value || "").trim();
+        const category = document.getElementById("examUploadCategoryInput")?.value || "thptqg";
+        const duration = (document.getElementById("examUploadDurationInput")?.value || "120 phút • Năm 2026").trim();
+        const rawContent = (document.getElementById("examUploadContentInput")?.value || "").trim();
+        const rawAnswer = (document.getElementById("examUploadAnswerInput")?.value || "").trim();
+
+        if (!title || !author) {
+          showToast("Vui lòng nhập Tên đề thi và Tên người đóng góp nhé!", "⚠️");
+          return;
+        }
+        if (!pendingUploadExamFileObj && !rawContent) {
+          showToast("Vui lòng chọn tệp Word (.docx/.doc) hoặc PDF (.pdf) tải lên (hoặc nhập nội dung đề thi) nhé!", "📂");
+          return;
+        }
+
+        const newId = "exam_contrib_" + Date.now() + "_" + Math.random().toString(36).slice(2, 7);
+        const myOwnerId = getOrCreateGuestbookOwnerId();
+        const fileInfo = pendingUploadExamFileObj;
+        const finalHtml = (fileInfo && fileInfo.extractedHtml && (!rawContent || rawContent === fileInfo.extractedText?.slice(0, 15000)))
+          ? fileInfo.extractedHtml
+          : convertPlainTextToExamHtml(rawContent || (fileInfo ? fileInfo.extractedText : ""));
+
+        const newExam = {
+          id: newId,
+          title,
+          category,
+          fileType: fileInfo ? fileInfo.fileType : "word",
+          fileName: fileInfo ? fileInfo.fileName : `${title.slice(0, 40).replace(/\s+/g, "_")}.docx`,
+          fileSizeLabel: fileInfo ? fileInfo.fileSizeLabel : "680 KB",
+          duration,
+          durationMinutes: parseInt(duration, 10) || 120,
+          school: window.isAdminLoggedIn ? "TRƯỜNG THPT THỚI LONG • ĐỀ CHUẨN ADMIN" : "ĐÓNG GÓP BỞI THÀNH VIÊN • THPT THỚI LONG",
+          author: window.isAdminLoggedIn && !author.includes("Admin") ? `👑 ${author}` : author,
+          ownerId: myOwnerId,
+          isPinned: Boolean(window.isAdminLoggedIn),
+          isVerified: Boolean(window.isAdminLoggedIn),
+          views: 1,
+          createdAt: new Date().toISOString(),
+          contentHtml: finalHtml,
+          answerHtml: rawAnswer ? convertPlainTextToExamHtml(rawAnswer) : "",
+          fileDataUrl: (fileInfo && fileInfo.dataUrl && fileInfo.dataUrl.length <= 180000) ? fileInfo.dataUrl : ""
+        };
+
+        if (fileInfo && fileInfo.dataUrl) {
+          await saveExamBinaryToIDB(newId, fileInfo);
+        }
+
+        EXAMS_DATA.unshift(newExam);
+        pendingUploadExamFileObj = null;
+        if (fileInp) fileInp.value = "";
+        document.getElementById("examSelectedFileBanner")?.classList.add("hidden");
+        document.getElementById("examUploadTitleInput").value = "";
+        document.getElementById("examUploadContentInput").value = "";
+        document.getElementById("examUploadAnswerInput").value = "";
+
+        currentExamFilterCat = "all";
+        renderExamsVaultSection();
+        renderAdminExamsDashboardList();
+        await persistExamsVaultState(`Đóng góp đề thi mới: ${title} (${author})`);
+        showToast(`🎉 Đã tải đề thi "${title}" lên thành công! Đang mở nguyên trang đề của bạn...`, "🚀");
+        window.openExamFullPageModal(newId);
+      });
+
+      // Category Filter Bar clicks
+      document.querySelectorAll("#examCategoryFilterBar .exam-filter-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentExamFilterCat = btn.getAttribute("data-exam-filter") || "all";
+          renderExamsVaultSection();
+        });
+      });
+
+      document.getElementById("examSearchInput")?.addEventListener("input", renderExamsVaultSection);
+      document.getElementById("examFileTypeFilterSelect")?.addEventListener("change", renderExamsVaultSection);
+      document.getElementById("examSortSelect")?.addEventListener("change", renderExamsVaultSection);
+
+      // Full-Page Exam Reader Modal close events
+      document.getElementById("closeExamFullPageReaderBtn")?.addEventListener("click", closeExamFullPageModal);
+      document.getElementById("examFullPageReaderModal")?.addEventListener("click", (e) => {
+        if (e.target.id === "examFullPageReaderModal" || e.target.id === "examFullPageScrollViewport") {
+          closeExamFullPageModal();
+        }
+      });
+
+      // Delete Confirmation Modal events
+      document.getElementById("cancelExamDeleteConfirmBtn")?.addEventListener("click", () => {
+        pendingDeleteExamId = null;
+        document.getElementById("examDeleteConfirmModal")?.classList.add("hidden");
+      });
+      document.getElementById("confirmExamDeleteBtn")?.addEventListener("click", executeConfirmedExamDelete);
+
+      // Admin In-Page Supreme Bar buttons
+      document.getElementById("examAdminQuickCreateBtn")?.addEventListener("click", () => window.openAdminExamEditModal(null));
+      document.getElementById("examAdminVerifyAllBtn")?.addEventListener("click", () => window.adminVerifyAllExams());
+      document.getElementById("examAdminClearAllBtn")?.addEventListener("click", () => window.adminClearAllExams());
+
+      // Admin Edit Modal events
+      document.getElementById("closeExamAdminEditModalBtn")?.addEventListener("click", closeAdminExamEditModal);
+      document.getElementById("cancelExamAdminEditModalBtn")?.addEventListener("click", closeAdminExamEditModal);
+      document.getElementById("admEditExamFileInput")?.addEventListener("change", async (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        try {
+          const info = await processUploadedExamFile(f);
+          pendingAdminEditExamFileObj = info;
+          const lbl = document.getElementById("admEditExamCurrentFileLabel");
+          if (lbl) lbl.textContent = `✅ Đã chọn tệp mới: ${info.fileName} (${info.fileSizeLabel}) — Tự động nạp nội dung trang đề!`;
+          const titleInp = document.getElementById("admEditExamTitleInput");
+          if (titleInp && !titleInp.value.trim()) {
+            titleInp.value = info.fileName.replace(/\.(pdf|docx|doc|txt|html)$/i, "").replace(/[_-]+/g, " ").trim();
+          }
+          if (info.extractedHtml) {
+            document.getElementById("admEditExamContentInput").value = info.extractedHtml;
+          }
+          showToast(`📂 Admin đã nạp tệp "${info.fileName}" vào trình sửa đề!`, "👑");
+        } catch (err) {
+          showToast("❌ " + (err.message || "Lỗi đọc tệp."), "⚠️");
+        }
+      });
+
+      document.getElementById("saveExamAdminEditModalBtn")?.addEventListener("click", async () => {
+        if (!window.isAdminLoggedIn) return openAdminLoginModal();
+        const editId = document.getElementById("admEditExamIdInput").value.trim();
+        const title = document.getElementById("admEditExamTitleInput").value.trim() || (pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName.replace(/\.(pdf|docx|doc)$/i, "") : "Đề thi Ngữ văn 12 (Admin)");
+        const category = document.getElementById("admEditExamCatSelect").value || "thptqg";
+        const duration = document.getElementById("admEditExamDurationInput").value.trim() || "120 phút • Năm 2026";
+        const author = document.getElementById("admEditExamAuthorInput").value.trim() || "👑 Admin Nguyễn Nhựt Trường (12A2)";
+        const school = document.getElementById("admEditExamSchoolInput").value.trim() || "TRƯỜNG THPT THỚI LONG";
+        const isPinned = document.getElementById("admEditExamPinnedChk").checked;
+        const isVerified = document.getElementById("admEditExamVerifiedChk").checked;
+        const contentRaw = document.getElementById("admEditExamContentInput").value.trim();
+        const answerRaw = document.getElementById("admEditExamAnswerInput").value.trim();
+
+        let target = editId ? EXAMS_DATA.find(e => String(e.id) === String(editId)) : null;
+        if (!target) {
+          target = {
+            id: "exam_admin_" + Date.now(),
+            ownerId: "__admin_root__",
+            views: 1,
+            createdAt: new Date().toISOString(),
+            fileType: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileType : "word",
+            fileName: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName : "De_Thi_Admin_THPT_Thoi_Long.docx",
+            fileSizeLabel: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileSizeLabel : "950 KB"
+          };
+          EXAMS_DATA.unshift(target);
+        }
+
+        target.title = title;
+        target.category = category;
+        target.duration = duration;
+        target.durationMinutes = parseInt(duration, 10) || 120;
+        target.author = author;
+        target.school = school;
+        target.isPinned = isPinned;
+        target.isVerified = isVerified;
+        target.contentHtml = contentRaw
+          ? convertPlainTextToExamHtml(contentRaw)
+          : (pendingAdminEditExamFileObj && pendingAdminEditExamFileObj.extractedHtml ? pendingAdminEditExamFileObj.extractedHtml : target.contentHtml || "<p>Nội dung đề thi.</p>");
+        target.answerHtml = answerRaw ? convertPlainTextToExamHtml(answerRaw) : "";
+
+        if (pendingAdminEditExamFileObj) {
+          target.fileType = pendingAdminEditExamFileObj.fileType;
+          target.fileName = pendingAdminEditExamFileObj.fileName;
+          target.fileSizeLabel = pendingAdminEditExamFileObj.fileSizeLabel;
+          target.fileDataUrl = pendingAdminEditExamFileObj.dataUrl.length <= 180000 ? pendingAdminEditExamFileObj.dataUrl : "";
+          await saveExamBinaryToIDB(target.id, pendingAdminEditExamFileObj);
+          pendingAdminEditExamFileObj = null;
+        }
+
+        closeAdminExamEditModal();
+        renderExamsVaultSection();
+        renderAdminExamsDashboardList();
+        if (String(currentExamReaderId) === String(target.id)) {
+          window.openExamFullPageModal(target.id);
+        }
+        await persistExamsVaultState(`Admin cập nhật đề thi: ${target.title}`);
+        showToast(`👑 Đã lưu đề thi "${target.title}" với toàn quyền Admin!`, "✅");
+      });
+
+      // Quick Replace Exam File input handler for Admin
+      document.getElementById("adminQuickReplaceExamFileInput")?.addEventListener("change", async (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (!f || !pendingQuickReplaceExamId) return;
+        const target = EXAMS_DATA.find(ex => String(ex.id) === String(pendingQuickReplaceExamId));
+        if (!target) return;
+        try {
+          const info = await processUploadedExamFile(f);
+          target.fileType = info.fileType;
+          target.fileName = info.fileName;
+          target.fileSizeLabel = info.fileSizeLabel;
+          target.fileDataUrl = info.dataUrl.length <= 180000 ? info.dataUrl : "";
+          if (info.extractedHtml) {
+            target.contentHtml = info.extractedHtml;
+          }
+          await saveExamBinaryToIDB(target.id, info);
+          renderExamsVaultSection();
+          renderAdminExamsDashboardList();
+          if (String(currentExamReaderId) === String(target.id)) {
+            window.openExamFullPageModal(target.id);
+          }
+          await persistExamsVaultState(`Admin thay tệp mới (${info.fileName}) cho đề: ${target.title}`);
+          showToast(`👑 Admin đã thay tệp mới "${info.fileName}" (${info.fileSizeLabel}) cho đề thi!`, "📂");
+        } catch (err) {
+          showToast("❌ " + (err.message || "Lỗi khi thay tệp."), "⚠️");
+        } finally {
+          pendingQuickReplaceExamId = null;
+        }
       });
 
       // Contact & Copy Author Info
@@ -10937,6 +13160,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
             { id: "writing", label: "✍️ Luyện Viết & Sơ Đồ" },
             { id: "music", label: "🎵 Đĩa Nhạc Giải Tỏa" },
             { id: "ai", label: "✦ Trợ Lý AI" },
+            { id: "exams", label: "📄 Đóng Góp Đề Thi" },
             { id: "contact", label: "💌 Tác Giả & Liên Hệ" }
           ];
           const hiddenArr = Array.isArray(SITE_SETTINGS.hiddenTabs) ? SITE_SETTINGS.hiddenTabs : [];
@@ -11392,7 +13616,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         let counter = 0;
         roots.forEach((root, rIdx) => {
           root.querySelectorAll("section, article, div, h1, h2, h3, h4, p, span, a, button, img, blockquote, li").forEach(el => {
-            if (el.closest("#adminQuickToolbar, #adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminDomInspectorModal, #adminCommandPaletteModal, #globalAnnouncementPopupModal, #maintenanceLockOverlay")) {
+            if (el.closest("#adminQuickToolbar, #adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminDomInspectorModal, #adminCommandPaletteModal, #globalAnnouncementPopupModal, #maintenanceLockOverlay")) {
               return;
             }
             counter++;
@@ -11584,7 +13808,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       document.addEventListener("click", (e) => {
         if (!window.isAdminLoggedIn || !window.adminDomInspectorMode) return;
-        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal, #globalAnnouncementPopupModal")) {
+        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal, #globalAnnouncementPopupModal")) {
           return;
         }
         const target = e.target.closest("[data-dom-id]") || e.target;
@@ -11738,6 +13962,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         { icon: "🎵", title: "Quản Lý & Tải Lên Nhạc MP3 Đĩa Than", desc: "Thêm hoặc xoá bài hát MP3 trong phòng nghe nhạc", action: () => openAdminDashboardModal("music") },
         { icon: "📚", title: "Quản Lý 9 Bài Học SGK & Trích Dẫn Văn Học", desc: "Thêm bài học mới, sửa văn bản đọc, thêm câu trích dẫn", action: () => openAdminDashboardModal("lessons") },
         { icon: "🎮", title: "Quản Lý Trắc Nghiệm, Flashcard, Ghép Thơ & Đề Viết", desc: "Thêm/sửa/xoá câu hỏi ôn tập và đề luyện viết", action: () => openAdminDashboardModal("arena") },
+        { icon: "📄", title: "Quản Lý & Đóng Góp Kho Đề Thi (Word / PDF)", desc: "Thêm, sửa nội dung, thay file Word/PDF, ghim & xoá đề thi THPT Quốc gia, 45p, 1 tiết, 15p", action: () => openAdminDashboardModal("exams") },
         { icon: "💬", title: "Quản Lý, Ghim & Xoá Bình Luận Sổ Lưu Bút", desc: "Ghim bình luận hay lên đầu hoặc xoá bình luận", action: () => openAdminDashboardModal("comments") },
         { icon: "📥", title: "Tải Xuống File Sao Lưu Toàn Hệ Thống (.JSON)", desc: "Xuất toàn bộ dữ liệu web ra file JSON", action: () => document.getElementById("admExportJsonBackupBtn")?.click() }
       ];
@@ -11925,7 +14150,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           hud.classList.add("hidden");
           return;
         }
-        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal")) {
+        if (e.target.closest("#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal")) {
           hud.classList.add("hidden");
           return;
         }
@@ -12181,7 +14406,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         // 2. Custom Nav Labels Grid
         const navGrid = document.getElementById("admCustomNavLabelsGrid");
         if (navGrid) {
-          const navOrder = ["home", "lessons", "media", "arena", "writing", "music", "ai", "contact"];
+          const navOrder = ["home", "lessons", "media", "arena", "writing", "music", "ai", "exams", "contact"];
           const navLabels = SITE_SETTINGS.customNavLabels || {};
           navGrid.innerHTML = navOrder.map(tabId => {
             const cur = navLabels[tabId] || { icon: "📌", text: tabId };
@@ -12754,6 +14979,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         await ensureInitialGithubConfigLoaded();
         renderAdminGithubPanelUI();
         ADMIN_REVISIONS_HISTORY = await loadRevisionsHistoryFromIDB();
+        try {
+          const idbExamsRec = await getMp3FromIndexedDB(EXAMS_IDB_KEY);
+          if (idbExamsRec && Array.isArray(idbExamsRec.exams)) {
+            replaceArrayInPlace(EXAMS_DATA, sanitizeExamsList(idbExamsRec.exams));
+          }
+        } catch (e) {}
         await loadSavedAdminStateFromLocal();
         ensureDomInspectorKeysAssigned();
         applyAllCustomElementStyles();
@@ -13892,7 +16123,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     if (supLbl) supLbl.textContent = active ? '🟢 ĐANG BẬT: Nhấn vào bất kỳ chữ nào ngoài trang web để gõ sửa trực tiếp!' : 'Nhấn vào bất kỳ chữ nào trên web và gõ sửa thẳng không cần mở hộp thoại';
 
     document.querySelectorAll('[data-cms-key]').forEach(el => {
-      if (el.closest('#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal')) return;
+      if (el.closest('#adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal')) return;
       if (active) {
         el.setAttribute('contenteditable', 'true');
         el.style.outline = '1px dashed rgba(232, 121, 249, 0.55)';
@@ -13960,7 +16191,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
   let dragStartX = 0, dragStartY = 0, dragOrigX = 0, dragOrigY = 0;
   document.addEventListener('mousedown', (e) => {
     if (!window.isAdminLoggedIn || !window.adminFreeDragMode) return;
-    if (e.target.closest('button, a, input, textarea, select, label, #adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal')) return;
+    if (e.target.closest('button, a, input, textarea, select, label, #adminLoginModal, #adminDashboardModal, #adminUniversalTextModal, #adminUniversalImageModal, #examFullPageReaderModal, #examAdminEditModal, #examDeleteConfirmModal, #adminFloatingDock, #adminQuickToolbar, #adminDomInspectorModal, #adminCommandPaletteModal')) return;
     window.ensureDomInspectorKeysAssigned?.();
     const el = e.target.closest('[data-dom-id]');
     if (!el) return;
@@ -15692,7 +17923,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
     window.supremeRemoteBroadcastImagePoster = function() {
       const cap = (document.getElementById('supRemoteImageCaptionInput')?.value || '👑 VINH DANH LỚP 12A2 THPT THỚI LONG — BỨT PHÁ ĐIỂM 9+!').trim();
-      const heroImg = _customUploadedPosterDataUrl || document.getElementById('heroPortraitImg')?.src || (LESSONS_DATA[0]?.img || '');
+      const heroImg = _customUploadedPosterDataUrl || document.querySelector('[data-cms-img="hero_banner"] img')?.src || (LESSONS_DATA[0]?.img || '');
       dispatchRemoteCommandToAllDevices({ type: 'live_poster', caption: cap, imgUrl: heroImg }, `Bắn Poster vinh danh lên mọi máy: "${cap.slice(0, 35)}..."`);
       showToast('🖼️ Đã bắn Poster vinh danh kèm pháo hoa lên mọi màn hình đang mở web!', '🖼️');
     };
@@ -15861,8 +18092,8 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
   window.supremeAddOrUpdateLeaderboardEntry = async function() {
     if (!window.isAdminLoggedIn) return openAdminLoginModal?.();
-    const name = (document.getElementById('supLbNewNameInput')?.value || 'Nguyễn Nhựt Trường (Đấng Tối Cao • 12A2)').trim();
-    const score = (document.getElementById('supLbNewScoreInput')?.value || '99.999.999 Điểm').trim();
+    const name = (document.querySelector("[id=supLbNewNameInput]")?.value || 'Nguyễn Nhựt Trường (Đấng Tối Cao • 12A2)').trim();
+    const score = (document.querySelector("[id=supLbNewScoreInput]")?.value || '99.999.999 Điểm').trim();
     SITE_SETTINGS.customLeaderboardTop1 = { name, score };
     window.supremeToggleTopLeaderboard(true);
     const nameBadge = document.getElementById('supHallOfFameBadge');
@@ -16611,7 +18842,7 @@ Khép lại những trang viết đầy ám ảnh nghệ thuật, ta càng thấ
 
   window.supremeRemoteBroadcastImagePoster = function() {
     const cap = (document.getElementById('supRemoteImageCaptionInput')?.value || '👑 VINH DANH LỚP 12A2 THPT THỚI LONG — BỨT PHÁ ĐIỂM 9+!').trim();
-    const heroImg = document.getElementById('heroPortraitImg')?.src || (LESSONS_DATA[0]?.img || '');
+    const heroImg = document.querySelector('[data-cms-img="hero_banner"] img')?.src || (LESSONS_DATA[0]?.img || '');
     dispatchRemoteCommandToAllDevices({ type: 'live_poster', caption: cap, imgUrl: heroImg }, `Bắn Poster vinh danh lên mọi máy: "${cap.slice(0, 35)}..."`);
     showToast('🖼️ Đã bắn Poster vinh danh kèm pháo hoa lên mọi màn hình đang mở web!', '🖼️');
   };
