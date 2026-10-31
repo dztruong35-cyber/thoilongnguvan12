@@ -6365,7 +6365,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       const payload = body && typeof body === "object" ? body : {};
       const reqEmail = String(payload.adminEmail || (window.isAdminLoggedIn ? ADMIN_ACCOUNT_EMAIL : "")).trim();
       const reqPass = String(payload.adminPassword || (window.isAdminLoggedIn ? ADMIN_ACCOUNT_PASS : "")).trim();
-      const isAdminVerified = Boolean(window.isAdminLoggedIn || (reqEmail === ADMIN_ACCOUNT_EMAIL && reqPass === ADMIN_ACCOUNT_PASS));
+      const isAdminVerified = Boolean(window.isAdminLoggedIn || (reqEmail === ADMIN_ACCOUNT_EMAIL && reqPass === ADMIN_ACCOUNT_PASS) || (reqEmail.toLowerCase() === "giaoviennv12@gmail.com" && reqPass === "giaoviennv12@"));
 
       if (payload.action) {
         if (!isAdminVerified) {
@@ -6846,6 +6846,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     // ==================== HỆ THỐNG QUẢN TRỊ VIÊN (ADMIN) & LƯU TRỮ BỀN VỮNG ====================
     const ADMIN_ACCOUNT_EMAIL = "dztruong35@gmail.com";
     const ADMIN_ACCOUNT_PASS = "0787818633";
+    const TEACHER_ADMIN_EMAIL = "giaoviennv12@gmail.com";
+    const TEACHER_ADMIN_PASS = "giaoviennv12@";
+    const ADMIN_ACCOUNTS_LIST = [
+      { email: "dztruong35@gmail.com", pass: "0787818633", name: "Admin Nguyễn Nhựt Trường (12A2)", badge: "ROOT ADMIN: dztruong35@gmail.com" },
+      { email: "giaoviennv12@gmail.com", pass: "giaoviennv12@", name: "Giáo Viên Ngữ Văn 12 (Admin)", badge: "ADMIN GIÁO VIÊN: giaoviennv12@gmail.com" }
+    ];
+    window.ADMIN_ACCOUNTS_LIST = ADMIN_ACCOUNTS_LIST;
     const ADMIN_AUTH_STORAGE_KEY = "thoilong_van12_admin_auth_v1";
     const ADMIN_STATE_STORAGE_KEY = "thoilong_van12_admin_state_v1";
     const IDB_NAME = "ThoiLongVan12AudioDB";
@@ -9648,10 +9655,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         const pass = document.getElementById("adminPassInput").value.trim();
         const errBox = document.getElementById("adminLoginErrorBox");
 
-        if (email === ADMIN_ACCOUNT_EMAIL && pass === ADMIN_ACCOUNT_PASS) {
+        const matchedAdminAcc = ADMIN_ACCOUNTS_LIST.find(acc => acc.email.toLowerCase() === email && acc.pass === pass);
+        if (matchedAdminAcc) {
           window.isAdminLoggedIn = true;
+          window.currentAdminAccount = matchedAdminAcc;
           try {
             localStorage.setItem(ADMIN_AUTH_STORAGE_KEY, "verified_dztruong35_0787818633");
+            localStorage.setItem("thoilong_van12_active_admin_email", matchedAdminAcc.email);
           } catch (err) {}
           const loginRepoRaw = document.getElementById("adminLoginGhRepoInput")?.value.trim() || "";
           const loginTokenRaw = document.getElementById("adminLoginGhTokenInput")?.value.trim() || "";
@@ -9673,7 +9683,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           updateAdminUI();
           if (typeof renderAdminGithubPanelUI === "function") renderAdminGithubPanelUI();
           loadGuestbook();
-          showToast("Chào mừng Admin Nguyễn Nhựt Trường! Mọi thay đổi của bạn sẽ tự động đồng bộ lên GitHub!", "👑");
+          showToast(`Chào mừng ${matchedAdminAcc.name}! Bạn đã đăng nhập toàn quyền quản trị viên Admin!`, "👑");
         } else {
           errBox.textContent = "❌ Tài khoản hoặc mật khẩu Admin không chính xác! Vui lòng kiểm tra lại.";
           errBox.classList.remove("hidden");
