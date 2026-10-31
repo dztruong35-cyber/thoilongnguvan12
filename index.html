@@ -611,7 +611,7 @@
     body.admin-mobile-frame-mode header,
     body.admin-mobile-frame-mode main,
     
-    /* ==================== KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (CUTE x COOL EDITION) ==================== */
+    /* ==================== KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (CUTE x COOL + CON DẤU ADMIN EDITION) ==================== */
     #examAdminEditModal > div,
     #examDeleteConfirmModal > div {
       background: linear-gradient(160deg, #050814 0%, #0b1124 55%, #140b29 100%) !important;
@@ -666,6 +666,53 @@
     .exam-card-fancy:hover {
       transform: translateY(-6px);
       box-shadow: 0 22px 45px -12px rgba(120, 53, 15, 0.22), 0 0 25px rgba(245, 158, 11, 0.18);
+    }
+    /* Đặc quyền giao diện Thẻ Đề Chính Thức Của Admin */
+    .exam-card-admin-official {
+      border: 2.5px solid #f59e0b !important;
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 38%, #fffdf7 100%) !important;
+      box-shadow: 0 16px 38px -10px rgba(217, 119, 6, 0.28), 0 0 22px rgba(251, 191, 36, 0.28) !important;
+    }
+    .exam-card-admin-official:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 24px 48px -10px rgba(217, 119, 6, 0.38), 0 0 32px rgba(245, 158, 11, 0.45) !important;
+    }
+    /* Con Dấu Đỏ / Hoàng Kim Của Admin (Official Admin Seal Stamp) */
+    .exam-official-admin-stamp {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border: 2.5px double #dc2626;
+      border-radius: 10px;
+      background: rgba(254, 242, 242, 0.94);
+      color: #b91c1c;
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transform: rotate(-5deg);
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.22), inset 0 0 0 1px rgba(220, 38, 38, 0.35);
+      user-select: none;
+      pointer-events: none;
+    }
+    .exam-official-admin-stamp-lg {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border: 3px double #dc2626;
+      border-radius: 14px;
+      background: rgba(254, 242, 242, 0.96);
+      color: #b91c1c;
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transform: rotate(-4deg);
+      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25), inset 0 0 0 1.5px rgba(220, 38, 38, 0.4);
     }
     .exam-mini-paper {
       background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
@@ -1715,35 +1762,39 @@
                 <span>🦊✨</span>
                 <span>TRẠM ĐÓNG GÓP ĐỀ THI • CUTE &amp; COOL STUDIO</span>
               </span>
-              <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-300/50 text-cyan-200 text-xs font-mono font-bold">
-                📘 WORD (.DOCX / .DOC) • 📕 PDF (.PDF) • TỐI ĐA ~15MB+
+              <span class="px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/60 text-amber-200 text-xs font-extrabold">
+                💮 Phân biệt rõ: Đề Chính Thức Admin (Có Con Dấu) &amp; Đề Tham Khảo
               </span>
-              <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-300/50 text-amber-200 text-xs font-bold">
-                ⚡ Click vào đề là hiện nguyên trang đề thi chuẩn A4!
+              <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-300/50 text-cyan-200 text-xs font-mono font-bold">
+                📘 WORD • 📕 PDF (~15MB+)
               </span>
             </div>
             <h2 class="font-literary text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-white via-amber-200 to-pink-200 bg-clip-text text-transparent">
-              Kho Đóng Góp &amp; Thư Viện Đề Thi Ngữ Văn 12
+              Kho Đề Thi Chính Thức Admin &amp; Đóng Góp Tham Khảo
             </h2>
             <p class="text-xs sm:text-sm text-pink-100/90 leading-relaxed">
-              Cùng nhau đóng góp và chia sẻ bộ đề chất lượng nhất: <strong>Đề thi THPT Quốc gia</strong>, <strong>Đề thi 45 phút</strong>, <strong>Đề thi 1 tiết</strong>, <strong>Đề thi 15 phút</strong>, <strong>Đề kiểm tra thường xuyên</strong> và <strong>Đề thi Học kỳ</strong>. Cho phép tải lên tệp Word (.docx, .doc) hoặc PDF (.pdf); khi click vào bất kỳ đề nào sẽ <strong>hiện đầy đủ nguyên trang đề đó lên luôn</strong>!
+              Tách biệt rõ ràng giữa <strong>💮 Nguồn Đề Chính Thức (Do Admin đăng hoặc đã được Admin đóng dấu kiểm duyệt)</strong> và <strong>🤝 Nguồn Đề Tham Khảo (Do thành viên đóng góp)</strong>. Bao gồm: <strong>Đề thi THPT Quốc gia</strong>, <strong>Đề thi 45 phút</strong>, <strong>Đề thi 1 tiết</strong>, <strong>Đề thi 15 phút</strong>, <strong>Đề kiểm tra thường xuyên</strong> và <strong>Đề thi Học kỳ</strong>. Click vào bất kỳ đề nào sẽ <strong>hiện đầy đủ nguyên trang đề đó lên luôn</strong>!
             </p>
             <div class="flex flex-wrap items-center gap-2.5 pt-1">
               <button type="button" id="examHeroOpenUploadBtn" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-400 via-pink-500 to-purple-500 hover:from-amber-300 hover:to-purple-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow-[0_0_25px_rgba(244,114,182,0.5)] transition flex items-center gap-2">
                 <span>🚀</span>
-                <span>+ Tải File Đề Thi Lên Đóng Góp Ngay</span>
+                <span>+ Tải File Đề Thi Lên Ngay</span>
               </button>
-              <button type="button" id="examHeroRandomReadBtn" class="px-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/25 text-amber-100 font-bold text-xs sm:text-sm backdrop-blur-md transition flex items-center gap-1.5">
-                <span>🎲</span>
-                <span>Mở Ngẫu Nhiên 1 Trang Đề</span>
+              <button type="button" id="examHeroFilterOfficialBtn" class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500/30 to-rose-500/30 hover:from-amber-500/50 hover:to-rose-500/50 border-2 border-amber-300/80 text-amber-200 font-extrabold text-xs sm:text-sm backdrop-blur-md transition flex items-center gap-1.5 shadow-lg">
+                <span>💮</span>
+                <span>Xem Đề Chính Thức Của Admin</span>
+              </button>
+              <button type="button" id="examHeroFilterCommunityBtn" class="px-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/25 text-pink-100 font-bold text-xs sm:text-sm backdrop-blur-md transition flex items-center gap-1.5">
+                <span>🤝</span>
+                <span>Mục Đề Tham Khảo Góp Ý</span>
               </button>
               <button type="button" id="examHeroAdminLoginBtn" onclick="openAdminLoginModal()" class="guest-only-item px-3.5 py-2.5 rounded-2xl bg-slate-950/80 hover:bg-slate-900 border border-cyan-400/50 text-cyan-300 font-bold text-xs transition flex items-center gap-1.5">
                 <span>👑</span>
-                <span>Đăng Nhập Quyền Admin</span>
+                <span>Đăng Nhập Admin</span>
               </button>
               <button type="button" id="examHeroOpenAdminPanelBtn" onclick="openAdminDashboardModal('exams')" class="admin-only-item hidden px-4 py-2.5 rounded-2xl bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-extrabold text-xs shadow-lg transition flex items-center gap-1.5">
                 <span>👑</span>
-                <span>Mở Trung Tâm Admin Kho Đề</span>
+                <span>Quản Trị Kho Đề</span>
               </button>
             </div>
           </div>
@@ -1755,18 +1806,18 @@
               <div id="examStatTotalCount" class="text-xl sm:text-2xl font-extrabold text-amber-300 mt-0.5">0 đề</div>
               <div class="text-[10px] text-slate-300">Hiện đầy đủ nguyên trang</div>
             </div>
-            <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-              <div class="text-[11px] text-cyan-200 font-semibold">🎓 THPT Quốc Gia</div>
-              <div id="examStatThptCount" class="text-xl sm:text-2xl font-extrabold text-cyan-300 mt-0.5">0 đề</div>
-              <div class="text-[10px] text-slate-300">Đề chính thức &amp; đề cũ/mới</div>
+            <div class="p-3.5 rounded-2xl bg-amber-500/20 backdrop-blur-md border border-amber-300/50">
+              <div class="text-[11px] text-amber-200 font-extrabold">💮 Đề Chính Thức Admin</div>
+              <div id="examStatOfficialCount" class="text-xl sm:text-2xl font-extrabold text-amber-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-amber-100">Có đóng dấu Admin duyệt</div>
             </div>
             <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-              <div class="text-[11px] text-emerald-200 font-semibold">⏱️ 45p • 1 Tiết • 15p • TX</div>
-              <div id="examStatMidCount" class="text-xl sm:text-2xl font-extrabold text-emerald-300 mt-0.5">0 đề</div>
-              <div class="text-[10px] text-slate-300">Đầy đủ các cột điểm</div>
+              <div class="text-[11px] text-cyan-200 font-semibold">🤝 Đề Tham Khảo</div>
+              <div id="examStatCommunityCount" class="text-xl sm:text-2xl font-extrabold text-cyan-300 mt-0.5">0 đề</div>
+              <div class="text-[10px] text-slate-300">Mọi người đóng góp</div>
             </div>
             <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-              <div class="text-[11px] text-amber-200 font-semibold">🙋 Đề Của Bạn Đăng</div>
+              <div class="text-[11px] text-pink-200 font-semibold">🙋 Đề Của Bạn Đăng</div>
               <div id="examStatMyCount" class="text-xl sm:text-2xl font-extrabold text-pink-300 mt-0.5">0 đề</div>
               <div class="text-[10px] text-slate-300">Bạn có quyền tự xoá</div>
             </div>
@@ -1775,22 +1826,22 @@
       </div>
 
       <!-- 2. TRẠM QUYỀN LỰC TỐI CAO ADMIN NGAY TRONG TAB ĐỀ THI (CHỈ HIỆN KHI ĐĂNG NHẬP ADMIN) -->
-      <div id="examAdminSupremeBar" class="admin-only-item hidden p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-slate-950 via-[#150d2a] to-slate-950 border-2 border-cyan-400/80 text-cyan-100 shadow-[0_0_30px_rgba(0,245,212,0.2)] space-y-3">
+      <div id="examAdminSupremeBar" class="admin-only-item hidden p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-slate-950 via-[#150d2a] to-slate-950 border-2 border-amber-400/90 text-cyan-100 shadow-[0_0_30px_rgba(251,191,36,0.25)] space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2 flex-wrap">
             <span class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-300 via-yellow-400 to-rose-500 text-slate-950 font-mono text-[11px] font-extrabold uppercase">
-              👑 QUYỀN NĂNG TỐI CAO ADMIN // KHO ĐỀ THI
+              👑 ĐẤNG TỐI CAO ADMIN // ĐÓNG DẤU ĐỀ CHÍNH THỨC
             </span>
-            <span class="text-xs text-cyan-200 font-semibold">
-              Đấng Tối Cao toàn quyền: Thêm đề mới, Sửa nội dung mọi đề, Thay file Word/PDF, Ghim đỉnh &amp; Xoá bất kỳ đề nào!
+            <span class="text-xs text-amber-200 font-semibold">
+              Khi bạn đang đăng nhập Admin, mọi đề bạn đăng lên sẽ tự động có <strong>💮 CON DẤU ĐỎ ĐỀ CHÍNH THỨC CỦA ADMIN</strong> và nằm trong mục <strong>Đề Chính Thức Của Admin</strong>!
             </span>
           </div>
           <div class="flex flex-wrap items-center gap-2">
-            <button type="button" id="examAdminQuickCreateBtn" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-extrabold text-xs shadow transition">
-              ➕ Admin Tạo Đề Mới
+            <button type="button" id="examAdminQuickCreateBtn" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-400 hover:from-amber-300 hover:to-emerald-300 text-slate-950 font-extrabold text-xs shadow transition">
+              💮 + Đăng Đề Chính Thức Mới (Admin)
             </button>
             <button type="button" id="examAdminVerifyAllBtn" class="px-3 py-1.5 rounded-xl bg-amber-500/25 hover:bg-amber-500/40 border border-amber-400/80 text-amber-200 font-extrabold text-xs transition">
-              👑 Đóng Dấu "Chuẩn Admin" Tất Cả
+              💮 Duyệt Tất Cả Thành Đề Chính Thức
             </button>
             <button type="button" id="examAdminClearAllBtn" class="px-3 py-1.5 rounded-xl bg-rose-950 hover:bg-rose-800 border border-rose-500/60 text-rose-200 font-bold text-xs transition">
               🗑️ Xoá Sạch Kho Đề (Về 0 Đề)
@@ -1809,14 +1860,14 @@
             <div>
               <div class="flex items-center gap-2 flex-wrap">
                 <h3 class="font-literary text-lg sm:text-xl font-bold text-stone-900">
-                  Đóng Góp Đề Thi Mới (Tải File Word / PDF Lên Hiện Nguyên Trang Đề)
+                  Tải Đề Thi Lên Trang Web (File Word / PDF Hiện Nguyên Trang Đề)
                 </h3>
-                <span class="px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-800 text-[11px] font-extrabold border border-pink-300">
-                  ✨ Mở tự do cho mọi người cùng đóng góp!
+                <span id="examUploadRoleIndicatorBadge" class="px-3 py-0.5 rounded-full bg-teal-100 text-teal-900 text-[11px] font-extrabold border border-teal-300">
+                  🤝 Chế độ: Đóng góp Đề Tham Khảo
                 </span>
               </div>
-              <p class="text-xs text-stone-600 mt-0.5">
-                Hỗ trợ tệp <strong>Word (.docx, .doc)</strong> và <strong>PDF (.pdf)</strong> dung lượng tới <strong>15MB</strong>. Khi tải lên, hệ thống tự động dựng thành <strong>Trang Đề Thi đầy đủ</strong> để mọi người nhấn vào xem trực tiếp!
+              <p id="examUploadRoleIndicatorSub" class="text-xs text-stone-600 mt-0.5">
+                Hỗ trợ tệp <strong>Word (.docx, .doc)</strong> và <strong>PDF (.pdf)</strong> tới <strong>15MB</strong>. Nếu bạn đăng nhập <strong>👑 Admin</strong> trước khi tải lên, đề sẽ tự động được đóng <strong>💮 Con Dấu Đề Chính Thức Của Admin</strong>!
               </p>
             </div>
           </div>
@@ -1829,7 +1880,7 @@
           <!-- Bước 1: Chọn Mục Đề Thi (Đầy đủ các mục theo yêu cầu) -->
           <div class="space-y-2">
             <label class="block text-xs font-extrabold text-stone-800 uppercase tracking-wider">
-              1. Chọn Loại Đề Thi Muốn Đóng Góp *
+              1. Chọn Loại Đề Thi Muốn Tải Lên *
             </label>
             <div id="examUploadCategoryPills" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
               <button type="button" data-upload-cat="thptqg" class="exam-upload-cat-btn p-2.5 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-950 font-extrabold text-xs text-left transition flex flex-col gap-0.5 shadow-sm">
@@ -1946,22 +1997,81 @@
 
           <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
             <div class="text-[11px] text-stone-600 bg-amber-50/90 border border-amber-200 px-3.5 py-2 rounded-xl">
-              🛡️ <strong>Quy tắc phân quyền:</strong> Người truy cập bình thường <strong>chỉ được xoá đề thi do chính mình tải lên</strong> (không được xoá đề của người khác). <strong>👑 Admin</strong> có toàn quyền chỉnh sửa, thay file, thêm hoặc xoá bất kỳ đề nào.
+              🛡️ <strong>Quy tắc phân quyền &amp; Con dấu:</strong> Đề do <strong>👑 Admin</strong> đăng (hoặc duyệt) sẽ mang <strong>💮 Con Dấu Đề Chính Thức</strong> nằm ở mục <strong>Đề Chính Thức Của Admin</strong>. Đề do thành viên đăng nằm ở mục <strong>Đề Tham Khảo</strong> và chỉ người đăng mới được tự xoá đề của mình.
             </div>
             <button type="submit" id="examSubmitUploadBtn" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-extrabold text-xs sm:text-sm shadow-xl transition flex items-center gap-2">
               <span>🚀</span>
-              <span>Đăng Đề Thi Lên Trang Web Ngay</span>
+              <span id="examSubmitUploadBtnLabel">Đăng Đề Thi Lên Trang Web Ngay</span>
             </button>
           </div>
         </form>
       </div>
 
-      <!-- 4. THANH LỌC DANH MỤC ĐỀ THI & TÌM KIẾM THÔNG MINH -->
-      <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-md border border-amber-200/80 space-y-4">
-        <div class="flex flex-wrap items-center justify-between gap-2">
+      <!-- 4. MỤC CHUYỂN NGUỒN ĐỀ THI (ĐỀ CHÍNH THỨC CỦA ADMIN ĐÃ DUYỆT vs. ĐỀ THAM KHẢO MỌI NGƯỜI GÓP Ý) + BỘ LỌC LOẠI ĐỀ -->
+      <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-md border-2 border-amber-200/90 space-y-4">
+        <!-- Hàng 1: Mục Nhỏ Phân Biệt Nguồn Đề (Đề Chính Thức Admin vs Đề Tham Khảo Đóng Góp) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-stone-700 flex items-center gap-1.5">
+              <span>💮</span>
+              <span>Chọn Khu Vực Nguồn Đề Thi (Phân Biệt Đề Chính Thức Admin &amp; Đề Tham Khảo):</span>
+            </span>
+            <span class="text-[11px] text-amber-800 font-semibold">
+              💡 Bấm vào <strong>"Đề Chính Thức Của Admin"</strong> để chỉ xem đề chuẩn đã được Admin đăng/duyệt!
+            </span>
+          </div>
+          <div id="examSourceTabBar" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <button type="button" data-exam-source="all" class="exam-source-tab-btn p-3 rounded-2xl border-2 border-amber-500 bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 text-white text-left transition shadow-md flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="text-xl shrink-0">🌟</span>
+                <div class="min-w-0">
+                  <div class="font-extrabold text-xs sm:text-sm truncate">Tất Cả Kho Đề Thi</div>
+                  <div class="text-[10px] opacity-90 truncate">Gồm Đề Chính Thức &amp; Tham Khảo</div>
+                </div>
+              </div>
+              <span id="examSourceCount_all" class="px-2.5 py-0.5 rounded-full bg-white/25 text-white font-mono font-extrabold text-xs shrink-0">0</span>
+            </button>
+
+            <button type="button" data-exam-source="admin_official" class="exam-source-tab-btn p-3 rounded-2xl border-2 border-amber-300 bg-amber-50/70 hover:bg-amber-100/80 text-stone-900 text-left transition flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="text-xl shrink-0">💮</span>
+                <div class="min-w-0">
+                  <div class="font-extrabold text-xs sm:text-sm text-red-900 truncate">Đề Chính Thức Của Admin</div>
+                  <div class="text-[10px] text-amber-900 font-semibold truncate">👑 Đã được duyệt bởi Admin</div>
+                </div>
+              </div>
+              <span id="examSourceCount_official" class="px-2.5 py-0.5 rounded-full bg-red-600 text-white font-mono font-extrabold text-xs shrink-0">0</span>
+            </button>
+
+            <button type="button" data-exam-source="community_ref" class="exam-source-tab-btn p-3 rounded-2xl border-2 border-teal-200 bg-teal-50/60 hover:bg-teal-100/70 text-stone-900 text-left transition flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="text-xl shrink-0">🤝</span>
+                <div class="min-w-0">
+                  <div class="font-extrabold text-xs sm:text-sm text-teal-950 truncate">Đề Tham Khảo Đóng Góp</div>
+                  <div class="text-[10px] text-teal-800 truncate">Do mọi người góp ý &amp; chia sẻ</div>
+                </div>
+              </div>
+              <span id="examSourceCount_community" class="px-2.5 py-0.5 rounded-full bg-teal-700 text-white font-mono font-extrabold text-xs shrink-0">0</span>
+            </button>
+
+            <button type="button" data-exam-source="mine" class="exam-source-tab-btn p-3 rounded-2xl border-2 border-pink-200 bg-pink-50/60 hover:bg-pink-100/70 text-stone-900 text-left transition flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="text-xl shrink-0">🙋</span>
+                <div class="min-w-0">
+                  <div class="font-extrabold text-xs sm:text-sm text-pink-950 truncate">Đề Tôi Đã Tải Lên</div>
+                  <div class="text-[10px] text-pink-800 truncate">Quản lý &amp; tự xoá đề của bạn</div>
+                </div>
+              </div>
+              <span id="examSourceCount_mine" class="px-2.5 py-0.5 rounded-full bg-pink-600 text-white font-mono font-extrabold text-xs shrink-0">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hàng 2: Lọc Theo Loại Đề Thi -->
+        <div class="pt-2 border-t border-amber-100 flex flex-wrap items-center justify-between gap-2">
           <div class="flex flex-wrap items-center gap-1.5" id="examCategoryFilterBar">
             <button type="button" data-exam-filter="all" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-extrabold bg-gradient-to-r from-amber-500 to-pink-500 text-white shadow transition">
-              🌟 Tất cả đề thi
+              🌟 Tất cả loại đề
             </button>
             <button type="button" data-exam-filter="thptqg" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
               🎓 Đề thi THPT Quốc gia
@@ -1981,9 +2091,6 @@
             <button type="button" data-exam-filter="hocky" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition">
               🏛️ Đề thi Học kỳ
             </button>
-            <button type="button" data-exam-filter="mine" class="exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-pink-50 hover:bg-pink-100 text-pink-800 border border-pink-200 transition">
-              🙋 Đề tôi đã tải lên
-            </button>
           </div>
         </div>
 
@@ -2000,7 +2107,7 @@
           </div>
           <div class="sm:col-span-3">
             <select id="examSortSelect" class="w-full px-3 py-2.5 rounded-2xl border border-amber-300 text-xs sm:text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-              <option value="featured">✨ Đề ghim nổi bật &amp; Mới nhất</option>
+              <option value="featured">✨ Đề Chính Thức Admin &amp; Mới nhất</option>
               <option value="newest">🕒 Mới tải lên gần đây nhất</option>
               <option value="views">🔥 Nhiều lượt mở xem nhất</option>
             </select>
@@ -3763,15 +3870,15 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div>
                 <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase">👑 SUPREME EXAM VAULT CONTROLLER</span>
-                <h4 class="font-bold text-white text-base mt-1">Quản Trị Tối Cao Kho Đóng Góp Đề Thi (Word &amp; PDF)</h4>
-                <p class="text-xs text-slate-300">Admin đứng tối cao: Toàn quyền thêm đề mới, sửa nội dung bất kỳ đề nào, tải file Word/PDF thay thế, ghim đề hoặc xoá bất kỳ đề nào.</p>
+                <h4 class="font-bold text-white text-base mt-1">Quản Trị Tối Cao Kho Đề Thi Chính Thức &amp; Đề Tham Khảo (Word &amp; PDF)</h4>
+                <p class="text-xs text-slate-300">Admin đứng tối cao: Đăng đề chính thức có đóng dấu đỏ Admin, duyệt đề tham khảo thành đề chính thức, sửa nội dung, thay file hoặc xoá bất kỳ đề nào.</p>
               </div>
               <div class="flex flex-wrap items-center gap-2">
-                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-extrabold text-xs shadow">
-                  ➕ Thêm Đề Thi Mới (Admin)
+                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-300 via-cyan-400 to-emerald-400 text-slate-950 font-extrabold text-xs shadow">
+                  💮 + Đăng Đề Chính Thức Mới (Admin)
                 </button>
                 <button type="button" onclick="adminVerifyAllExams()" class="px-3 py-2 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-200 font-bold text-xs">
-                  👑 Đóng Dấu Chuẩn Admin Tất Cả
+                  💮 Đóng Dấu Chính Thức Tất Cả
                 </button>
                 <button type="button" onclick="adminClearAllExams()" class="px-3 py-2 rounded-xl bg-rose-950 border border-rose-500/60 text-rose-200 font-bold text-xs">
                   🗑️ Xoá Sạch Kho Đề (Về 0 Đề)
@@ -3809,11 +3916,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     <!-- Top Sticky Control Bar -->
     <div class="bg-gradient-to-r from-[#140818] via-[#1e1136] to-[#0f172a] border-b border-pink-400/30 px-3 sm:px-6 py-3 text-white shrink-0 shadow-xl">
       <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
-        <div class="flex items-center gap-2.5 min-w-0">
+        <div class="flex items-center gap-2 min-w-0 flex-wrap">
           <button type="button" id="closeExamFullPageReaderBtn" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-rose-600 text-white font-extrabold text-xs border border-white/20 transition flex items-center gap-1.5 shrink-0">
             <span>←</span>
             <span>Quay lại Kho Đề</span>
           </button>
+          <span id="examReaderSourceBadge" class="px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-300 to-rose-500 text-slate-950 font-extrabold text-[11px] shrink-0">💮 ĐỀ CHÍNH THỨC ADMIN</span>
           <span id="examReaderCatBadge" class="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 font-extrabold text-[11px] shrink-0">🎓 Đề thi THPT Quốc gia</span>
           <span id="examReaderFileBadge" class="px-2.5 py-1 rounded-full bg-rose-600 text-white font-mono font-bold text-[11px] shrink-0">📕 PDF</span>
           <h3 id="examReaderModalTitle" class="font-literary font-bold text-sm sm:text-base text-amber-100 truncate">Trang Đề Thi</h3>
@@ -3866,9 +3974,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       <div id="examReaderAdminBar" class="admin-only-item hidden max-w-7xl mx-auto mt-2.5 pt-2.5 border-t border-cyan-500/40 flex flex-wrap items-center justify-between gap-2 text-xs">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-mono font-extrabold text-[10px] uppercase">👑 ADMIN SUPREME CONTROL</span>
-          <span class="text-cyan-200 font-semibold">Bạn có thể gõ sửa trực tiếp lên mặt tờ giấy đề thi bên dưới, thay file Word/PDF hoặc xoá đề này:</span>
+          <span class="text-cyan-200 font-semibold">Toàn quyền Admin: Đóng dấu Đề Chính Thức, gõ sửa trực tiếp lên tờ đề, thay file Word/PDF hoặc xoá đề này:</span>
         </div>
         <div class="flex flex-wrap items-center gap-1.5">
+          <button type="button" id="examReaderAdminStampBtn" class="px-3 py-1 rounded-lg bg-red-600 hover:bg-red-500 text-white font-extrabold transition shadow">
+            💮 Đóng Dấu Đề Chính Thức
+          </button>
           <button type="button" id="examReaderInlineEditToggleBtn" onclick="toggleAdminExamSheetInlineEdit()" class="px-3 py-1 rounded-lg bg-fuchsia-500/30 hover:bg-fuchsia-500/50 border border-fuchsia-400 text-fuchsia-200 font-extrabold transition">
             ✍️ Gõ Sửa Trực Tiếp Trên Tờ Đề: TẮT
           </button>
@@ -3890,15 +4001,15 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
     <!-- Scrollable Full Exam Sheet Canvas -->
     <div class="flex-1 overflow-y-auto p-3 sm:p-8 space-y-6" id="examFullPageScrollViewport">
-      <!-- Chế độ 1: Tờ Giấy Đề Thi Chuẩn A4 (Hiện nguyên trang đề đầy đủ) -->
-      <article id="examFullPageA4Container" class="exam-a4-sheet" data-paper-theme="white">
-        <!-- Quốc hiệu & Tiêu đề chuẩn -->
+      <!-- Chế độ 1: Tờ Giấy Đề Thi Chuẩn A4 (Hiện nguyên trang đề đầy đủ + Con dấu Admin) -->
+      <article id="examFullPageA4Container" class="exam-a4-sheet relative" data-paper-theme="white">
+        <!-- Quốc hiệu & Tiêu đề chuẩn + Con dấu Đề Chính Thức Admin -->
         <div class="border-b-2 border-current pb-4 mb-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
             <div class="space-y-0.5">
               <div class="text-xs sm:text-sm font-bold uppercase tracking-wide">SỞ GIÁO DỤC VÀ ĐÀO TẠO TP. CẦN THƠ</div>
               <div id="examSheetSchoolHeader" class="text-xs sm:text-sm font-extrabold uppercase underline">TRƯỜNG THPT THỚI LONG</div>
-              <div class="text-[11px] italic opacity-80">(Đề thi hiển thị đầy đủ nguyên trang)</div>
+              <div id="examSheetOfficialNoticeLine" class="text-[11px] font-bold text-red-700">(ĐỀ CHÍNH THỨC — ĐÃ ĐƯỢC DUYỆT BỞI ADMIN)</div>
             </div>
             <div class="space-y-0.5">
               <div id="examSheetCategoryHeader" class="text-xs sm:text-sm font-extrabold uppercase">KỲ THI TỐT NGHIỆP THPT QUỐC GIA</div>
@@ -3906,10 +4017,22 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
               <div id="examSheetDurationHeader" class="text-xs italic">Thời gian làm bài: 120 phút (không kể thời gian phát đề)</div>
             </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-dashed border-current/30 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <div><strong>📌 Tên đề:</strong> <span id="examSheetSubTitle">Đề thi Ngữ văn 12</span></div>
-            <div><strong>👤 Người đóng góp:</strong> <span id="examSheetContributor">Nguyễn Nhựt Trường (12A2)</span></div>
-            <div><strong>📎 Tệp đính kèm:</strong> <span id="examSheetFileMeta">Đề chuẩn A4</span></div>
+
+          <!-- Hộp Con Dấu Chính Thức Của Admin Trên Mặt Giấy Đề Thi -->
+          <div id="examSheetStampBannerBox" class="mt-4 p-3 rounded-2xl bg-gradient-to-r from-amber-50 via-red-50/80 to-amber-50 border-2 border-red-400/70 flex flex-wrap items-center justify-between gap-3">
+            <div class="space-y-0.5 text-xs text-stone-900">
+              <div class="font-extrabold text-red-800 uppercase flex items-center gap-1.5">
+                <span>👑</span>
+                <span id="examSheetVerifyHeadline">NGUỒN ĐỀ CHÍNH THỨC • ĐÃ ĐƯỢC KIỂM DUYỆT BỞI ADMIN</span>
+              </div>
+              <div><strong>📌 Tên đề:</strong> <span id="examSheetSubTitle">Đề thi Ngữ văn 12</span></div>
+              <div><strong>👤 Người đăng:</strong> <span id="examSheetContributor">Nguyễn Nhựt Trường (12A2)</span> • <strong>📎 Tệp:</strong> <span id="examSheetFileMeta">Đề chuẩn A4</span></div>
+            </div>
+            <div id="examSheetRedSealStamp" class="exam-official-admin-stamp-lg shrink-0">
+              <span class="text-[10px] tracking-widest">★ THPT THỚI LONG ★</span>
+              <span class="text-xs sm:text-sm font-black">💮 ĐỀ CHÍNH THỨC</span>
+              <span class="text-[10px] font-extrabold">ĐÃ DUYỆT BỞI ADMIN</span>
+            </div>
           </div>
         </div>
 
@@ -4026,9 +4149,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
             <input type="checkbox" id="admEditExamPinnedChk" class="w-4 h-4 accent-amber-400" />
             <span>📌 Ghim Đề Này Lên Đầu Kho Đề Thi</span>
           </label>
-          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-bold text-emerald-300">
-            <input type="checkbox" id="admEditExamVerifiedChk" checked class="w-4 h-4 accent-emerald-400" />
-            <span>👑 Đóng Dấu "Đề Chuẩn Admin Đã Kiểm Duyệt"</span>
+          <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-bold text-rose-300">
+            <input type="checkbox" id="admEditExamVerifiedChk" checked class="w-4 h-4 accent-rose-500" />
+            <span>💮 Đóng Con Dấu "ĐỀ CHÍNH THỨC CỦA ADMIN (Đã Kiểm Duyệt)"</span>
           </label>
         </div>
 
@@ -7708,7 +7831,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     } catch (e) {}
 
 
-    // ==================== HỆ THỐNG KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (WORD / PDF - MẶC ĐỊNH 0 ĐỀ KHI CHƯA ĐĂNG) ====================
+    // ==================== HỆ THỐNG KHO ĐÓNG GÓP & CHIA SẺ ĐỀ THI (PHÂN BIỆT ĐỀ CHÍNH THỨC ADMIN CÓ CON DẤU vs ĐỀ THAM KHẢO) ====================
     const EXAMS_STORAGE_KEY = "thoilong_van12_exams_vault_v2";
     const EXAMS_IDB_KEY = "__exams_vault_state_v2__";
     try { localStorage.removeItem("thoilong_van12_exams_vault_v1"); } catch (e) {}
@@ -7784,7 +7907,13 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       return arr.filter(item => item && typeof item === "object" && !String(item.id || "").startsWith("exam_default_"));
     }
 
+    function isExamOfficialAdmin(exam) {
+      if (!exam) return false;
+      return Boolean(exam.isOfficialAdmin || exam.isVerified || exam.ownerId === "__admin_root__");
+    }
+
     let EXAMS_DATA = [];
+    let currentExamSourceTab = "all"; // 'all' | 'admin_official' | 'community_ref' | 'mine'
     let currentExamFilterCat = "all";
     let currentExamReaderId = null;
     let currentExamReaderViewMode = "sheet";
@@ -7840,7 +7969,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         .join("\n");
     }
 
-    // Native Pure-JS Fallback .DOCX ZIP + XML Extractor (Works even offline without CDN!)
+    // Native Pure-JS Fallback .DOCX ZIP + XML Extractor
     async function extractDocxHtmlNativeFallback(arrayBuffer) {
       try {
         const bytes = new Uint8Array(arrayBuffer);
@@ -7903,7 +8032,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
     // Parse uploaded Word (.docx/.doc) or PDF (.pdf) file into full Exam Page HTML + Text + DataURL
     async function processUploadedExamFile(file) {
       if (!file) return null;
-      const maxBytes = 25 * 1024 * 1024; // 25 MB limit (comfortably supports ~10MB+ files)
+      const maxBytes = 25 * 1024 * 1024;
       if (file.size > maxBytes) {
         throw new Error("Tệp vượt quá dung lượng tối đa 25MB. Vui lòng chọn tệp nhẹ hơn 25MB nhé!");
       }
@@ -8083,22 +8212,60 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
     function updateExamHeroStats() {
       const myOwnerId = getOrCreateGuestbookOwnerId();
+      const isAdmin = Boolean(window.isAdminLoggedIn);
       const total = EXAMS_DATA.length;
-      const thpt = EXAMS_DATA.filter(e => e.category === "thptqg").length;
-      const mid = EXAMS_DATA.filter(e => e.category !== "thptqg").length;
-      const mine = EXAMS_DATA.filter(e => e.ownerId === myOwnerId || (window.isAdminLoggedIn && e.ownerId === "__admin_root__")).length;
+      const officialCount = EXAMS_DATA.filter(e => isExamOfficialAdmin(e)).length;
+      const communityCount = EXAMS_DATA.filter(e => !isExamOfficialAdmin(e)).length;
+      const mineCount = EXAMS_DATA.filter(e => e.ownerId === myOwnerId || (isAdmin && isExamOfficialAdmin(e))).length;
 
       const elTotal = document.getElementById("examStatTotalCount");
-      const elThpt = document.getElementById("examStatThptCount");
-      const elMid = document.getElementById("examStatMidCount");
+      const elOff = document.getElementById("examStatOfficialCount");
+      const elComm = document.getElementById("examStatCommunityCount");
       const elMy = document.getElementById("examStatMyCount");
       const elAdmCount = document.getElementById("admExamsCount");
 
       if (elTotal) elTotal.textContent = `${total} đề`;
-      if (elThpt) elThpt.textContent = `${thpt} đề`;
-      if (elMid) elMid.textContent = `${mid} đề`;
-      if (elMy) elMy.textContent = `${mine} đề`;
+      if (elOff) elOff.textContent = `${officialCount} đề`;
+      if (elComm) elComm.textContent = `${communityCount} đề`;
+      if (elMy) elMy.textContent = `${mineCount} đề`;
       if (elAdmCount) elAdmCount.textContent = String(total);
+
+      const srcAll = document.getElementById("examSourceCount_all");
+      const srcOff = document.getElementById("examSourceCount_official");
+      const srcCom = document.getElementById("examSourceCount_community");
+      const srcMine = document.getElementById("examSourceCount_mine");
+      if (srcAll) srcAll.textContent = String(total);
+      if (srcOff) srcOff.textContent = String(officialCount);
+      if (srcCom) srcCom.textContent = String(communityCount);
+      if (srcMine) srcMine.textContent = String(mineCount);
+
+      // Update Upload Studio role indicator so Admin sees clearly that their upload gets the Official Admin Seal
+      const roleBadge = document.getElementById("examUploadRoleIndicatorBadge");
+      const roleSub = document.getElementById("examUploadRoleIndicatorSub");
+      const submitLbl = document.getElementById("examSubmitUploadBtnLabel");
+      const authorInp = document.getElementById("examUploadAuthorInput");
+      if (isAdmin) {
+        if (roleBadge) {
+          roleBadge.textContent = "💮 Đang đăng với Quyền Admin: Tự động đóng Con Dấu ĐỀ CHÍNH THỨC";
+          roleBadge.className = "px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-300 via-yellow-400 to-rose-400 text-slate-950 text-[11px] font-extrabold border border-amber-500 shadow-sm";
+        }
+        if (roleSub) {
+          roleSub.innerHTML = `👑 Bạn đang đăng nhập <strong>Admin Tối Cao</strong>: Đề thi bạn tải lên sẽ tự động mang <strong>💮 Con Dấu Đỏ ĐỀ CHÍNH THỨC CỦA ADMIN</strong> và xuất hiện ngay trong mục <strong>[💮 Đề Chính Thức Của Admin]</strong>!`;
+        }
+        if (submitLbl) submitLbl.textContent = "💮 Đăng Đề Chính Thức Của Admin Lên Ngay";
+        if (authorInp && !authorInp.value.trim()) {
+          authorInp.value = "👑 Admin Nguyễn Nhựt Trường (12A2)";
+        }
+      } else {
+        if (roleBadge) {
+          roleBadge.textContent = "🤝 Chế độ Khách: Đóng góp vào mục Đề Tham Khảo";
+          roleBadge.className = "px-3 py-0.5 rounded-full bg-teal-100 text-teal-900 text-[11px] font-extrabold border border-teal-300";
+        }
+        if (roleSub) {
+          roleSub.innerHTML = `Hỗ trợ tệp <strong>Word (.docx, .doc)</strong> và <strong>PDF (.pdf)</strong> tới <strong>15MB</strong>. Đề của thành viên đóng góp sẽ hiển thị ở mục <strong>[🤝 Đề Tham Khảo Đóng Góp]</strong> (Admin có thể xét duyệt đóng dấu Chính thức).`;
+        }
+        if (submitLbl) submitLbl.textContent = "🚀 Đăng Đề Tham Khảo Lên Trang Web Ngay";
+      }
     }
 
     function stripHtmlToPreviewSnippet(htmlStr, maxLen = 190) {
@@ -8120,22 +8287,46 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       const fileFilter = document.getElementById("examFileTypeFilterSelect")?.value || "all";
       const sortMode = document.getElementById("examSortSelect")?.value || "featured";
 
-      document.querySelectorAll("#examCategoryFilterBar .exam-filter-pill").forEach(btn => {
-        const cat = btn.getAttribute("data-exam-filter");
-        const isCurrent = cat === currentExamFilterCat;
-        if (isCurrent) {
-          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-extrabold bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 text-white shadow-md transition";
-        } else if (cat === "mine") {
-          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-pink-50 hover:bg-pink-100 text-pink-800 border border-pink-200 transition";
+      // Update Source Tab buttons (All vs Official Admin vs Community Reference vs Mine)
+      document.querySelectorAll("#examSourceTabBar .exam-source-tab-btn").forEach(btn => {
+        const src = btn.getAttribute("data-exam-source");
+        const isCurrent = src === currentExamSourceTab;
+        if (src === "admin_official") {
+          btn.className = isCurrent
+            ? "exam-source-tab-btn p-3 rounded-2xl border-2 border-red-600 bg-gradient-to-r from-amber-300 via-yellow-200 to-rose-200 text-slate-950 text-left transition shadow-lg flex items-center justify-between gap-2 ring-2 ring-amber-400"
+            : "exam-source-tab-btn p-3 rounded-2xl border-2 border-amber-300 bg-amber-50/70 hover:bg-amber-100/80 text-stone-900 text-left transition flex items-center justify-between gap-2";
+        } else if (src === "community_ref") {
+          btn.className = isCurrent
+            ? "exam-source-tab-btn p-3 rounded-2xl border-2 border-teal-600 bg-gradient-to-r from-teal-500 to-emerald-600 text-white text-left transition shadow-lg flex items-center justify-between gap-2"
+            : "exam-source-tab-btn p-3 rounded-2xl border-2 border-teal-200 bg-teal-50/60 hover:bg-teal-100/70 text-stone-900 text-left transition flex items-center justify-between gap-2";
+        } else if (src === "mine") {
+          btn.className = isCurrent
+            ? "exam-source-tab-btn p-3 rounded-2xl border-2 border-pink-600 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-left transition shadow-lg flex items-center justify-between gap-2"
+            : "exam-source-tab-btn p-3 rounded-2xl border-2 border-pink-200 bg-pink-50/60 hover:bg-pink-100/70 text-stone-900 text-left transition flex items-center justify-between gap-2";
         } else {
-          btn.className = "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition";
+          btn.className = isCurrent
+            ? "exam-source-tab-btn p-3 rounded-2xl border-2 border-amber-500 bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 text-white text-left transition shadow-md flex items-center justify-between gap-2"
+            : "exam-source-tab-btn p-3 rounded-2xl border-2 border-stone-200 bg-stone-50 hover:bg-amber-50/60 text-stone-900 text-left transition flex items-center justify-between gap-2";
         }
       });
 
+      // Update Category Filter Pills
+      document.querySelectorAll("#examCategoryFilterBar .exam-filter-pill").forEach(btn => {
+        const cat = btn.getAttribute("data-exam-filter");
+        const isCurrent = cat === currentExamFilterCat;
+        btn.className = isCurrent
+          ? "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-extrabold bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 text-white shadow-md transition"
+          : "exam-filter-pill px-3.5 py-2 rounded-2xl text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 transition";
+      });
+
       let filtered = EXAMS_DATA.filter(exam => {
-        if (currentExamFilterCat === "mine") {
-          if (exam.ownerId !== myOwnerId && !(isAdmin && exam.ownerId === "__admin_root__")) return false;
-        } else if (currentExamFilterCat !== "all" && exam.category !== currentExamFilterCat) {
+        const official = isExamOfficialAdmin(exam);
+        if (currentExamSourceTab === "admin_official" && !official) return false;
+        if (currentExamSourceTab === "community_ref" && official) return false;
+        if (currentExamSourceTab === "mine") {
+          if (exam.ownerId !== myOwnerId && !(isAdmin && official)) return false;
+        }
+        if (currentExamFilterCat !== "all" && exam.category !== currentExamFilterCat) {
           return false;
         }
         if (fileFilter !== "all" && exam.fileType !== fileFilter) return false;
@@ -8148,6 +8339,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       filtered.sort((a, b) => {
         if (sortMode === "featured") {
+          const offA = isExamOfficialAdmin(a) ? 1 : 0;
+          const offB = isExamOfficialAdmin(b) ? 1 : 0;
+          if (offB !== offA) return offB - offA;
           if (Boolean(b.isPinned) !== Boolean(a.isPinned)) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
         }
         if (sortMode === "views") {
@@ -8157,26 +8351,32 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       });
 
       if (filtered.length === 0) {
-        const emptyTitle = EXAMS_DATA.length === 0
-          ? "Hiện chưa có đề thi nào được đăng lên (0 đề)"
-          : "Chưa có đề thi nào trong mục lọc này";
-        const emptySub = EXAMS_DATA.length === 0
-          ? "Kho đề thi đang hoàn toàn trống. Bạn hoặc Admin hãy là người đầu tiên tải file Word (.docx/.doc) hoặc PDF (.pdf) lên để hiển thị nguyên trang đề thi tại đây nhé!"
-          : "Bạn hãy chọn mục lọc khác hoặc tải lên đề thi mới cho danh mục này nhé!";
+        let emptyTitle = "Hiện chưa có đề thi nào được đăng lên (0 đề)";
+        let emptySub = "Kho đề thi đang hoàn toàn trống. Bạn hoặc Admin hãy là người đầu tiên tải file Word (.docx/.doc) hoặc PDF (.pdf) lên để hiển thị nguyên trang đề thi tại đây nhé!";
+        if (currentExamSourceTab === "admin_official") {
+          emptyTitle = "Chưa có Đề Chính Thức nào do Admin đăng hoặc duyệt (0 đề)";
+          emptySub = "Mục này chỉ hiển thị các Đề Chính Thức có Con Dấu Đỏ của Admin. Hãy đăng nhập Admin và tải đề lên (hoặc đóng dấu duyệt đề) để xuất hiện tại đây nhé!";
+        } else if (currentExamSourceTab === "community_ref") {
+          emptyTitle = "Chưa có Đề Tham Khảo nào do mọi người đóng góp (0 đề)";
+          emptySub = "Mục này dành riêng cho các đề tham khảo do thành viên đóng góp. Hãy tải file Word/PDF lên để chia sẻ cùng mọi người nhé!";
+        } else if (EXAMS_DATA.length > 0) {
+          emptyTitle = "Chưa có đề thi nào khớp với bộ lọc hiện tại";
+          emptySub = "Bạn hãy thử chuyển sang mục khác hoặc chọn 'Tất cả loại đề' nhé!";
+        }
         grid.innerHTML = `
           <div class="col-span-full p-8 sm:p-10 rounded-3xl bg-white border-2 border-dashed border-amber-300 text-center space-y-3 shadow-sm">
-            <div class="text-4xl">🦊📄</div>
+            <div class="text-4xl">${currentExamSourceTab === "admin_official" ? "💮👑" : "🦊📄"}</div>
             <h4 class="font-literary font-bold text-lg text-stone-900">${emptyTitle}</h4>
             <p class="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
               ${emptySub}
             </p>
             <div class="flex flex-wrap items-center justify-center gap-2.5 pt-1">
               <button type="button" onclick="document.getElementById('examContributionStudioCard')?.scrollIntoView({behavior:'smooth'});document.getElementById('examUploadTitleInput')?.focus();" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 text-white font-extrabold text-xs shadow-md transition">
-                🚀 + Tải File Đề Thi Đầu Tiên Lên Ngay
+                🚀 + Tải File Đề Thi Lên Ngay
               </button>
               ${isAdmin ? `
-                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2.5 rounded-2xl bg-slate-950 hover:bg-slate-900 border border-cyan-400 text-cyan-300 font-extrabold text-xs shadow transition">
-                  👑 Admin Tạo Đề Mới
+                <button type="button" onclick="openAdminExamEditModal(null)" class="px-4 py-2.5 rounded-2xl bg-slate-950 hover:bg-slate-900 border border-amber-400 text-amber-300 font-extrabold text-xs shadow transition">
+                  💮 Admin Đăng Đề Chính Thức Mới
                 </button>
               ` : ""}
             </div>
@@ -8187,6 +8387,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       grid.innerHTML = filtered.map(exam => {
         const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+        const isOfficial = isExamOfficialAdmin(exam);
         const isMine = Boolean(exam.ownerId && exam.ownerId === myOwnerId);
         const isPdf = exam.fileType === "pdf";
         const fileBadge = isPdf
@@ -8195,8 +8396,26 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         const snippet = stripHtmlToPreviewSnippet(exam.contentHtml, 175);
         const safeId = String(exam.id).replace(/'/g, "\\'");
 
+        // Distinct Top Source Banner for Official Admin vs Community Reference
+        const topSourceRibbon = isOfficial
+          ? `<div class="px-4 py-2 bg-gradient-to-r from-red-900 via-amber-700 to-red-900 text-amber-100 flex items-center justify-between gap-2 border-b border-amber-400/60">
+               <div class="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-amber-200">
+                 <span>👑</span>
+                 <span>NGUỒN ĐỀ CHÍNH THỨC • ADMIN ĐÃ DUYỆT</span>
+               </div>
+               <span class="px-2 py-0.5 rounded-full bg-amber-300 text-slate-950 font-black text-[10px] uppercase shadow">💮 CÓ DẤU ADMIN</span>
+             </div>`
+          : `<div class="px-4 py-1.5 bg-gradient-to-r from-teal-900/90 to-slate-900 text-teal-100 flex items-center justify-between gap-2 border-b border-teal-400/30">
+               <div class="flex items-center gap-1.5 text-[11px] font-bold text-teal-200">
+                 <span>🤝</span>
+                 <span>ĐỀ THAM KHẢO • THÀNH VIÊN ĐÓNG GÓP</span>
+               </div>
+               <span class="px-2 py-0.5 rounded-full bg-teal-500/25 border border-teal-300/40 text-teal-100 font-semibold text-[10px]">Tham khảo</span>
+             </div>`;
+
         return `
-          <article class="exam-card-fancy bg-white rounded-3xl border-2 ${exam.isPinned ? 'border-amber-400 shadow-lg' : 'border-amber-200/80 shadow-md'} ${meta.borderGlow} flex flex-col justify-between overflow-hidden group">
+          <article class="exam-card-fancy ${isOfficial ? 'exam-card-admin-official' : 'bg-white border-2 border-amber-200/80 shadow-md'} rounded-3xl ${meta.borderGlow} flex flex-col justify-between overflow-hidden group">
+            ${topSourceRibbon}
             <!-- Top Ribbon & Clickable Area to Open Full Exam Page -->
             <div class="p-5 space-y-3.5 cursor-pointer flex-1 flex flex-col justify-between" onclick="openExamFullPageModal('${safeId}')">
               <div class="space-y-3">
@@ -8211,23 +8430,33 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
                   </div>
                 </div>
 
-                <h3 class="font-literary font-bold text-base sm:text-lg text-stone-900 group-hover:text-rose-700 transition leading-snug line-clamp-2">
+                <h3 class="font-literary font-bold text-base sm:text-lg ${isOfficial ? 'text-red-950' : 'text-stone-900'} group-hover:text-rose-700 transition leading-snug line-clamp-2">
                   ${escapeExamHtml(exam.title)}
                 </h3>
 
-                <!-- Mini A4 Exam Sheet Preview Thumbnail -->
-                <div class="exam-mini-paper rounded-2xl p-3.5 border border-amber-200/80 space-y-1.5 relative overflow-hidden">
+                <!-- Mini A4 Exam Sheet Preview Thumbnail + Official Admin Red Stamp -->
+                <div class="exam-mini-paper rounded-2xl p-3.5 border ${isOfficial ? 'border-amber-400' : 'border-amber-200/80'} space-y-1.5 relative overflow-hidden">
                   <div class="flex items-center justify-between text-[10px] font-bold text-amber-900 border-b border-amber-200/70 pb-1">
                     <span class="truncate">${escapeExamHtml(exam.school || "TRƯỜNG THPT THỚI LONG")}</span>
                     <span class="shrink-0 text-rose-700">📄 Trang đề A4</span>
                   </div>
-                  <p class="text-xs text-stone-700 leading-relaxed line-clamp-3 font-serif">
+                  <p class="text-xs text-stone-700 leading-relaxed line-clamp-3 font-serif pr-2">
                     ${escapeExamHtml(snippet)}
                   </p>
-                  <div class="pt-1 flex items-center justify-between text-[10px] font-extrabold text-pink-700">
-                    <span>✨ Nhấn vào để hiện nguyên trang đề thi →</span>
-                    <span>👁️ ${Number(exam.views) || 1} lượt xem</span>
-                  </div>
+                  ${isOfficial ? `
+                    <div class="pt-1.5 flex items-center justify-between gap-2">
+                      <span class="text-[10px] font-extrabold text-red-700">✨ Nhấn xem nguyên trang đề chính thức →</span>
+                      <div class="exam-official-admin-stamp shrink-0">
+                        <span class="text-[9px] leading-none">💮 ĐỀ CHÍNH THỨC</span>
+                        <span class="text-[8px] leading-none mt-0.5">ADMIN ĐÃ DUYỆT</span>
+                      </div>
+                    </div>
+                  ` : `
+                    <div class="pt-1 flex items-center justify-between text-[10px] font-extrabold text-teal-800">
+                      <span>✨ Nhấn vào để hiện nguyên trang đề →</span>
+                      <span>👁️ ${Number(exam.views) || 1} lượt xem</span>
+                    </div>
+                  `}
                 </div>
               </div>
 
@@ -8238,17 +8467,19 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
                 </div>
                 <div class="flex items-center gap-1.5 shrink-0">
                   <span class="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 font-semibold">${escapeExamHtml(exam.fileSizeLabel || "1.2 MB")}</span>
-                  ${isMine ? `<span class="px-2 py-0.5 rounded-md bg-pink-100 text-pink-800 font-extrabold">🙋 Đề của bạn</span>` : (exam.isVerified ? `<span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold">👑 Đề chuẩn</span>` : "")}
+                  ${isOfficial
+                    ? `<span class="px-2 py-0.5 rounded-md bg-red-100 text-red-800 border border-red-300 font-extrabold">💮 Chính thức</span>`
+                    : (isMine ? `<span class="px-2 py-0.5 rounded-md bg-pink-100 text-pink-800 font-extrabold">🙋 Đề của bạn</span>` : `<span class="px-2 py-0.5 rounded-md bg-teal-50 text-teal-800 border border-teal-200 font-semibold">🤝 Tham khảo</span>`)}
                 </div>
               </div>
             </div>
 
             <!-- Action Buttons Bar -->
-            <div class="px-5 py-3.5 bg-gradient-to-r from-amber-50/90 via-pink-50/50 to-amber-50/90 border-t border-amber-200/70 space-y-2">
+            <div class="px-5 py-3.5 ${isOfficial ? 'bg-gradient-to-r from-amber-100/90 via-yellow-50 to-amber-100/90 border-t border-amber-300' : 'bg-gradient-to-r from-amber-50/90 via-pink-50/50 to-amber-50/90 border-t border-amber-200/70'} space-y-2">
               <div class="flex items-center gap-2">
-                <button type="button" onclick="event.stopPropagation();openExamFullPageModal('${safeId}')" class="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-extrabold text-xs shadow transition flex items-center justify-center gap-1.5">
+                <button type="button" onclick="event.stopPropagation();openExamFullPageModal('${safeId}')" class="flex-1 py-2 px-3 rounded-xl ${isOfficial ? 'bg-gradient-to-r from-red-700 via-rose-600 to-amber-600 hover:from-red-600 hover:to-amber-500' : 'bg-gradient-to-r from-amber-500 via-pink-500 to-rose-600 hover:from-amber-400 hover:to-rose-500'} text-white font-extrabold text-xs shadow transition flex items-center justify-center gap-1.5">
                   <span>📖</span>
-                  <span>Xem Nguyên Trang Đề</span>
+                  <span>${isOfficial ? "Xem Trang Đề Chính Thức" : "Xem Nguyên Trang Đề"}</span>
                 </button>
                 <button type="button" onclick="event.stopPropagation();downloadExamFileById('${safeId}')" class="py-2 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-amber-200 font-bold text-xs transition flex items-center gap-1 shrink-0" title="Tải tệp đề thi về máy">
                   <span>⬇️</span>
@@ -8263,26 +8494,28 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
               ${(!isAdmin && !isMine) ? `
                 <div class="text-[10px] text-stone-500 flex items-center justify-between">
-                  <span>🔒 Chỉ người đăng đề này hoặc Admin mới được quyền xoá</span>
+                  <span>${isOfficial ? "💮 Nguồn đề chính thức từ Admin" : "🔒 Chỉ người đăng hoặc Admin được xoá"}</span>
                   <span class="font-semibold text-amber-900">${escapeExamHtml(exam.duration || "120 phút")}</span>
                 </div>
               ` : ""}
 
               ${isAdmin ? `
                 <div class="pt-1.5 border-t border-amber-300/60 flex flex-wrap items-center justify-between gap-1">
-                  <span class="text-[10px] font-mono font-extrabold text-slate-900 bg-amber-300 px-2 py-0.5 rounded">👑 ADMIN</span>
+                  <button type="button" onclick="event.stopPropagation();adminToggleOfficialStamp('${safeId}')" class="px-2 py-1 rounded-lg ${isOfficial ? 'bg-red-700 text-white' : 'bg-amber-300 text-slate-950'} font-extrabold text-[10px] shadow-sm" title="Đóng dấu hoặc gỡ dấu Đề Chính Thức Của Admin">
+                    💮 ${isOfficial ? "Đã đóng dấu Admin" : "Đóng dấu Chính thức"}
+                  </button>
                   <div class="flex flex-wrap items-center gap-1">
                     <button type="button" onclick="event.stopPropagation();adminTogglePinExam('${safeId}')" class="px-2 py-1 rounded-lg ${exam.isPinned ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 text-amber-200'} font-bold text-[10px]" title="Ghim hoặc bỏ ghim đề này">
                       📌 ${exam.isPinned ? "Bỏ ghim" : "Ghim"}
                     </button>
-                    <button type="button" onclick="event.stopPropagation();openAdminExamEditModal('${safeId}')" class="px-2.5 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-[10px]" title="Chỉnh sửa toàn diện nội dung đề thi">
-                      ✏️ Sửa đề
+                    <button type="button" onclick="event.stopPropagation();openAdminExamEditModal('${safeId}')" class="px-2 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-[10px]" title="Chỉnh sửa toàn diện nội dung đề thi">
+                      ✏️ Sửa
                     </button>
                     <button type="button" onclick="event.stopPropagation();adminTriggerReplaceExamFile('${safeId}')" class="px-2 py-1 rounded-lg bg-indigo-900 hover:bg-indigo-800 text-indigo-100 font-bold text-[10px]" title="Tải file Word/PDF khác đè lên đề này">
-                      📂 Thay file
+                      📂 File
                     </button>
-                    <button type="button" onclick="event.stopPropagation();requestDeleteExamById('${safeId}')" class="px-2.5 py-1 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-extrabold text-[10px]" title="Quyền Admin xoá bất kỳ đề nào">
-                      🗑️ Xoá
+                    <button type="button" onclick="event.stopPropagation();requestDeleteExamById('${safeId}')" class="px-2 py-1 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-extrabold text-[10px]" title="Quyền Admin xoá bất kỳ đề nào">
+                      🗑️
                     </button>
                   </div>
                 </div>
@@ -8303,20 +8536,24 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         container.innerHTML = `<div class="p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/30 text-slate-300 text-xs text-center space-y-2">
           <div class="text-2xl">📭</div>
           <div class="font-bold text-white">Hiện chưa có đề thi nào được đăng (0 đề)</div>
-          <p class="text-slate-400">Admin có thể nhấn nút <strong>[➕ Thêm Đề Thi Mới (Admin)]</strong> ở góc trên hoặc ra ngoài mục <strong>📄 Đóng Góp Đề Thi</strong> để tải file Word/PDF lên.</p>
+          <p class="text-slate-400">Admin có thể nhấn nút <strong>[💮 + Đăng Đề Chính Thức Mới (Admin)]</strong> ở góc trên hoặc ra ngoài mục <strong>📄 Đóng Góp Đề Thi</strong> để tải file Word/PDF lên.</p>
         </div>`;
         return;
       }
 
       container.innerHTML = EXAMS_DATA.map((exam, idx) => {
         const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+        const isOfficial = isExamOfficialAdmin(exam);
         const safeId = String(exam.id).replace(/'/g, "\\'");
         return `
-          <div class="p-3 rounded-2xl bg-slate-950/90 border border-cyan-500/30 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div class="p-3 rounded-2xl bg-slate-950/90 border ${isOfficial ? 'border-amber-400/80' : 'border-cyan-500/30'} flex flex-wrap items-center justify-between gap-2 text-xs">
             <div class="min-w-0 flex-1 space-y-0.5">
               <div class="flex items-center gap-1.5 flex-wrap">
                 <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold">#${idx + 1} • ${meta.shortLabel}</span>
                 <span class="px-2 py-0.5 rounded ${exam.fileType === 'pdf' ? 'bg-rose-600 text-white' : 'bg-blue-600 text-white'} font-mono text-[10px] font-bold uppercase">${exam.fileType}</span>
+                ${isOfficial
+                  ? `<span class="px-2 py-0.5 rounded bg-red-600 text-white font-extrabold text-[10px]">💮 ĐỀ CHÍNH THỨC ADMIN</span>`
+                  : `<span class="px-2 py-0.5 rounded bg-teal-800 text-teal-100 font-bold text-[10px]">🤝 ĐỀ THAM KHẢO</span>`}
                 ${exam.isPinned ? `<span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px]">📌 ĐÃ GHIM</span>` : ""}
                 <span class="text-white font-bold truncate">${escapeExamHtml(exam.title)}</span>
               </div>
@@ -8324,8 +8561,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
                 Người đăng: <strong class="text-amber-300">${escapeExamHtml(exam.author)}</strong> • Tệp: ${escapeExamHtml(exam.fileName || "de_thi.docx")} (${escapeExamHtml(exam.fileSizeLabel || "1MB")})
               </div>
             </div>
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button type="button" onclick="closeAdminDashboardModal();openExamFullPageModal('${safeId}');" class="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold">📖 Xem trang đề</button>
+            <div class="flex items-center gap-1.5 shrink-0 flex-wrap">
+              <button type="button" onclick="closeAdminDashboardModal();openExamFullPageModal('${safeId}');" class="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold">📖 Xem đề</button>
+              <button type="button" onclick="adminToggleOfficialStamp('${safeId}')" class="px-2.5 py-1.5 rounded-lg ${isOfficial ? 'bg-red-700 text-white' : 'bg-amber-400 text-slate-950'} font-extrabold">${isOfficial ? '💮 Gỡ dấu' : '💮 Đóng dấu'}</button>
               <button type="button" onclick="adminTogglePinExam('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 border border-amber-400 text-amber-200 font-bold">📌</button>
               <button type="button" onclick="openAdminExamEditModal('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold">✏️ Sửa</button>
               <button type="button" onclick="adminTriggerReplaceExamFile('${safeId}')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold">📂 Đổi file</button>
@@ -8387,8 +8625,17 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       renderExamsVaultSection();
 
       const meta = EXAM_CATEGORY_META[exam.category] || EXAM_CATEGORY_META.thptqg;
+      const isOfficial = isExamOfficialAdmin(exam);
       const modal = document.getElementById("examFullPageReaderModal");
       if (!modal) return;
+
+      const srcBadge = document.getElementById("examReaderSourceBadge");
+      if (srcBadge) {
+        srcBadge.textContent = isOfficial ? "💮 ĐỀ CHÍNH THỨC ADMIN" : "🤝 ĐỀ THAM KHẢO ĐÓNG GÓP";
+        srcBadge.className = isOfficial
+          ? "px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-300 via-yellow-300 to-rose-400 text-slate-950 font-extrabold text-[11px] shrink-0 shadow"
+          : "px-2.5 py-1 rounded-full bg-teal-600 text-white font-bold text-[11px] shrink-0";
+      }
 
       document.getElementById("examReaderCatBadge").textContent = `${meta.icon} ${meta.label}`;
       const fileBadge = document.getElementById("examReaderFileBadge");
@@ -8405,6 +8652,40 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       document.getElementById("examSheetSubTitle").textContent = exam.title;
       document.getElementById("examSheetContributor").textContent = exam.author || "Thành viên đóng góp";
       document.getElementById("examSheetFileMeta").textContent = `${exam.fileName || "de_thi_ngu_van_12.docx"} • ${exam.fileSizeLabel || "1.2 MB"}`;
+
+      // Update Official Stamp vs Reference Banner on the A4 Paper Sheet
+      const noticeLine = document.getElementById("examSheetOfficialNoticeLine");
+      const stampBannerBox = document.getElementById("examSheetStampBannerBox");
+      const verifyHeadline = document.getElementById("examSheetVerifyHeadline");
+      const redSealStamp = document.getElementById("examSheetRedSealStamp");
+
+      if (isOfficial) {
+        if (noticeLine) {
+          noticeLine.textContent = "(ĐỀ CHÍNH THỨC — ĐÃ ĐƯỢC DUYỆT BỞI ADMIN)";
+          noticeLine.className = "text-[11px] font-extrabold text-red-700";
+        }
+        if (stampBannerBox) {
+          stampBannerBox.className = "mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-amber-50 via-red-50/90 to-amber-50 border-2 border-red-500/80 flex flex-wrap items-center justify-between gap-3";
+        }
+        if (verifyHeadline) {
+          verifyHeadline.textContent = "NGUỒN ĐỀ CHÍNH THỨC • ĐÃ ĐƯỢC KIỂM DUYỆT BỞI ADMIN NGUYỄN NHỰT TRƯỜNG";
+          verifyHeadline.className = "font-extrabold text-red-800 uppercase";
+        }
+        if (redSealStamp) redSealStamp.classList.remove("hidden");
+      } else {
+        if (noticeLine) {
+          noticeLine.textContent = "(ĐỀ THAM KHẢO — ĐÓNG GÓP BỞI THÀNH VIÊN)";
+          noticeLine.className = "text-[11px] font-semibold text-teal-700";
+        }
+        if (stampBannerBox) {
+          stampBannerBox.className = "mt-4 p-3.5 rounded-2xl bg-teal-50/80 border border-teal-300 flex flex-wrap items-center justify-between gap-3";
+        }
+        if (verifyHeadline) {
+          verifyHeadline.textContent = "🤝 TÀI LIỆU ĐỀ THAM KHẢO DO THÀNH VIÊN ĐÓNG GÓP CHIA SẺ";
+          verifyHeadline.className = "font-extrabold text-teal-900 uppercase";
+        }
+        if (redSealStamp) redSealStamp.classList.add("hidden");
+      }
 
       const bodyEl = document.getElementById("examFullPageBodyContent");
       if (bodyEl) {
@@ -8447,6 +8728,11 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       const admBar = document.getElementById("examReaderAdminBar");
       if (admBar) admBar.classList.toggle("hidden", !window.isAdminLoggedIn);
+      const admStampBtn = document.getElementById("examReaderAdminStampBtn");
+      if (admStampBtn) {
+        admStampBtn.textContent = isOfficial ? "💮 Gỡ Dấu Đề Chính Thức" : "💮 Đóng Dấu Đề Chính Thức";
+        admStampBtn.onclick = () => window.adminToggleOfficialStamp(exam.id);
+      }
       const admFullEditBtn = document.getElementById("examReaderAdminFullEditBtn");
       if (admFullEditBtn) admFullEditBtn.onclick = () => window.openAdminExamEditModal(exam.id);
       const admReplaceBtn = document.getElementById("examReaderAdminReplaceFileBtn");
@@ -8747,6 +9033,34 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       showToast(window.isAdminLoggedIn ? `👑 Admin đã xoá đề thi "${target.title}"!` : "🗑️ Đã xoá đề thi của bạn thành công!", "🗑️");
     }
 
+    // Admin Toggle Official Stamp (Con Dấu Đỏ Đề Chính Thức Admin vs Đề Tham Khảo)
+    window.adminToggleOfficialStamp = async function(examId) {
+      if (!window.isAdminLoggedIn) {
+        openAdminLoginModal();
+        return;
+      }
+      const exam = EXAMS_DATA.find(e => String(e.id) === String(examId));
+      if (!exam) return;
+      const nextOfficial = !isExamOfficialAdmin(exam);
+      exam.isOfficialAdmin = nextOfficial;
+      exam.isVerified = nextOfficial;
+      if (!nextOfficial && exam.ownerId === "__admin_root__") {
+        exam.ownerId = getOrCreateGuestbookOwnerId();
+      }
+      renderExamsVaultSection();
+      renderAdminExamsDashboardList();
+      if (String(currentExamReaderId) === String(exam.id)) {
+        window.openExamFullPageModal(exam.id);
+      }
+      await persistExamsVaultState(`${nextOfficial ? "Đóng dấu Đề Chính Thức Admin" : "Chuyển sang Đề Tham Khảo"}: ${exam.title}`);
+      showToast(
+        nextOfficial
+          ? `💮 Đã đóng CON DẤU ĐỀ CHÍNH THỨC ADMIN cho "${exam.title}" (Đã đưa vào mục Đề Chính Thức Của Admin)!`
+          : `🤝 Đã gỡ dấu chính thức và chuyển "${exam.title}" sang mục Đề Tham Khảo!`,
+        nextOfficial ? "💮" : "🤝"
+      );
+    };
+
     // Admin Supreme Actions on Exams
     window.adminTogglePinExam = async function(examId) {
       if (!window.isAdminLoggedIn) {
@@ -8778,7 +9092,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
 
       document.getElementById("examAdminEditModalTitle").textContent = exam
         ? `👑 Admin Sửa Đề Thi: ${exam.title.slice(0, 45)}`
-        : "👑 Admin Thêm Đề Thi Mới Vào Hệ Thống";
+        : "💮 Admin Đăng Đề Chính Thức Mới (Có Đóng Dấu Admin)";
       document.getElementById("admEditExamIdInput").value = exam ? exam.id : "";
       document.getElementById("admEditExamTitleInput").value = exam ? exam.title : "";
       document.getElementById("admEditExamCatSelect").value = exam ? exam.category : "thptqg";
@@ -8786,7 +9100,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       document.getElementById("admEditExamAuthorInput").value = exam ? (exam.author || "👑 Admin Nguyễn Nhựt Trường (12A2)") : "👑 Admin Nguyễn Nhựt Trường (12A2)";
       document.getElementById("admEditExamSchoolInput").value = exam ? (exam.school || "TRƯỜNG THPT THỚI LONG") : "TRƯỜNG THPT THỚI LONG";
       document.getElementById("admEditExamPinnedChk").checked = exam ? Boolean(exam.isPinned) : true;
-      document.getElementById("admEditExamVerifiedChk").checked = exam ? Boolean(exam.isVerified) : true;
+      document.getElementById("admEditExamVerifiedChk").checked = exam ? isExamOfficialAdmin(exam) : true;
       document.getElementById("admEditExamContentInput").value = exam ? (exam.contentHtml || "") : "";
       document.getElementById("admEditExamAnswerInput").value = exam ? (exam.answerHtml || "") : "";
       document.getElementById("admEditExamCurrentFileLabel").textContent = exam
@@ -8821,11 +9135,14 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         showToast("📭 Kho đề thi hiện đang có 0 đề! Hãy đăng đề thi lên trước nhé.", "📄");
         return;
       }
-      EXAMS_DATA.forEach(ex => { ex.isVerified = true; });
+      EXAMS_DATA.forEach(ex => {
+        ex.isOfficialAdmin = true;
+        ex.isVerified = true;
+      });
       renderExamsVaultSection();
       renderAdminExamsDashboardList();
-      await persistExamsVaultState("Admin đóng dấu kiểm duyệt toàn bộ Kho Đề Thi");
-      showToast("👑 Đã đóng dấu 'Đề Chuẩn Admin' cho toàn bộ đề thi trên hệ thống!", "👑");
+      await persistExamsVaultState("Admin đóng dấu Đề Chính Thức cho toàn bộ Kho Đề Thi");
+      showToast("💮 Đã đóng CON DẤU ĐỀ CHÍNH THỨC ADMIN cho toàn bộ đề thi trên hệ thống!", "👑");
     };
 
     window.adminClearAllExams = function() {
@@ -11462,6 +11779,26 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       renderExamsVaultSection();
       renderAdminExamsDashboardList();
 
+      // Source Tab Bar clicks (All vs Official Admin vs Community Reference vs Mine)
+      document.querySelectorAll("#examSourceTabBar .exam-source-tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentExamSourceTab = btn.getAttribute("data-exam-source") || "all";
+          renderExamsVaultSection();
+        });
+      });
+
+      document.getElementById("examHeroFilterOfficialBtn")?.addEventListener("click", () => {
+        currentExamSourceTab = "admin_official";
+        renderExamsVaultSection();
+        document.getElementById("examSourceTabBar")?.scrollIntoView({ behavior: "smooth" });
+      });
+
+      document.getElementById("examHeroFilterCommunityBtn")?.addEventListener("click", () => {
+        currentExamSourceTab = "community_ref";
+        renderExamsVaultSection();
+        document.getElementById("examSourceTabBar")?.scrollIntoView({ behavior: "smooth" });
+      });
+
       // Category pills in Upload Studio
       document.querySelectorAll("#examUploadCategoryPills .exam-upload-cat-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -11500,15 +11837,6 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         if (form) form.classList.remove("hidden");
         document.getElementById("examContributionStudioCard")?.scrollIntoView({ behavior: "smooth" });
         setTimeout(() => document.getElementById("examUploadTitleInput")?.focus(), 350);
-      });
-
-      document.getElementById("examHeroRandomReadBtn")?.addEventListener("click", () => {
-        if (!EXAMS_DATA.length) {
-          showToast("📭 Hiện chưa có đề thi nào được đăng lên (0 đề)! Bạn hãy tải lên đề thi đầu tiên nhé!", "📄");
-          return;
-        }
-        const rand = EXAMS_DATA[Math.floor(Math.random() * EXAMS_DATA.length)];
-        if (rand) window.openExamFullPageModal(rand.id);
       });
 
       // File DropZone & File Input handling (.docx, .doc, .pdf up to ~15MB+)
@@ -11579,7 +11907,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         document.getElementById("examSelectedFileBanner")?.classList.add("hidden");
       });
 
-      // Submit New Exam Contribution (Visitor or Admin)
+      // Submit New Exam Contribution (Visitor -> Community Reference, Admin -> Official Admin Exam with Red Stamp!)
       document.getElementById("examContributionUploadForm")?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const title = (document.getElementById("examUploadTitleInput")?.value || "").trim();
@@ -11598,8 +11926,9 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           return;
         }
 
-        const newId = "exam_contrib_" + Date.now() + "_" + Math.random().toString(36).slice(2, 7);
-        const myOwnerId = getOrCreateGuestbookOwnerId();
+        const isAdminPost = Boolean(window.isAdminLoggedIn);
+        const newId = (isAdminPost ? "exam_admin_" : "exam_contrib_") + Date.now() + "_" + Math.random().toString(36).slice(2, 7);
+        const myOwnerId = isAdminPost ? "__admin_root__" : getOrCreateGuestbookOwnerId();
         const fileInfo = pendingUploadExamFileObj;
         const finalHtml = (fileInfo && fileInfo.extractedHtml && (!rawContent || rawContent === fileInfo.extractedText?.slice(0, 15000)))
           ? fileInfo.extractedHtml
@@ -11614,11 +11943,12 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           fileSizeLabel: fileInfo ? fileInfo.fileSizeLabel : "680 KB",
           duration,
           durationMinutes: parseInt(duration, 10) || 120,
-          school: window.isAdminLoggedIn ? "TRƯỜNG THPT THỚI LONG • ĐỀ CHUẨN ADMIN" : "ĐÓNG GÓP BỞI THÀNH VIÊN • THPT THỚI LONG",
-          author: window.isAdminLoggedIn && !author.includes("Admin") ? `👑 ${author}` : author,
+          school: isAdminPost ? "TRƯỜNG THPT THỚI LONG • ĐỀ CHÍNH THỨC ADMIN" : "ĐỀ THAM KHẢO ĐÓNG GÓP • THPT THỚI LONG",
+          author: isAdminPost && !author.includes("Admin") ? `👑 Admin: ${author}` : author,
           ownerId: myOwnerId,
-          isPinned: Boolean(window.isAdminLoggedIn),
-          isVerified: Boolean(window.isAdminLoggedIn),
+          isOfficialAdmin: isAdminPost,
+          isPinned: isAdminPost,
+          isVerified: isAdminPost,
           views: 1,
           createdAt: new Date().toISOString(),
           contentHtml: finalHtml,
@@ -11638,11 +11968,17 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         document.getElementById("examUploadContentInput").value = "";
         document.getElementById("examUploadAnswerInput").value = "";
 
+        currentExamSourceTab = isAdminPost ? "admin_official" : "community_ref";
         currentExamFilterCat = "all";
         renderExamsVaultSection();
         renderAdminExamsDashboardList();
-        await persistExamsVaultState(`Đóng góp đề thi mới: ${title} (${author})`);
-        showToast(`🎉 Đã tải đề thi "${title}" lên thành công! Đang mở nguyên trang đề của bạn...`, "🚀");
+        await persistExamsVaultState(`${isAdminPost ? "Admin đăng Đề Chính Thức" : "Thành viên đóng góp Đề Tham Khảo"}: ${title}`);
+        showToast(
+          isAdminPost
+            ? `💮 Đã đăng ĐỀ CHÍNH THỨC CỦA ADMIN "${title}" kèm Con Dấu Đỏ!`
+            : `🎉 Đã tải Đề Tham Khảo "${title}" lên thành công!`,
+          isAdminPost ? "💮" : "🚀"
+        );
         window.openExamFullPageModal(newId);
       });
 
@@ -11705,7 +12041,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
       document.getElementById("saveExamAdminEditModalBtn")?.addEventListener("click", async () => {
         if (!window.isAdminLoggedIn) return openAdminLoginModal();
         const editId = document.getElementById("admEditExamIdInput").value.trim();
-        const title = document.getElementById("admEditExamTitleInput").value.trim() || (pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName.replace(/\.(pdf|docx|doc)$/i, "") : "Đề thi Ngữ văn 12 (Admin)");
+        const title = document.getElementById("admEditExamTitleInput").value.trim() || (pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName.replace(/\.(pdf|docx|doc)$/i, "") : "Đề thi Chính Thức Ngữ văn 12 (Admin)");
         const category = document.getElementById("admEditExamCatSelect").value || "thptqg";
         const duration = document.getElementById("admEditExamDurationInput").value.trim() || "120 phút • Năm 2026";
         const author = document.getElementById("admEditExamAuthorInput").value.trim() || "👑 Admin Nguyễn Nhựt Trường (12A2)";
@@ -11723,7 +12059,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
             views: 1,
             createdAt: new Date().toISOString(),
             fileType: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileType : "word",
-            fileName: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName : "De_Thi_Admin_THPT_Thoi_Long.docx",
+            fileName: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileName : "De_Thi_Chinh_Thuc_Admin.docx",
             fileSizeLabel: pendingAdminEditExamFileObj ? pendingAdminEditExamFileObj.fileSizeLabel : "950 KB"
           };
           EXAMS_DATA.unshift(target);
@@ -11736,6 +12072,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         target.author = author;
         target.school = school;
         target.isPinned = isPinned;
+        target.isOfficialAdmin = isVerified;
         target.isVerified = isVerified;
         target.contentHtml = contentRaw
           ? convertPlainTextToExamHtml(contentRaw)
@@ -11758,7 +12095,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
           window.openExamFullPageModal(target.id);
         }
         await persistExamsVaultState(`Admin cập nhật đề thi: ${target.title}`);
-        showToast(`👑 Đã lưu đề thi "${target.title}" với toàn quyền Admin!`, "✅");
+        showToast(`💮 Đã lưu đề thi "${target.title}" với toàn quyền Admin!`, "✅");
       });
 
       // Quick Replace Exam File input handler for Admin
@@ -13962,7 +14299,7 @@ console.log('Admin Root v6.0 Active');" class="w-full px-3 py-2 rounded-xl font-
         { icon: "🎵", title: "Quản Lý & Tải Lên Nhạc MP3 Đĩa Than", desc: "Thêm hoặc xoá bài hát MP3 trong phòng nghe nhạc", action: () => openAdminDashboardModal("music") },
         { icon: "📚", title: "Quản Lý 9 Bài Học SGK & Trích Dẫn Văn Học", desc: "Thêm bài học mới, sửa văn bản đọc, thêm câu trích dẫn", action: () => openAdminDashboardModal("lessons") },
         { icon: "🎮", title: "Quản Lý Trắc Nghiệm, Flashcard, Ghép Thơ & Đề Viết", desc: "Thêm/sửa/xoá câu hỏi ôn tập và đề luyện viết", action: () => openAdminDashboardModal("arena") },
-        { icon: "📄", title: "Quản Lý & Đóng Góp Kho Đề Thi (Word / PDF)", desc: "Thêm, sửa nội dung, thay file Word/PDF, ghim & xoá đề thi THPT Quốc gia, 45p, 1 tiết, 15p", action: () => openAdminDashboardModal("exams") },
+        { icon: "📄", title: "Quản Lý & Đóng Góp Kho Đề Thi (Word / PDF)", desc: "Thêm, sửa nội dung, thay file Word/PDF, đóng dấu Đề Chính Thức Admin & xoá đề thi", action: () => openAdminDashboardModal("exams") },
         { icon: "💬", title: "Quản Lý, Ghim & Xoá Bình Luận Sổ Lưu Bút", desc: "Ghim bình luận hay lên đầu hoặc xoá bình luận", action: () => openAdminDashboardModal("comments") },
         { icon: "📥", title: "Tải Xuống File Sao Lưu Toàn Hệ Thống (.JSON)", desc: "Xuất toàn bộ dữ liệu web ra file JSON", action: () => document.getElementById("admExportJsonBackupBtn")?.click() }
       ];
